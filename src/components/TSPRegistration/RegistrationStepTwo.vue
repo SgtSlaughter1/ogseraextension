@@ -219,31 +219,35 @@ export default {
       ]
     }
   },
+
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+
   watch: {
-    'formData.trainingCenter'(newVal) {
-      if (newVal) {
-        this.$delete(this.errors, 'trainingCenter')
-      }
+    'formData.trainingCenter'() {
+      this.validateField('trainingCenter')
     },
-    'formData.isLocationOwned'(newVal) {
-      if (newVal) {
-        this.$delete(this.errors, 'isLocationOwned')
-      }
+    'formData.isLocationOwned'() {
+      this.validateField('isLocationOwned')
     },
-    selectedFacilities(newVal) {
-      if (newVal.length > 0) {
-        this.$delete(this.errors, 'facilities')
-      }
+    selectedFacilities() {
+      this.validateField('facilities')
     }
   },
   methods: {
     goBack() {
       this.$router.push({ name: 'registration-step-1' })
     },
-    submitForm() {
+
+    clearError(field) {
+      if (this.errors[field]) {
+        delete this.errors[field];
+      }
+    },
+      submitForm() {
       this.validateForm()
 
-      // If no errors, proceed to next step
       if (Object.keys(this.errors).length === 0) {
         const formDataWithFacilities = {
           ...this.formData,
@@ -253,25 +257,45 @@ export default {
         this.$router.push({ name: 'registration-step-3' })
       }
     },
+    validateField(field) {
+      switch(field) {
+        case 'trainingCenter':
+          if (!this.formData.trainingCenter.trim()) {
+            this.errors.trainingCenter = 'Training center name is required'
+          } else if (this.formData.trainingCenter.trim().length < 5) {
+            this.errors.trainingCenter = 'Training center name must be at least 5 characters long'
+          } else {
+            this.clearError('trainingCenter')
+          }
+          break
+          case 'isLocationOwned':
+          if (!this.formData.isLocationOwned) {
+            this.errors.isLocationOwned = 'Please select if the location is owned'
+          } else {
+            this.clearError('isLocationOwned')
+          }
+          break
+        case 'facilities':
+          if (!this.selectedFacilities || this.selectedFacilities.length === 0) {
+            this.errors.facilities = 'Please select at least one facility'
+          } else {
+            this.clearError('facilities')
+          }
+          break
+      }
+    },
+
     validateForm() {
-      this.errors = {}
-      
-      if (!this.formData.trainingCenter) {
-        this.errors.trainingCenter = 'Training center address is required'
-      }
-      if (!this.formData.isLocationOwned) {
-        this.errors.isLocationOwned = 'Please select if the location is owned'
-      }
-      if (this.selectedFacilities.length === 0) {
-        this.errors.facilities = 'Please select at least one facility'
-      }
-    }
+      ['trainingCenter', 'isLocationOwned', 'facilities'].forEach(field => {
+        this.validateField(field)
+      })
+    },
   }
 }
 </script>
 
 <style scoped>
-:deep(*) {
+* {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -283,6 +307,10 @@ export default {
   margin: 0;
   padding: 0;
 }
+
+/* .image-section {
+  border:1px solid red;
+} */
 
 .form-section {
   flex: 1.3;
@@ -386,7 +414,7 @@ input[type="checkbox"].custom-checkbox {
 .form-control:focus, .form-select:focus {
   background-color: #edf0f9;
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(32, 36, 33, 0.25);
+  box-shadow: none;
   border-color: #393939;
 }
 

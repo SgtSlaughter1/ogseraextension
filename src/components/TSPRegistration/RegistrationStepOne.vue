@@ -105,6 +105,11 @@ export default {
       errors: {}
     }
   },
+  mounted() {
+   
+    window.scrollTo(0, 0);
+  },
+  
   methods: {
     goBack() {
       this.$router.push({ name: 'home' })
@@ -121,6 +126,8 @@ export default {
         case 'organizationName':
           if (!this.formData.organizationName.trim()) {
             this.errors = { ...this.errors, organizationName: 'Organization name is required' }
+          } else if (this.formData.organizationName.trim().length < 5) {
+            this.errors = { ...this.errors, organizationName: 'Organization name must be at least 5 characters long' }
           } else {
             this.clearError('organizationName')
           }
@@ -201,7 +208,8 @@ export default {
 </script>
 
 <style scoped>
-:deep(*) {
+
+* {
   font-family: 'Poppins', sans-serif;
 }
 
@@ -254,7 +262,8 @@ export default {
 .form-control:focus, .form-select:focus {
   background-color: #edf0f9;
   outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  box-shadow: none;
+  border-color: #28a745;  
 }
 
 .error {

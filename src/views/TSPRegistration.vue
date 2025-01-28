@@ -16,9 +16,13 @@ export default {
       formData: {}
     }
   },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
+
   methods: {
     nextStep(stepData) {
-      // Store the form data
+      
       this.formData = { ...this.formData, ...stepData }
       
       // Navigate to next step
