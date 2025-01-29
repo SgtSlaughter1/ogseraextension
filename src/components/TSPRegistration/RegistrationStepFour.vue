@@ -68,19 +68,19 @@ export default {
       staffList: [
         {
           name: 'Oloyede Michael',
-          rank: 'B',
+          rank: '8',
           experience: '2 Year',
           position: 'Manager'
         },
         {
           name: 'Oloyede Michael',
-          rank: 'B',
+          rank: '8',
           experience: '2 Year',
           position: 'Manager'
         },
         {
           name: 'Oloyede Michael',
-          rank: 'B',
+          rank: '8',
           experience: '2 Year',
           position: 'Manager'
         }
@@ -89,10 +89,10 @@ export default {
   },
   methods: {
     addNewStaff() {
-      // Handle adding new staff
+      
     },
     goBack() {
-      this.$router.push('/registration-step-three')
+      this.$router.push({ name: 'registration-step-3' })
     },
     submitForm() {
       // Handle form submission
@@ -111,7 +111,6 @@ export default {
   margin: 0;
   padding: 0;
 }
-
 
 .registration-image {
   width: 100%;
@@ -145,6 +144,14 @@ export default {
   border-radius: 4px;
 }
 
+.btn-add-new:hover {
+  background: #06eb47;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
 .table-container {
   background: white;
   border-radius: 8px;
@@ -161,11 +168,13 @@ export default {
 
 .table th {
   color: #333;
+  background-color: #D9D9D9;
   font-weight: 500;
   padding: 1rem;
   border: none;
   font-size: 0.95rem;
 }
+
 
 .table td {
   padding: 1rem;
@@ -181,10 +190,11 @@ export default {
 }
 
 .rank-badge {
-  background: #E5FFD9;
+  background: #E6FB81;
+;
   color: #118E34;
-  padding: 4px 16px;
-  border-radius: 4px;
+  padding: 2px 27px;
+  border-radius: 10px;
   font-size: 0.9rem;
 }
 
@@ -201,7 +211,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 2rem 4rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 .back-btn {
@@ -212,6 +222,11 @@ export default {
   align-items: center;
 }
 
+.back-btn:hover {
+  color: #118E34;
+  border: 1px solid #0ff851;
+}
+
 .submit-btn {
   background: #118E34;
   border: none;
@@ -219,11 +234,19 @@ export default {
   padding: 8px 24px;
 }
 
+.submit-btn:hover {
+  background: #06eb47;
+  color: white;
+
+}
+
 .arrow-icon {
   width: 20px;
   height: 20px;
   margin-right: 8px;
 }
+
+
 
 @media (max-width: 768px) {
   .image-section {
