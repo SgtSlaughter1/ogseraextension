@@ -314,6 +314,7 @@ export default {
 
 .hero-content {
     width: 100%;
+    padding: 0;
 }
 
 .hero-title > p {
@@ -360,8 +361,8 @@ export default {
     font-weight: 500;
 }
 
-.feature-card>img {
-    width: 20%;
+.feature-card > img {
+    width: 15%;
 }
 
 .stat {
@@ -466,4 +467,150 @@ export default {
 
 }
 
+@media (max-width: 500px) {
+    .landing-page .hero {
+        min-height: auto;
+        padding: 32px 0;
+    }
+
+    .brand-text {
+        font-size: 30px;
+    }
+
+    .hero-title > p {
+        margin-top: -10px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .hero-text {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .features {
+        width: 100%;
+        margin: 16px auto;
+    }
+
+    .feature-card {
+        height: auto;
+        margin-bottom: 16px;
+    }
+
+    .feature-card > img {
+        width: 15%;
+        margin-bottom: 10px;
+    }
+
+    .feature-card > p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .stat {
+        width: 100%;
+        margin: 16px auto;
+    }
+
+    .stat-card > h1 {
+        font-size: 32px;
+    }
+
+    .stat-card > p {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .journey-section {
+        padding: 32px 0 !important;
+    }
+
+    .journey-section .row {
+        flex-direction: column-reverse;
+    }
+
+    .journey-section .col-lg-6 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .journey-section h5,
+    .journey-section h2,
+    .journey-section p {
+        text-align: center;
+    }
+
+    .benefits {
+        text-align: left;
+    }
+
+    .competency-card {
+        display: none;
+    }
+
+    .content-section {
+        padding-left: 0 !important;
+        text-align: center;
+    }
+
+    .benefits-list .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .benefits-list .benefit-item i {
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+
+    .testimonial .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial .col-md-6 {
+        max-width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .testimonial-author {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .testimonial-author img {
+        margin-bottom: 8px;
+        margin-right: 0 !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .features .col-md-4 {
+        margin-bottom: 16px;
+    }
+
+    .stat .col-md-4 {
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .brand-text {
+        font-size: 40px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+    }
+
+    .feature-card > img {
+        width: 40%;
+    }
+}
 </style>
