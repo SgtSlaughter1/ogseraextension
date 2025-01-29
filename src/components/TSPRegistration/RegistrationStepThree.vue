@@ -12,7 +12,10 @@
 
       <div class="form-content p-0 ">
         <div class="form-shadow my-4">
-          <h2 class="info-title p-0 m-4 mt-2">Equipment</h2>
+          <div class="d-flex justify-content-between align-items-center">
+            <h2 class="info-title p-0 m-4 mt-2">Equipment</h2>
+            <button class="btn btn-add-new" @click="addNewEquipment">+ Add New</button>
+          </div>
           <form @submit.prevent="submitForm">
             <!-- First Equipment Section -->
             <div class="equipment-section first mb-4">
@@ -281,12 +284,12 @@ export default {
 
 .first {
   width: 100%;
-margin: 0 auto;
-padding: 0.6rem; 
-background-color: #7FFF7F1F;
+  margin: 0 auto;
+  padding: 0.6rem; 
+  background-color: #7FFF7F1F;
 }
 
-.second{
+.second {
   background: #D4FF7F1F;
 }
 
@@ -328,7 +331,6 @@ input:focus {
 
 .select2 > input {
   background: #D4FF7F1F;
-
 }
 
 .form-control {
@@ -384,16 +386,30 @@ input:focus {
   border-color: #28a745;
 }
 
+.btn-add-new {
+  background-color: #118E34;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.btn-add-new:hover {
+  background-color: #28a745;
+}
+
 .arrow-icon {
   width: 20px;
   height: 20px;
 }
 
-.equipment-section{
+.equipment-section {
   width: 90%;
   margin: 0 auto;
   padding: 0.6rem;
-  /* border: 1px solid red; */
 }
 
 /* Responsive Design */

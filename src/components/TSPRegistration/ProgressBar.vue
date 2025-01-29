@@ -127,19 +127,38 @@ export default {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
-  padding: 0.2rem 6rem; 
+  padding: 0.2rem 2rem; 
   margin-top: 3.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  max-width: 100%; 
+}
+
+.progress {
+  width: 100%; 
+  background-color: #f3f3f3;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #28a745;
+  border-radius: 4px;
+  transition: width 0.3s;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   color: #6c757d;
   position: relative;
   padding-bottom: 0.1rem;
   text-decoration: none;
   cursor: pointer;
+  flex-grow: 1; 
+  font-size: 0.9rem; 
 }
 
 .nav-item.clickable {
@@ -163,8 +182,8 @@ export default {
 }
 
 .icon-container {
-  width: 32px;
-  height: 32px;
+  width: 24px; 
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,7 +206,7 @@ export default {
   width: 16px;
   height: 16px;
   opacity: 0.8;
-  /* margin-left: 0.9rem; */
+  
 }
 
 span {
@@ -196,45 +215,16 @@ span {
   white-space: nowrap;
 }
 
-.progress {
-  height: 15px;
-  background-color: white;
-  border-radius: 0;
-  margin: 0;
-}
-
-.progress-bar {
-  transition: width 0.3s ease;
-  background-color: #118E34;
-}
-
 @media (max-width: 768px) {
-  .nav-items {
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-
-  span {
+  .nav-item {
     font-size: 0.8rem;
-  }
-
-  .next-icon {
-    width: 12px;
-    height: 12px;
   }
 }
 
 @media (max-width: 576px) {
   .nav-items {
-    gap: 0.25rem;
-  }
-
-  span {
-    font-size: 0.7rem;
-  }
-
-  .next-icon {
-    display: none;
+    flex-direction: column; 
+    align-items: flex-start;
   }
 }
 </style>

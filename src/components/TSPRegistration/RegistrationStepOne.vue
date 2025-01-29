@@ -142,7 +142,7 @@ export default {
           if (!this.formData.organizationName.trim()) {
             this.errors = { ...this.errors, organizationName: 'Organization name is required' }
           } else if (this.formData.organizationName.trim().length < 5) {
-            this.errors = { ...this.errors, organizationName: 'Organization name must be at least 5 characters long' }
+            this.errors = { ...this.errors, organizationName: 'Name must be 5 characters long' }
           } else {
             this.clearError('organizationName')
           }

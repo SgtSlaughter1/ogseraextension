@@ -269,21 +269,21 @@ export default {
           if (!this.formData.trainingCenter.trim()) {
             this.errors.trainingCenter = 'Training center name is required'
           } else if (this.formData.trainingCenter.trim().length < 5) {
-            this.errors.trainingCenter = 'Training center name must be at least 5 characters long'
+            this.errors.trainingCenter = 'Name must be 5 characters long'
           } else {
             this.clearError('trainingCenter')
           }
           break
           case 'isLocationOwned':
           if (!this.formData.isLocationOwned) {
-            this.errors.isLocationOwned = 'Please select if the location is owned'
+            this.errors.isLocationOwned = 'Please select an option'
           } else {
             this.clearError('isLocationOwned')
           }
           break
         case 'facilities':
           if (!this.selectedFacilities || this.selectedFacilities.length === 0) {
-            this.errors.facilities = 'Please select at least one facility'
+            this.errors.facilities = 'Select at least one facility'
           } else {
             this.clearError('facilities')
           }
