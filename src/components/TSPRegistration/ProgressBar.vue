@@ -131,11 +131,12 @@ export default {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
-  padding: 0.2rem 2rem; 
+  padding: 0.9rem 2rem; 
   margin-top: 3.5rem;
   flex-wrap: nowrap;
   overflow-x: auto; 
   max-width: 100%; 
+  /* border:2px solid red; */
 }
 
 .progres {
@@ -144,7 +145,6 @@ export default {
   height: 15px;
   border-radius: none !important;
   margin-left: 0px;
-
 }
 
 .progress-bar {

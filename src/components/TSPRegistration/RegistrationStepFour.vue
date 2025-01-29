@@ -11,7 +11,7 @@
       <div class="form-content p-0">
         <div class="d-flex justify-content-between align-items-center px-4 mt-4">
           <h2 class="info-title">Staffing</h2>
-          <button class="btn btn-add-new ms-0" @click="addNewStaff">+ Add New One</button>
+          <button class="btn btn-add-new ms-0" @click="showModal">+ Add New Role</button>
         </div>
         <div class="table-responsive px-3 mt-4">
           <table class="table">
@@ -52,19 +52,29 @@
         </div>
       </div>
     </div>
+
+      <!-- Modal -->
+      <AddStaffModal 
+      :is-open="isModalOpen"
+      @close="hideModal"
+      @submit="handleAddStaff"
+    />
   </div>
 </template>
 
 <script>
 import ProgressBar from './ProgressBar.vue'
+import AddStaffModal from './AddStaffModal.vue'
 
 export default {
   name: 'RegistrationStepFour',
   components: {
-    ProgressBar
+    ProgressBar,
+    AddStaffModal
   },
   data() {
     return {
+      isModalOpen: false,
       staffList: [
         {
           name: 'Oloyede Michael',
@@ -84,18 +94,23 @@ export default {
           experience: '2 Year',
           position: 'Manager'
         }
-      ]
+      ],
     }
   },
   methods: {
-    addNewStaff() {
-      
+    showModal() {
+      this.isModalOpen = true
+    },
+    hideModal() {
+      this.isModalOpen = false
+    },
+    handleAddStaff(newStaff) {
+      this.staffList.push(newStaff)
     },
     goBack() {
       this.$router.push({ name: 'registration-step-3' })
     },
     submitForm() {
-      // Handle form submission
       this.$router.push('/registration-complete')
     }
   }
@@ -145,7 +160,7 @@ export default {
 }
 
 .btn-add-new:hover {
-  background: #06eb47;
+  background: #28a745;
   color: white;
   border: none;
   padding: 6px 14px;
@@ -235,7 +250,7 @@ export default {
 }
 
 .submit-btn:hover {
-  background: #06eb47;
+  background: #28a745;
   color: white;
 
 }

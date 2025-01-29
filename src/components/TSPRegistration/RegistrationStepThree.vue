@@ -152,7 +152,6 @@ export default {
   },
 
   methods: {
-    // Navigate back to previous step
     goBack() {
       this.$router.push({ name: 'registration-step-2' })
     },
