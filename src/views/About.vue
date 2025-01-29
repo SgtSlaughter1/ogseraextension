@@ -140,11 +140,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: 'Poppins';
 }
+
 .hero-section {
   background-image: url(../assets/about/BKG_ABOUT_1.png);
   background-size: 100% 100%;
@@ -197,23 +195,23 @@ span{
 }
 .box1{
   height: 70vh;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: 500;
   margin-left: 15px;
   background-color: #269946;
-  padding: 40px;
-  padding-top: 45px;
+  padding: 45px;
+  padding-top: 60px;
   text-align: left;
 
 }
 .box2{
-  height: 45vh;
-  font-size: 22px;
+  height: 50vh;
+  font-size: 28px;
   font-weight: 500;
   margin-right: 15px;
-  margin-top: 70px;
+  margin-top: 60px;
   background-color: #ffe7a2;
-  padding: 20px;
+  padding: 30px;
   text-align: left;
 }
 .big-box{
@@ -281,12 +279,13 @@ ul li{
 }
 .card-title{
   font-family: open sans;
-  font-weight: 800;
+  font-weight: 900;
   margin-top: 15px;
   margin-bottom: 15px;
+  font-size: 40px;
 }
 .employer{
-  padding-left: 15px;
+  padding-left: 16px;
   line-height: 1.75;
   font-size: 15px;
   font-weight: 600;
