@@ -1,5 +1,5 @@
 <template>
-  <div class="registration-step-four row">
+  <div class="registration-step-four row m-0">
     <!-- Left side - Image -->
     <div class="image-section p-0 m-0 col-5">
       <img src="@/assets/TSP Registration/image 04.png" alt="Registration Image" class="registration-image" width="100%" height="100%">
@@ -11,9 +11,9 @@
       <div class="form-content p-0">
         <div class="d-flex justify-content-between align-items-center px-4 mt-4">
           <h2 class="info-title">Staffing</h2>
-          <button class="btn btn-add-new" @click="addNewStaff">+ Add New One</button>
+          <button class="btn btn-add-new ms-0" @click="addNewStaff">+ Add New One</button>
         </div>
-        <div class="table-container px-4 mt-4">
+        <div class="table-responsive px-3 mt-4">
           <table class="table">
             <thead>
               <tr>
@@ -104,13 +104,14 @@ export default {
 
 <style scoped>
 .registration-step-four {
-  min-height: 100vh;
+  display: flex;
+  width: 100%;
+  height: auto;
   background: #edf0f9;
+  margin: 0;
+  padding: 0;
 }
 
-.image-section {
-  height: 100vh;
-}
 
 .registration-image {
   width: 100%;
@@ -139,7 +140,7 @@ export default {
   background: #118E34;
   color: white;
   border: none;
-  padding: 6px 16px;
+  padding: 6px 14px;
   font-size: 0.9rem;
   border-radius: 4px;
 }
@@ -149,7 +150,8 @@ export default {
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  width: 95%;
+  width: 92%;
+  margin-left: 1rem;
 }
 
 .table {

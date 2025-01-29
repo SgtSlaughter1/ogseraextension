@@ -76,7 +76,7 @@
     </div>
 
     <!-- Progress Bar -->
-    <div class="progress">
+    <div class="progres">
       <div
         class="progress-bar "
         role="progressbar"
@@ -120,7 +120,11 @@ export default {
 <style scoped>
 .progress-container {
   background-color: #edf0f9;
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #eee;
+  padding-right: 2rem;
+  width: 95%;
+ 
+
 }
 
 .nav-items {
@@ -134,18 +138,22 @@ export default {
   max-width: 100%; 
 }
 
-.progress {
-  width: 100%; 
-  background-color: #f3f3f3;
-  height: 8px;
-  border-radius: 4px;
+.progres {
+  width: 97%;
+  background-color: white;
+  height: 15px;
+  border-radius: none !important;
+  margin-left: 0px;
+
 }
 
 .progress-bar {
   height: 100%;
   background-color: #28a745;
-  border-radius: 4px;
+  border-radius: none;
   transition: width 0.3s;
+  margin-left: 0;
+
 }
 
 .nav-item {

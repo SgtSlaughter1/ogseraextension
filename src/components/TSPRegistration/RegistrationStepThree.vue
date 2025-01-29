@@ -265,6 +265,7 @@ export default {
   padding: 0;
 }
 
+
 .form-section {
   flex: 1.3;
   display: flex;
