@@ -19,7 +19,7 @@
       <!-- Right side with login form -->
       <div class="col-lg-6">
         <div class="login-form-container p-4 p-lg-5">
-          <div class="text-center mb-4">
+          <div class="text-center">
             <img 
               src="../assets/Home/logo .png"
               alt="GSQ Logo"
@@ -28,7 +28,7 @@
             <h2 class="mb-0">Login to <span class="text-success">OG</span><span class="text-warning">SG </span>Account</h2>
           </div>
 
-          <form class="mt-5">
+          <form class="mt-4">
             <div class="mb-4">
               <label for="email" class="form-label">Email</label>
               <input 
@@ -94,8 +94,7 @@ export default {
 
 <style scoped>
 .login-container {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
   background-color: #118E34;
   padding: 10px 5px;
 }
@@ -138,4 +137,5 @@ export default {
   border-radius: 10px;
 
 }
+
 </style>
