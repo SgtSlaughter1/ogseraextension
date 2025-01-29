@@ -35,7 +35,7 @@
 
     <!-- Key Objectives Section -->
      <div class="container-fluid big-box">
-    <div class="container box3 ">
+    <!-- <div class="container box3 "> -->
       <div class="key-obj container-fluid ">
         <h1 class="koo-OSQ">Key Objectives of OSQ</h1>
       </div>
@@ -78,7 +78,7 @@
             <li> Provide industries with a competent, multi-skilled workforce.</li>
           </ul>
         
-      </div>
+      <!-- </div> -->
     </div>
   </div>
     <!-- Why OSQ Matters Section -->
@@ -362,7 +362,7 @@ ul li{
     font-size: 16px;
 }
 .key-obj{
-    width: 100%;
+    width: 80%;
 }
 .box7{
     padding: 0px;
