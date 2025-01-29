@@ -88,7 +88,7 @@
         <div class="col-md-4 mb-3">
           <div class="card h-100 bg-warning" style="border-radius: 0;">
             <div class="card-body">
-              <h5 class="card-title">Individual</h5>
+              <h2 class="card-title">Individual</h2>
               <ul class="employer">
                 <li> Gain recognized certifications that validate for your skills.</li>
                 <li> Improve career prospects and achieve personal growth.</li>
@@ -100,7 +100,7 @@
         <div class="col-md-4 mb-3">
           <div class="card h-100 bg-warning" style="border-radius: 0;">
             <div class="card-body">
-              <h5 class="card-title">Employers</h5>
+              <h2 class="card-title">Employers</h2>
               <ul class="employer">
                 <li> Build a confident and productive workforce.</li>
                 <li> Streamline recruitment with certified, competent professionals.</li>
@@ -112,7 +112,7 @@
         <div class="col-md-4 mb-3">
           <div class="card h-100 bg-warning" style="border-radius: 0;">
             <div class="card-body">
-              <h5 class="card-title">Ogun State</h5>
+              <h2 class="card-title">Ogun State</h2>
               <ul class="employer">
                 <li> Develop a workforce ready to tackle global challenges.</li>
                 <li> Reduce unemployment through skills-driven opportunities.</li>
@@ -149,7 +149,7 @@ body {
   background-image: url(../assets/about/BKG_ABOUT_1.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: cover; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,22 +196,22 @@ span{
     margin-left: 50px;
 }
 .box1{
-  height: 55vh;
-  font-size: 22px;
+  height: 70vh;
+  font-size: 26px;
   font-weight: 500;
   margin-left: 15px;
   background-color: #269946;
   padding: 40px;
-  padding-top: 50px;
+  padding-top: 45px;
   text-align: left;
 
 }
 .box2{
-  height: 35vh;
-  font-size: 20px;
+  height: 45vh;
+  font-size: 22px;
   font-weight: 500;
   margin-right: 15px;
-  margin-top: 45px;
+  margin-top: 70px;
   background-color: #ffe7a2;
   padding: 20px;
   text-align: left;
@@ -277,16 +277,20 @@ ul li{
 }
 .card-body{
   background-color: #ffc727;
+  padding: 30px;
 }
 .card-title{
-  font-family: open-sans;
+  font-family: open sans;
   font-weight: 800;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .employer{
-  padding: 15px;
-  line-height: 2;
-  font-size: 14px;
+  padding-left: 15px;
+  line-height: 1.75;
+  font-size: 15px;
   font-weight: 600;
+  color: #000000;
 }
 @media screen and (min-width: 320px) and (max-width: 425px) {
     .f-box{
@@ -350,16 +354,34 @@ ul li{
     margin-bottom: 5px;
     font-size: 20px;
 }
+.hero-section{
+  height: 200px;
+}
+.ogsq{
+  font-size: 60px;
+  padding: 10px;
+}
+.OGSQ-p{
+  font-size: 11px;
+  margin-top: -18px;
+}
+.sub-ogsq{
+  margin-top: 5px;
+  font-size: 20px;
+  padding: 5px;
+}
 }
 
 @media screen and (min-width: 426px)  and (max-width: 768px) {
-.box1{
-    padding: 25px;
-    font-size: 20px;
+.box1 {
+    padding: 28px;
+    font-size: 21px;
+    height: 60vh;
 }
 .box2{
     padding: 25px;
     font-size: 16px;
+    height: 35vh;
 }
 .key-obj{
     width: 80%;
@@ -372,7 +394,11 @@ ul li{
     padding: 0;
     padding-left: 15px;
     line-height: 1.5;
+    font-size: 14px;
     justify-content: space-between;
+}
+.card-title{
+  font-size: 20px;
 }
     
 }
