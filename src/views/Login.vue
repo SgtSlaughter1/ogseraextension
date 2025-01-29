@@ -23,9 +23,9 @@
             <img 
               src="../assets/Home/logo .png"
               alt="GSQ Logo"
-              class="img-fluid mb-3"
+              class="img-fluid mb-3 logo"
             />
-            <h2 class="mb-0">Login to <span class="text-success">OG</span><span class="text-warning">SG </span>Account</h2>
+            <h2 class="mb-0">Login to <span class="text-success">OG</span><span class="text-warning">SQ </span>Account</h2>
           </div>
 
           <form class="mt-4">
@@ -70,7 +70,7 @@
             />
           </form>
 
-          <div class="powered-by mt-3">
+          <div class="text-center powered-by mt-5">
             <span class="me-2 text-dark">Powered by</span>
             <img src="/src/assets/Home/Ogun 1.png" alt="GSERA Logo" height="30">
             <span class="ms-1 fw-bold fs-6">GSERA</span>
@@ -99,6 +99,9 @@ export default {
   padding: 10px 5px;
 }
 
+.logo {
+  width: 40%;
+}
 .overlay-content {
   position: absolute;
   top: 50%;

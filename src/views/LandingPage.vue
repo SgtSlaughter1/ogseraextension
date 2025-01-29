@@ -1,5 +1,17 @@
 <template>
     <div class="landing-page">
+
+          <!-- Back to Top Button -->
+          <transition name="fade">
+            <CustomButton 
+                v-if="showBackToTop" 
+                @click="scrollToTop" 
+                variant="warning" 
+                size="md"
+                customClass="back-to-top-btn"
+                icon="bi bi-arrow-up"
+            />
+        </transition>
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
@@ -62,7 +74,8 @@
                     <div class="col-md-4 text-center">
                         <div class="stat-card p-4">
                             <h1 class="display-3 text-warning fw-bold mb-3">300+</h1>
-                            <p class="fs-5 text-dark fw-semibold text-secondary mb-0">Accredited Training <br> Providers</p>
+                            <p class="fs-5 text-dark fw-semibold text-secondary mb-0">Accredited Training <br> Providers
+                            </p>
                         </div>
                     </div>
 
@@ -116,7 +129,7 @@
                             </div>
                         </div>
 
-                        <p class="mb-3">Take the First Step Today</p>
+                        <p class="mb-3 text-dark">Take the First Step Today</p>
                         <CustomButton variant="warning" label="Apply for NSQ Certification" icon="bi bi-arrow-right"
                             to="/apply" />
                     </div>
@@ -126,7 +139,7 @@
                                 class="img-fluid rounded">
 
                             <div class="col-lg-4 competency-card position-absolute">
-                                <div class="position-absolute">
+                                <div>
                                     <img src="/src/assets/Home/section 2 analg icon.png" alt="NSQ Certification"
                                         class="img-fluid rounded">
 
@@ -138,6 +151,8 @@
             </div>
         </section>
 
+
+        <!-- Training Service Provider section -->
         <section>
 
             <div class="container my-5">
@@ -194,6 +209,8 @@
             </div>
         </section>
 
+
+        <!-- Testimonial Section -->
         <section class="testimonial p-4">
 
 
@@ -286,9 +303,33 @@ export default {
     name: 'LandingPage',
     components: {
         CustomButton
+    },
+    data() {
+        return {
+            showBackToTop: false
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll)
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+    },
+    methods: {
+        handleScroll() {
+            // Show back to top button when scrolled down
+            this.showBackToTop = window.scrollY > window.innerHeight
+        },
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        }
     }
 }
 </script>
+
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bellefair&family=Kumbh+Sans:wght@100..900&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -305,6 +346,28 @@ export default {
     display: flex;
 
 }
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+    opacity: 1;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 .hero-content {
     width: 100%;
@@ -314,6 +377,7 @@ export default {
 .hero-title>p {
     margin-top: -25px;
     letter-spacing: 1.5px;
+    
 }
 
 .hero-text {
@@ -352,9 +416,10 @@ export default {
 .feature-card>p {
     font-size: 15px;
     line-height: 1.5;
-    margin-top: 20px;
     font-weight: 500;
     text-align: left;
+    width: 95%;
+    margin: 20px auto;
 }
 
 .feature-card>img {
@@ -489,6 +554,7 @@ export default {
     .feature-card>p {
         font-size: 14px;
         margin-top: 10px;
+        text-align: center;
     }
 
     .stat-card {
@@ -517,6 +583,13 @@ export default {
         width: 100%;
         text-align: center;
         margin-bottom: 16px;
+    }
+
+    .journey>img {
+        top: 0;
+        position: relative;
+        margin-bottom: 20px;
+        left: 0;
     }
 
     .benefits {
