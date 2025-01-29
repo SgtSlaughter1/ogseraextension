@@ -1,13 +1,13 @@
 <template>
   <div class="registration-step-three row">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-5">
-      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image"
+    <div class="image-section p-0 m-0 col-lg-6">
+      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image d-none d-lg-block"
         width="100%" height="100%">
     </div>
 
     <!-- Right side - Form -->
-    <div class="form-section col-7 p-0 m-0">
+    <div class="form-section col-lg-6 p-0 m-0">
       <ProgressBar :current-step="3" :total-steps="4" />
 
       <div class="form-content p-0 ">
@@ -20,69 +20,60 @@
             <!-- First Equipment Section -->
             <div class="equipment-section first mb-4">
               <div class="form-group mrt mb-2">
-                <div class="d-flex ">
                   <label for="equipment1" class="mb-2">Name of equipment</label>
-                  <div v-if="errors.equipment1Name" class="error">{{ errors.equipment1Name }}</div>
-                </div>
-                <select class="form-select" v-model="formData.equipment1.name" required>
-                  <option value="" disabled selected>Select Category</option>
-                  <option value="equipment1">Equipment 1</option>
-                  <option value="equipment2">Equipment 2</option>
-                  <option value="equipment3">Equipment 3</option>
-                </select>
+                  <select class="form-select" v-model="formData.equipment1.name" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="equipment1">Equipment 1</option>
+                    <option value="equipment2">Equipment 2</option>
+                    <option value="equipment3">Equipment 3</option>
+                  </select>
+                  <span v-if="errors.equipment1Name" class="error">{{ errors.equipment1Name }}</span>
               </div>
 
               <div class="form-group mb-2">
-                <div class="d-flex ">
                 <label for="quantity1">Quantity</label>
-                <div v-if="errors.equipment1Quantity" class="error ms-5">{{ errors.equipment1Quantity }}</div>
-              </div>
                 <input type="number" class="form-control" v-model.number="formData.equipment1.quantity"
-                  placeholder="Enter quantity" required min="1" />
+                placeholder="Enter quantity" required min="1" />
+                <span v-if="errors.equipment1Quantity" class="error">{{ errors.equipment1Quantity }}</span>
               </div>
 
               <div class="form-group  mb-2">
-                <div class="d-flex ">
+        
                 <label for="available1">Available equipment</label>
-                <div v-if="errors.equipment1Available" class="error ms-5">{{ errors.equipment1Available }}</div>
-                </div>
                 <input type="number" class="form-control" v-model.number="formData.equipment1.available"
-                  placeholder="Enter available quantity" required min="0" />
+                placeholder="Enter available quantity" required min="0" />
+                <span v-if="errors.equipment1Available" class="error">{{ errors.equipment1Available }}</span>
               </div>
             </div>
 
             <!-- Second Equipment Section -->
             <div class="equipment-section second mb-4">
               <div class="form-group mb-2 ">
-                <div class="d-flex ">
                 <label for="equipment2">Name of equipment</label>
-                <div v-if="errors.equipment2Name" class="error ms-5">{{ errors.equipment2Name }}</div>
-                </div>
                 <select class="form-select select2" v-model="formData.equipment2.name" required>
                   <option value="" disabled selected>Select Category</option>
                   <option value="equipment1">Equipment 1</option>
                   <option value="equipment2">Equipment 2</option>
                   <option value="equipment3">Equipment 3</option>
                 </select>
+                <span v-if="errors.equipment2Name" class="error">{{ errors.equipment2Name }}</span>
               </div>
 
             <div class="form-group select2 mb-2">
-              <div class="d-flex ">
                 <label for="quantity2">Quantity</label>
-                <div v-if="errors.equipment2Quantity" class="error ms-5">{{ errors.equipment2Quantity }}</div>
-                </div>
                 <input type="number" class="form-control" v-model.number="formData.equipment2.quantity"
-                  placeholder="Enter quantity" required min="1" />
+                placeholder="Enter quantity" required min="1" />
+                <span v-if="errors.equipment2Quantity" class="error">{{ errors.equipment2Quantity }}</span>
               </div>
 
               <div class="form-group select2 mb-2">
-                <div class="d-flex ">
+             
                 <label for="available2">Available equipment</label> 
-                <div v-if="errors.equipment2Available" class="error ms-5">{{ errors.equipment2Available }}</div>
-                </div>
+                
                 <input type="number" class="form-control" v-model.number="formData.equipment2.available"
-                  placeholder="Enter available quantity" required min="0" />
+                placeholder="Enter available quantity" required min="0" />
               </div>
+              <span v-if="errors.equipment2Available" class="error">{{ errors.equipment2Available }}</span>
             </div>
           </form>
         </div>
@@ -274,12 +265,11 @@ export default {
 }
 
 .form-content {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
 }
 
 .first {
@@ -297,7 +287,6 @@ export default {
   font-size: 1.7rem;
   margin-bottom: 0.5rem;
   color: #333;
-  padding: 0rem 3.7rem;
   font-weight: 400;
 }
 
@@ -344,9 +333,7 @@ input:focus {
   color: red;
   font-size: 0.8rem;
 }
-.d-flex {
-  justify-content: space-between;
-}
+
 
 .navigation-buttons {
   display: flex;
@@ -392,13 +379,15 @@ input:focus {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 0.6rem;
   cursor: pointer;
   margin-right: 1rem;
 }
 
 .btn-add-new:hover {
-  background-color: #28a745;
+  background-color: #118E34;
+  color: white;
+
 }
 
 .arrow-icon {

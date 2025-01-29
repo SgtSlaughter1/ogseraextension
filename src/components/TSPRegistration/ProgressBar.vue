@@ -123,8 +123,6 @@ export default {
   border-bottom: 2px solid #eee;
   padding-right: 2rem;
   width: 95%;
- 
-
 }
 
 .nav-items {
@@ -136,7 +134,7 @@ export default {
   flex-wrap: nowrap;
   overflow-x: auto; 
   max-width: 100%; 
-  /* border:2px solid red; */
+
 }
 
 .progres {

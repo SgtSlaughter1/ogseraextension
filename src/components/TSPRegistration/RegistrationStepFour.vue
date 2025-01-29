@@ -2,7 +2,7 @@
   <div class="registration-step-four row m-0">
     <!-- Left side - Image -->
     <div class="image-section p-0 m-0 col-5">
-      <img src="@/assets/TSP Registration/image 04.png" alt="Registration Image" class="registration-image" width="100%" height="100%">
+      <img src="@/assets/TSP Registration/image 04.png" alt="Registration Image" class="registration-image d-none d-lg-block" width="100%" height="100%">
     </div>
 
     <!-- Right side - Form -->

@@ -1,88 +1,85 @@
 <template>
   <div class="registration-step-two row">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-5">
-      <img src="@/assets/TSP Registration/image 02.png" alt="Registration Image" class="registration-image" width="100%" height="100%">
+    <div class="image-section p-0 m-0 col-lg-6">
+      <img src="@/assets/TSP Registration/image 02.png" alt="Registration Image" class="registration-image d-none d-lg-block" width="100%" height="100%">
     </div>
 
     <!-- Right side - Form -->
-    <div class="form-section col-7 p-0 m-0">
+    <div class="form-section col-lg-6 p-0 m-0">
       <ProgressBar :current-step="2" :total-steps="4" />
       <div class="form-content">
         <h2 class="info-title">Organization Detail</h2>
         <form @submit.prevent="submitForm">
           <div class="form-group mb-4 ">
-            <div class="d-flex ">
               <label for="trainingcenter">Address of the training centre</label>
-              <div v-if="errors.trainingCenter" class="error">{{ errors.trainingCenter }}</div>
-            </div>
-            <input 
+              <input 
               type="text" 
               class="form-control" 
               v-model.trim="formData.trainingCenter"
               placeholder=""
               required
-            />
+              />
+              <span v-if="errors.trainingCenter" class="error">{{ errors.trainingCenter }}</span>
           </div>
 
           <div class="form-group mb-4">
             <div class="custom-select">
-              <div class="d-flex ">
+              
                 <label for="locationowned">Is the training Location Owned</label>
-                <div v-if="errors.isLocationOwned" class="error">{{ errors.isLocationOwned }}</div>
-              </div>
-              <select 
+                
+                <select 
                 class="form-select" 
                 v-model="formData.isLocationOwned" 
                 required
-              >
+                >
                 <option value="" disabled selected>Select Category</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
+              <span v-if="errors.isLocationOwned" class="error">{{ errors.isLocationOwned }}></span>
             </div>
           </div>
 
           <div class="facilities-section">
-            <div class="d-flex">
+            
             <h3 class="facilities-title">Facilities available in the Centre</h3>
-            <div v-if="errors.facilities" class="error">{{ errors.facilities }}</div>
-              </div>
+            
             <div class="facilities-grid">
               <div class="row g-0">
                 <div class="col-md-6">
                   <div class="facility-item">
-                      <label for="generator">Generator / UPS</label>
+                    <label for="generator">Generator / UPS</label>
                     <input 
                       type="checkbox" 
                       id="generator" 
                       v-model="selectedFacilities"
                       value="generator"
                       class="custom-checkbox"
-                    >
+                      >
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="facility-item">
-                    <label for="reception">Reception Area</label>
-                    <input 
+                  <div class="col-md-6">
+                    <div class="facility-item">
+                      <label for="reception">Reception Area</label>
+                      <input 
                       type="checkbox" 
                       id="reception" 
                       v-model="selectedFacilities"
                       value="reception"
                       class="custom-checkbox"
-                    >
+                      >
+                    </div>
+                    
                   </div>
-                  
-                </div>
                 <hr class="divider">
                 <div class="col-md-6">
                   <div class="facility-item">
                     <label for="water">Drinking Water Facility</label>
                     <input 
-                      type="checkbox" 
-                      id="water" 
-                      v-model="selectedFacilities"
+                    type="checkbox" 
+                    id="water" 
+                    v-model="selectedFacilities"
                       value="water"
                       class="custom-checkbox"
                     >
@@ -97,8 +94,8 @@
                       v-model="selectedFacilities"
                       value="library"
                       class="custom-checkbox"
-                    >
-                  </div>
+                      >
+                    </div>
                 </div>
             <hr class="divider">
 
@@ -111,7 +108,7 @@
                       v-model="selectedFacilities"
                       value="classroom"
                       class="custom-checkbox"
-                    >
+                      >
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -123,12 +120,12 @@
                       v-model="selectedFacilities"
                       value="classroomCount"
                       class="custom-checkbox"
-                    >
+                      >
+                    </div>
                   </div>
-                </div>
-                <hr class="divider">
-
-                <div class="col-md-6">
+                  <hr class="divider">
+                  
+                  <div class="col-md-6">
                   <div class="facility-item">
                     <label for="whiteboard">White / BLACK Board available in each classroom</label>
                     <input 
@@ -153,12 +150,12 @@
                   </div>
                 </div>
                 <hr class="divider">
-
+                
                 <div class="col-md-6">
                   <div class="facility-item">
                     <label for="workshop">50% equipped workshop as per NSQF requirements for the trade</label>
                     <input 
-                      type="checkbox" 
+                    type="checkbox" 
                       id="workshop" 
                       v-model="selectedFacilities"
                       value="workshop"
@@ -170,14 +167,15 @@
                   <div class="facility-item">
                     <label for="offices">No of offices available</label>
                     <input 
-                      type="checkbox" 
-                      id="offices" 
-                      v-model="selectedFacilities"
+                    type="checkbox" 
+                    id="offices" 
+                    v-model="selectedFacilities"
                       value="offices"
                       class="custom-checkbox"
                     >
                   </div>
                 </div>
+                <span v-if="errors.facilities" class="error">{{ errors.facilities }}</span>
               </div>
             </div>
           </div>
@@ -305,9 +303,6 @@ export default {
   font-family: 'Poppins', sans-serif;
 }
 
-.d-flex {
-  justify-content: space-between;
-}
 .registration-step-two {
   display: flex;
   width: 100%;
@@ -337,7 +332,6 @@ export default {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
   color: #333;
-  padding: 0 3.7rem;
 }
 
 .facilities-section {
@@ -345,7 +339,7 @@ export default {
   border-radius: 8px;
   padding: 1.5rem;
   width:97%;
-  margin: 0 3.7rem;
+ 
 }
 
 
@@ -428,7 +422,7 @@ input[type="checkbox"].custom-checkbox {
   position: relative;
 }
 .form-group {
-  margin: 0 3.7rem;
+  
   width: 97%;
 }
 

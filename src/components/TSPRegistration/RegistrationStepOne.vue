@@ -1,66 +1,65 @@
 <template>
   <div class="registration-step-one row">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-5">
-      <img src="@/assets/TSP Registration/image 01.png" alt="Registration Image" class="registration-image" width="100%" height="100%">
+    <div class="image-section p-0 m-0 col-lg-6">
+      <img
+        src="@/assets/TSP Registration/image 01.png"
+        alt="Registration Image"
+        class="registration-image"
+        width="100%"
+        height="100%"
+      />
     </div>
 
     <!-- Right side - Form -->
-    <div class="form-section col-7 p-0 m-0">
+    <div class="form-section col-lg-6 p-0 m-0">
       <ProgressBar :current-step="1" :total-steps="4" />
       <div class="form-content">
-        <div class="d-flex">
-          <h2 class="info-title">Info Details</h2>
-          <div v-if="errors.organizationName" class="error">{{ errors.organizationName }}</div>
-        </div>
-
+        <h2 class="info-title">Info Details</h2>
         <form @submit.prevent="submitForm">
           <div class="form-group mb-4">
-            <input 
-              type="text" 
-              class="form-control" 
+            <input
+              type="text"
+              class="form-control"
               v-model.trim="formData.organizationName"
               placeholder="Organisation Name"
               required
             />
+            <span v-if="errors.organizationName" class="error">{{
+              errors.organizationName
+            }}</span>
           </div>
 
           <div class="form-group mb-4">
-            <div class="d-flex">
-              <label for="phonenumber">&nbsp;</label>
-              <div v-if="errors.phoneNumber" class="error">{{ errors.phoneNumber }}</div>
-            </div>
-            <input 
-              type="tel" 
-              class="form-control" 
+            <input
+              type="tel"
+              class="form-control"
               v-model.trim="formData.phoneNumber"
               placeholder="Phone Number"
               required
             />
+            <span v-if="errors.phoneNumber" class="error">{{
+              errors.phoneNumber
+            }}</span>
           </div>
 
           <div class="form-group mb-4">
-            <div class="d-flex">
-              <label for="email">&nbsp;</label>
-              <div v-if="errors.emailAddress" class="error">{{ errors.emailAddress }}</div>
-              </div>
-            <input 
-              type="email" 
-              class="form-control" 
+            <input
+              type="email"
+              class="form-control"
               v-model.trim="formData.emailAddress"
               placeholder="Email Address"
               required
             />
+            <span v-if="errors.emailAddress" class="error">{{
+              errors.emailAddress
+            }}</span>
           </div>
 
           <div class="form-group mb-4">
-            <div class="d-flex">
-              <label for="organizationType">&nbsp;</label>
-              <div v-if="errors.organizationType" class="error">{{ errors.organizationType }}</div>
-              </div>
-            <select 
-              class="form-select" 
-              v-model="formData.organizationType" 
+            <select
+              class="form-select"
+              v-model="formData.organizationType"
               required
             >
               <option value="" disabled selected>Organisation Type</option>
@@ -68,16 +67,15 @@
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
+            <span v-if="errors.organizationType" class="error">{{
+              errors.organizationType
+            }}</span>
           </div>
 
           <div class="form-group mb-4">
-            <div class="d-flex">
-              <label for="localGovernment">&nbsp;</label>
-              <div v-if="errors.localGovernment" class="error">{{ errors.localGovernment }}</div>
-              </div>
-            <select 
-              class="form-select" 
-              v-model="formData.localGovernment" 
+            <select
+              class="form-select"
+              v-model="formData.localGovernment"
               required
             >
               <option value="" disabled selected>Local Government</option>
@@ -85,14 +83,27 @@
               <option value="lg2">Local Government 2</option>
               <option value="lg3">Local Government 3</option>
             </select>
+            <span v-if="errors.localGovernment" class="error">{{
+              errors.localGovernment
+            }}</span>
           </div>
         </form>
         <div class="navigation-buttons">
           <button type="button" class="btn btn-outline-success" @click="goBack">
-            <img src="@/assets/TSP Registration/icon/arrowleft.png" alt="Back" class="arrow-icon me-2"> Back
+            <img
+              src="@/assets/TSP Registration/icon/arrowleft.png"
+              alt="Back"
+              class="arrow-icon me-2"
+            />
+            Back
           </button>
           <button type="submit" class="btn btn-suces" @click="submitForm">
-            Next <img src="@/assets/TSP Registration/icon/arrowright.png" alt="Next" class="arrow-icon ms-2">
+            Next
+            <img
+              src="@/assets/TSP Registration/icon/arrowright.png"
+              alt="Next"
+              class="arrow-icon ms-2"
+            />
           </button>
         </div>
       </div>
@@ -101,131 +112,156 @@
 </template>
 
 <script>
-import ProgressBar from './ProgressBar.vue'
+import ProgressBar from "./ProgressBar.vue";
 
 export default {
-  name: 'RegistrationStepOne',
+  name: "RegistrationStepOne",
   components: {
-    ProgressBar
+    ProgressBar,
   },
   data() {
     return {
       formData: {
-        organizationName: '',
-        phoneNumber: '',
-        emailAddress: '',
-        organizationType: '',
-        localGovernment: ''
+        organizationName: "",
+        phoneNumber: "",
+        emailAddress: "",
+        organizationType: "",
+        localGovernment: "",
       },
-      errors: {}
-    }
+      errors: {},
+    };
   },
   mounted() {
-   
     window.scrollTo(0, 0);
   },
 
   methods: {
     goBack() {
-      this.$router.push({ name: 'home' })
+      this.$router.push({ name: "home" });
     },
     clearError(field) {
       if (this.errors[field]) {
         this.errors = Object.fromEntries(
           Object.entries(this.errors).filter(([key]) => key !== field)
-        )
+        );
       }
     },
     validateField(field) {
-      switch(field) {
-        case 'organizationName':
+      switch (field) {
+        case "organizationName":
           if (!this.formData.organizationName.trim()) {
-            this.errors = { ...this.errors, organizationName: 'Organization name is required' }
+            this.errors = {
+              ...this.errors,
+              organizationName: "Organization name is required",
+            };
           } else if (this.formData.organizationName.trim().length < 5) {
-            this.errors = { ...this.errors, organizationName: 'Name must be 5 characters long' }
+            this.errors = {
+              ...this.errors,
+              organizationName: "Name must be 5 characters long",
+            };
           } else {
-            this.clearError('organizationName')
+            this.clearError("organizationName");
           }
-          break
-        case 'phoneNumber':
+          break;
+        case "phoneNumber":
           if (!this.formData.phoneNumber.trim()) {
-            this.errors = { ...this.errors, phoneNumber: 'Phone number is required' }
+            this.errors = {
+              ...this.errors,
+              phoneNumber: "Phone number is required",
+            };
           } else if (!this.validatePhone(this.formData.phoneNumber)) {
-            this.errors = { ...this.errors, phoneNumber: 'Please enter a valid phone number' }
+            this.errors = {
+              ...this.errors,
+              phoneNumber: "Please enter a valid phone number",
+            };
           } else {
-            this.clearError('phoneNumber')
+            this.clearError("phoneNumber");
           }
-          break
-        case 'emailAddress':
+          break;
+        case "emailAddress":
           if (!this.formData.emailAddress.trim()) {
-            this.errors = { ...this.errors, emailAddress: 'Email is required' }
+            this.errors = { ...this.errors, emailAddress: "Email is required" };
           } else if (!this.validateEmail(this.formData.emailAddress)) {
-            this.errors = { ...this.errors, emailAddress: 'Please enter a valid email' }
+            this.errors = {
+              ...this.errors,
+              emailAddress: "Please enter a valid email",
+            };
           } else {
-            this.clearError('emailAddress')
+            this.clearError("emailAddress");
           }
-          break
-        case 'organizationType':
+          break;
+        case "organizationType":
           if (!this.formData.organizationType) {
-            this.errors = { ...this.errors, organizationType: 'Organization type is required' }
+            this.errors = {
+              ...this.errors,
+              organizationType: "Organization type is required",
+            };
           } else {
-            this.clearError('organizationType')
+            this.clearError("organizationType");
           }
-          break
-        case 'localGovernment':
+          break;
+        case "localGovernment":
           if (!this.formData.localGovernment) {
-            this.errors = { ...this.errors, localGovernment: 'Local government is required' }
+            this.errors = {
+              ...this.errors,
+              localGovernment: "Local government is required",
+            };
           } else {
-            this.clearError('localGovernment')
+            this.clearError("localGovernment");
           }
-          break
+          break;
       }
     },
     validateForm() {
-      const fields = ['organizationName', 'phoneNumber', 'emailAddress', 'organizationType', 'localGovernment']
-      fields.forEach(field => this.validateField(field))
+      const fields = [
+        "organizationName",
+        "phoneNumber",
+        "emailAddress",
+        "organizationType",
+        "localGovernment",
+      ];
+      fields.forEach((field) => this.validateField(field));
     },
     submitForm() {
-      this.validateForm()
-      
+      this.validateForm();
+
       if (Object.keys(this.errors).length === 0) {
-        this.$emit('step-completed', this.formData)
-        this.$router.push({ name: 'registration-step-2' })
+        this.$emit("step-completed", this.formData);
+        this.$router.push({ name: "registration-step-2" });
       }
     },
     validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      return re.test(email)
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
     },
     validatePhone(phone) {
-      const re = /^[0-9]{11}$/
-      return re.test(phone.replace(/\D/g, ''))
-    }
+      const re = /^[0-9]{11}$/;
+      return re.test(phone.replace(/\D/g, ""));
+    },
   },
   watch: {
-    'formData.organizationName'() {
-      this.validateField('organizationName')
+    "formData.organizationName"() {
+      this.validateField("organizationName");
     },
-    'formData.phoneNumber'() {
-      this.validateField('phoneNumber')
+    "formData.phoneNumber"() {
+      this.validateField("phoneNumber");
     },
-    'formData.emailAddress'() {
-      this.validateField('emailAddress')
+    "formData.emailAddress"() {
+      this.validateField("emailAddress");
     },
-    'formData.organizationType'() {
-      this.validateField('organizationType')
+    "formData.organizationType"() {
+      this.validateField("organizationType");
     },
-    'formData.localGovernment'() {
-      this.validateField('localGovernment')
-    }
-  }
-}
+    "formData.localGovernment"() {
+      this.validateField("localGovernment");
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .d-flex {
   justify-content: space-between;
@@ -248,7 +284,7 @@ export default {
 }
 
 .form-content {
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -258,29 +294,30 @@ export default {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   color: #333;
-  padding: 0rem 3.7rem;
 }
 
 .form-group {
   margin-bottom: 0 !important;
   height: auto;
   margin: 0;
-  padding-left: 3.7rem;
+
   padding-bottom: 1.5rem;
 }
 
-.form-control, .form-select {
+.form-control,
+.form-select {
   padding: 0.75rem;
   border: 1px solid #393939;
   border-radius: 4px;
   background-color: #edf0f9;
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus,
+.form-select:focus {
   background-color: #edf0f9;
   outline: none;
   box-shadow: none;
-  border-color: #28a745;  
+  border-color: #28a745;
 }
 
 .error {
@@ -307,7 +344,7 @@ export default {
 
 .btn-outline-success {
   border-color: #28a745;
-  color: #118E34;
+  color: #118e34;
 }
 
 .btn-outline-success:hover {
@@ -316,7 +353,7 @@ export default {
 }
 
 .btn-suces {
-  background-color: #118E34;
+  background-color: #118e34;
   color: white;
   border-color: #28a745;
 }
