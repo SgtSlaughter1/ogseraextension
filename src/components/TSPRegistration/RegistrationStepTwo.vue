@@ -12,7 +12,10 @@
         <h2 class="info-title">Organization Detail</h2>
         <form @submit.prevent="submitForm">
           <div class="form-group mb-4 ">
-            <label for="trainingcenter">Address of the training centre</label>
+            <div class="d-flex ">
+              <label for="trainingcenter">Address of the training centre</label>
+              <div v-if="errors.trainingCenter" class="error">{{ errors.trainingCenter }}</div>
+            </div>
             <input 
               type="text" 
               class="form-control" 
@@ -20,12 +23,14 @@
               placeholder=""
               required
             />
-            <span v-if="errors.trainingCenter" class="error">{{ errors.trainingCenter }}</span>
           </div>
 
           <div class="form-group mb-4">
             <div class="custom-select">
-              <label for="locationowned">Is the training Location Owned</label>
+              <div class="d-flex ">
+                <label for="locationowned">Is the training Location Owned</label>
+                <div v-if="errors.isLocationOwned" class="error">{{ errors.isLocationOwned }}</div>
+              </div>
               <select 
                 class="form-select" 
                 v-model="formData.isLocationOwned" 
@@ -35,17 +40,19 @@
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
               </select>
-              <span v-if="errors.isLocationOwned" class="error">{{ errors.isLocationOwned }}</span>
             </div>
           </div>
 
           <div class="facilities-section">
+            <div class="d-flex">
             <h3 class="facilities-title">Facilities available in the Centre</h3>
+            <div v-if="errors.facilities" class="error">{{ errors.facilities }}</div>
+              </div>
             <div class="facilities-grid">
               <div class="row g-0">
                 <div class="col-md-6">
                   <div class="facility-item">
-                    <label for="generator">Generator / UPS</label>
+                      <label for="generator">Generator / UPS</label>
                     <input 
                       type="checkbox" 
                       id="generator" 
@@ -173,7 +180,6 @@
                 </div>
               </div>
             </div>
-            <span v-if="errors.facilities" class="error">{{ errors.facilities }}</span>
           </div>
         </form>
         <div class="navigation-buttons">
@@ -299,6 +305,9 @@ export default {
   font-family: 'Poppins', sans-serif;
 }
 
+.d-flex {
+  justify-content: space-between;
+}
 .registration-step-two {
   display: flex;
   width: 100%;
@@ -308,9 +317,6 @@ export default {
   padding: 0;
 }
 
-/* .image-section {
-  border:1px solid red;
-} */
 
 .form-section {
   flex: 1.3;
@@ -427,7 +433,6 @@ input[type="checkbox"].custom-checkbox {
 }
 
 .custom-select::after {
-  content: '';
   position: absolute;
   right: 1rem;
   top: 50%;

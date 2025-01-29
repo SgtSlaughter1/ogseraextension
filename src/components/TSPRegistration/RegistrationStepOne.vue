@@ -9,7 +9,11 @@
     <div class="form-section col-7 p-0 m-0">
       <ProgressBar :current-step="1" :total-steps="4" />
       <div class="form-content">
-        <h2 class="info-title">Info Details</h2>
+        <div class="d-flex">
+          <h2 class="info-title">Info Details</h2>
+          <div v-if="errors.organizationName" class="error">{{ errors.organizationName }}</div>
+        </div>
+
         <form @submit.prevent="submitForm">
           <div class="form-group mb-4">
             <input 
@@ -19,10 +23,13 @@
               placeholder="Organisation Name"
               required
             />
-            <span v-if="errors.organizationName" class="error">{{ errors.organizationName }}</span>
           </div>
 
           <div class="form-group mb-4">
+            <div class="d-flex">
+              <label for="phonenumber">&nbsp;</label>
+              <div v-if="errors.phoneNumber" class="error">{{ errors.phoneNumber }}</div>
+            </div>
             <input 
               type="tel" 
               class="form-control" 
@@ -30,10 +37,13 @@
               placeholder="Phone Number"
               required
             />
-            <span v-if="errors.phoneNumber" class="error">{{ errors.phoneNumber }}</span>
           </div>
 
           <div class="form-group mb-4">
+            <div class="d-flex">
+              <label for="email">&nbsp;</label>
+              <div v-if="errors.emailAddress" class="error">{{ errors.emailAddress }}</div>
+              </div>
             <input 
               type="email" 
               class="form-control" 
@@ -41,10 +51,13 @@
               placeholder="Email Address"
               required
             />
-            <span v-if="errors.emailAddress" class="error">{{ errors.emailAddress }}</span>
           </div>
 
           <div class="form-group mb-4">
+            <div class="d-flex">
+              <label for="organizationType">&nbsp;</label>
+              <div v-if="errors.organizationType" class="error">{{ errors.organizationType }}</div>
+              </div>
             <select 
               class="form-select" 
               v-model="formData.organizationType" 
@@ -55,10 +68,13 @@
               <option value="type2">Type 2</option>
               <option value="type3">Type 3</option>
             </select>
-            <span v-if="errors.organizationType" class="error">{{ errors.organizationType }}</span>
           </div>
 
           <div class="form-group mb-4">
+            <div class="d-flex">
+              <label for="localGovernment">&nbsp;</label>
+              <div v-if="errors.localGovernment" class="error">{{ errors.localGovernment }}</div>
+              </div>
             <select 
               class="form-select" 
               v-model="formData.localGovernment" 
@@ -69,7 +85,6 @@
               <option value="lg2">Local Government 2</option>
               <option value="lg3">Local Government 3</option>
             </select>
-            <span v-if="errors.localGovernment" class="error">{{ errors.localGovernment }}</span>
           </div>
         </form>
         <div class="navigation-buttons">
@@ -109,7 +124,7 @@ export default {
    
     window.scrollTo(0, 0);
   },
-  
+
   methods: {
     goBack() {
       this.$router.push({ name: 'home' })
@@ -212,7 +227,9 @@ export default {
 * {
   font-family: 'Poppins', sans-serif;
 }
-
+.d-flex {
+  justify-content: space-between;
+}
 .registration-step-one {
   display: flex;
   width: 100%;

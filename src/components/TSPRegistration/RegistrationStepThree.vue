@@ -2,103 +2,87 @@
   <div class="registration-step-three row">
     <!-- Left side - Image -->
     <div class="image-section p-0 m-0 col-5">
-      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image" width="100%" height="100%">
+      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image"
+        width="100%" height="100%">
     </div>
 
-     <!-- Right side - Form -->
-     <div class="form-section col-7 p-0 m-0">
+    <!-- Right side - Form -->
+    <div class="form-section col-7 p-0 m-0">
       <ProgressBar :current-step="3" :total-steps="4" />
-      <div class="form-content">
-        <h2 class="info-title">Equipment</h2>
-        <form @submit.prevent="submitForm">
-          <!-- First Equipment Section -->
-          <div class="equipment-section mb-4">
-            <div class="form-group mb-3">
-              <label for="equipment1">Name of equipment</label>
-              <select 
-                class="form-select" 
-                v-model="formData.equipment1.name"
-                required
-              >
-                <option value="" disabled selected>Select Category</option>
-                <option value="equipment1">Equipment 1</option>
-                <option value="equipment2">Equipment 2</option>
-                <option value="equipment3">Equipment 3</option>
-              </select>
-              <span v-if="errors.equipment1Name" class="error">{{ errors.equipment1Name }}</span>
+
+      <div class="form-content p-0 ">
+        <div class="form-shadow my-4">
+          <h2 class="info-title p-0 m-4 mt-2">Equipment</h2>
+          <form @submit.prevent="submitForm">
+            <!-- First Equipment Section -->
+            <div class="equipment-section first mb-4">
+              <div class="form-group mrt mb-2">
+                <div class="d-flex ">
+                  <label for="equipment1" class="mb-2">Name of equipment</label>
+                  <div v-if="errors.equipment1Name" class="error">{{ errors.equipment1Name }}</div>
+                </div>
+                <select class="form-select" v-model="formData.equipment1.name" required>
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="equipment1">Equipment 1</option>
+                  <option value="equipment2">Equipment 2</option>
+                  <option value="equipment3">Equipment 3</option>
+                </select>
+              </div>
+
+              <div class="form-group mb-2">
+                <div class="d-flex ">
+                <label for="quantity1">Quantity</label>
+                <div v-if="errors.equipment1Quantity" class="error ms-5">{{ errors.equipment1Quantity }}</div>
+              </div>
+                <input type="number" class="form-control" v-model.number="formData.equipment1.quantity"
+                  placeholder="Enter quantity" required min="1" />
+              </div>
+
+              <div class="form-group  mb-2">
+                <div class="d-flex ">
+                <label for="available1">Available equipment</label>
+                <div v-if="errors.equipment1Available" class="error ms-5">{{ errors.equipment1Available }}</div>
+                </div>
+                <input type="number" class="form-control" v-model.number="formData.equipment1.available"
+                  placeholder="Enter available quantity" required min="0" />
+              </div>
             </div>
 
-            <div class="form-group mb-3">
-              <label for="quantity1">Quantity</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                v-model.number="formData.equipment1.quantity"
-                placeholder="Enter quantity"
-                required
-                min="1"
-              />
-              <span v-if="errors.equipment1Quantity" class="error">{{ errors.equipment1Quantity }}</span>
-            </div>
+            <!-- Second Equipment Section -->
+            <div class="equipment-section second mb-4">
+              <div class="form-group mb-2 ">
+                <div class="d-flex ">
+                <label for="equipment2">Name of equipment</label>
+                <div v-if="errors.equipment2Name" class="error ms-5">{{ errors.equipment2Name }}</div>
+                </div>
+                <select class="form-select select2" v-model="formData.equipment2.name" required>
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="equipment1">Equipment 1</option>
+                  <option value="equipment2">Equipment 2</option>
+                  <option value="equipment3">Equipment 3</option>
+                </select>
+              </div>
 
-            <div class="form-group mb-4">
-              <label for="available1">Available equipment</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                v-model.number="formData.equipment1.available"
-                placeholder="Enter available quantity"
-                required
-                min="0"
-              />
-              <span v-if="errors.equipment1Available" class="error">{{ errors.equipment1Available }}</span>
-            </div>
-          </div>
+            <div class="form-group select2 mb-2">
+              <div class="d-flex ">
+                <label for="quantity2">Quantity</label>
+                <div v-if="errors.equipment2Quantity" class="error ms-5">{{ errors.equipment2Quantity }}</div>
+                </div>
+                <input type="number" class="form-control" v-model.number="formData.equipment2.quantity"
+                  placeholder="Enter quantity" required min="1" />
+              </div>
 
-          <!-- Second Equipment Section -->
-          <div class="equipment-section mb-4">
-            <div class="form-group mb-3">
-              <label for="equipment2">Name of equipment</label>
-              <select 
-                class="form-select" 
-                v-model="formData.equipment2.name"
-                required
-              >
-                <option value="" disabled selected>Select Category</option>
-                <option value="equipment1">Equipment 1</option>
-                <option value="equipment2">Equipment 2</option>
-                <option value="equipment3">Equipment 3</option>
-              </select>
-              <span v-if="errors.equipment2Name" class="error">{{ errors.equipment2Name }}</span>
+              <div class="form-group select2 mb-2">
+                <div class="d-flex ">
+                <label for="available2">Available equipment</label> 
+                <div v-if="errors.equipment2Available" class="error ms-5">{{ errors.equipment2Available }}</div>
+                </div>
+                <input type="number" class="form-control" v-model.number="formData.equipment2.available"
+                  placeholder="Enter available quantity" required min="0" />
+              </div>
             </div>
-
-            <div class="form-group mb-3">
-              <label for="quantity2">Quantity</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                v-model.number="formData.equipment2.quantity"
-                placeholder="Enter quantity"
-                required
-                min="1"
-              />
-              <span v-if="errors.equipment2Quantity" class="error">{{ errors.equipment2Quantity }}</span>
-            </div>
-
-            <div class="form-group mb-4">
-              <label for="available2">Available equipment</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                v-model.number="formData.equipment2.available"
-                placeholder="Enter available quantity"
-                required
-                min="0"
-              />
-              <span v-if="errors.equipment2Available" class="error">{{ errors.equipment2Available }}</span>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <div class="navigation-buttons">
           <button type="button" class="btn btn-outline-success" @click="goBack">
@@ -179,7 +163,7 @@ export default {
 
     // Validate individual form fields
     validateField(field) {
-      switch(field) {
+      switch (field) {
         case 'equipment1Name':
           if (!this.formData.equipment1.name) {
             this.errors.equipment1Name = 'Equipment name is required'
@@ -255,7 +239,7 @@ export default {
     // Submit form if validation passes
     submitForm() {
       this.validateForm()
-      
+
       if (Object.keys(this.errors).length === 0) {
         this.$emit('step-completed', this.formData)
         this.$router.push({ name: 'registration-step-4' })
@@ -269,7 +253,6 @@ export default {
 * {
   font-family: 'Poppins', sans-serif;
 }
-
 .registration-step-three {
   display: flex;
   width: 100%;
@@ -288,25 +271,50 @@ export default {
 }
 
 .form-content {
-  padding: 2rem 4rem;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  padding-right: 2rem;
+}
 
+.first {
+  width: 100%;
+margin: 0 auto;
+padding: 0.6rem; 
+background-color: #7FFF7F1F;
+}
+
+.second{
+  background: #D4FF7F1F;
 }
 
 .info-title {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   margin-bottom: 0.5rem;
   color: #333;
   padding: 0rem 3.7rem;
+  font-weight: 400;
 }
 
 .form-group {
-  margin-bottom: 0 !important;
   height: auto;
   margin: 0;
-  padding-left: 3.7rem;
+}
+
+.form-select {
+  background-color: #edf0f9;
+}
+.select2 {
+  background: #D4FF7F1F;
+}
+
+.form-shadow {
+  background-color: #FFF;
+  padding: 0;
+  width: 84%;
+  margin: 0 auto;
 }
 
 input {
@@ -316,6 +324,11 @@ input {
 
 input:focus {
   background-color: #edf0f9;
+}
+
+.select2 > input {
+  background: #D4FF7F1F;
+
 }
 
 .form-control {
@@ -328,6 +341,9 @@ input:focus {
 .error {
   color: red;
   font-size: 0.8rem;
+}
+.d-flex {
+  justify-content: space-between;
 }
 
 .navigation-buttons {
@@ -371,6 +387,13 @@ input:focus {
 .arrow-icon {
   width: 20px;
   height: 20px;
+}
+
+.equipment-section{
+  width: 90%;
+  margin: 0 auto;
+  padding: 0.6rem;
+  /* border: 1px solid red; */
 }
 
 /* Responsive Design */
