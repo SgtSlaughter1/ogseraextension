@@ -508,7 +508,7 @@ html {
     align-items: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
     /* Hero and General Layout */
     .landing-page .hero {
         min-height: auto;
