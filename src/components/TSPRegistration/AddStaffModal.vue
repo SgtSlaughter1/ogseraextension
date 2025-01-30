@@ -29,13 +29,16 @@
             </select>
           </div>
           <div class="form-group">
-            <label>Experience</label>
-            <select v-model="formData.experience" class="form-control" required>
-              <option value="" disabled selected>Select Experience</option>
-              <option v-for="exp in experiences" :key="exp" :value="exp">
-                {{ exp }}
-              </option>
-            </select>
+            <label>Years of Experience</label>
+            <input
+              type="number"
+              v-model.number="formData.experience"
+              class="form-control"
+              min="0"
+              max="50"
+              placeholder="Enter years of experience"
+              required
+            />
           </div>
           <div class="form-group">
             <label>Position</label>
@@ -86,7 +89,6 @@ export default {
         position: "",
       },
       ranks: ["1", "2", "3", "4"],
-      experiences: ["1 Year", "2 Years", "3 Years", "4 Years", "4+ Years"],
       isSubmitting: false,
     };
   },
@@ -124,7 +126,7 @@ export default {
         staff.name &&
         staff.name.length > 0 &&
         staff.rank &&
-        staff.experience &&
+        staff.experience >= 0 &&
         staff.position &&
         staff.position.length > 0
       );
@@ -265,5 +267,17 @@ select.form-control option {
 
 .btn-secondary:hover {
   background: #5a6268;
+}
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 </style>

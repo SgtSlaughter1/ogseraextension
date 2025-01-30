@@ -211,7 +211,6 @@ export default {
   background: #edf0f9;
   margin: 0;
   padding: 0;
-  
 }
 
 .registration-image {
@@ -362,7 +361,7 @@ export default {
   padding: 4px 0;
   min-width: 80px;
   margin-bottom: 5px;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .action-popup::after {
@@ -405,6 +404,18 @@ export default {
 .popup-item.edit:hover {
   background-color: #f0fff4;
 }
+
+
+.table thead {
+  position: relative;
+  z-index: 1;
+}
+
+.table-responsive {
+  position: relative;
+  z-index: 1;
+}
+
 
 @media (max-width: 1200px) {
   .form-section {
@@ -552,4 +563,6 @@ export default {
     padding: 0.5rem;
   }
 }
+
+
 </style>

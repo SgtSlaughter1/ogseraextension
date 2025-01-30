@@ -95,8 +95,30 @@
         </div>
 
         <!-- Organization Admin Section -->
-        <div class="form-shadow admin my-4">
-          <h2 class="info-title p-0 mx-4 mt-3">Organization Coordinator</h2>
+        <div class="form-shadow my-4">
+          <h2 class="info-title p-0 m-4 mt-2">Organization Coordinator</h2>
+          <div class="alert alert-info info-sec d-flex mx-4 mt-0 mb-3">
+            <div class="mr-2">
+              <small>
+                <svg
+                  class="info-icon me-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                  />
+                </svg>
+              </small>
+            </div>
+            <div>
+              This account will be use to login for your organization and
+              default password: 12345678
+            </div>
+          </div>
 
           <div class="admin-form-container p-4">
             <!-- Row 1: First Name and Last Name -->
@@ -651,6 +673,25 @@ export default {
   box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
 }
 
+.info-sec {
+  background-color: #e8f4f8;
+  border: none;
+  color: #0c5460;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  line-height: 1.5;
+}
+
+.alert-info i {
+  color: #17a2b8;
+}
+
+.info-icon {
+  color: #17a2b8;
+  vertical-align: -2px;
+}
+
 @media (max-width: 992px) {
   .registration-step-one {
     flex-direction: column;
@@ -675,7 +716,7 @@ export default {
 
 @media (max-width: 768px) {
   * {
-    font-size:14px;
+    font-size: 13px;
   }
   .form-content {
     padding: 0.5rem;
@@ -687,26 +728,24 @@ export default {
 
   .info-title {
     padding: 0 2rem;
-    margin-bottom:0 !important;
+    margin-bottom: 0 !important;
   }
 
   .navigation-buttons {
     padding: 1rem;
     flex-direction: column;
     gap: 1rem;
-    margin-top:0px;
-    
+    margin-top: 0px;
   }
 
   .btn {
     width: 100%;
     justify-content: center;
   }
-    .admin-row {
+  .admin-row {
     flex-direction: column;
     gap: 0.2rem;
   }
-
 
   .form-group {
     margin-bottom: 1.2rem !important;
@@ -715,7 +754,10 @@ export default {
   .error {
     bottom: -1.2rem;
   }
+
+  .info-sec {
+    margin: 1rem 1rem !important;
+    padding: 1rem;
+  }
 }
-
-
 </style>

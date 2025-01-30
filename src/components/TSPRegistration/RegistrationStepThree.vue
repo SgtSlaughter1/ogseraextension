@@ -22,7 +22,7 @@
 
       <div class="form-content p-0">
         <div class="form-shadow my-4">
-          <div class="d-flex  justify-content-between align-items-center">
+          <div class="d-flex justify-content-between align-items-center">
             <h2 class="info-title p-0 m-4 mt-2">Equipment</h2>
             <button class="btn btn-add-new" @click="addNewEquipment">
               + Add New
@@ -33,18 +33,15 @@
             <form @submit.prevent="handleSubmit">
               <!-- First Equipment Section -->
               <div class="equipment-section first mb-4">
-                <div class="form-group mrt mb-2">
-                  <label for="equipment1" class="mb-2">Name of equipment</label>
-                  <select
-                    class="form-select"
+                <div class="form-group">
+                  <label>Name of Equipment</label>
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="formData.equipment1.name"
+                    placeholder="Enter equipment name"
                     required
-                  >
-                    <option value="" disabled selected>Select Category</option>
-                    <option value="equipment1">Equipment 1</option>
-                    <option value="equipment2">Equipment 2</option>
-                    <option value="equipment3">Equipment 3</option>
-                  </select>
+                  />
                   <span v-if="errors.equipment1Name" class="error">{{
                     errors.equipment1Name
                   }}</span>
@@ -64,21 +61,6 @@
                     errors.equipment1Quantity
                   }}</span>
                 </div>
-
-                <div class="form-group mb-2">
-                  <label for="available1">Available equipment</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model.number="formData.equipment1.available"
-                    placeholder="Enter available quantity"
-                    required
-                    min="0"
-                  />
-                  <span v-if="errors.equipment1Available" class="error">{{
-                    errors.equipment1Available
-                  }}</span>
-                </div>
               </div>
 
               <!-- Additonal Equipment Sections -->
@@ -89,49 +71,45 @@
               >
                 <div
                   class="d-flex justify-content-between align-items-center mb-3"
-                >
-              </div>
-              <div class="form-group mb-2">
-                <div class="d-flex deletebtn ">
-                <label :for="'equipment' + (index + 2)"
-                >Name of equipment</label
-                >
-                <span>
-                <button
-                type="button"
-                class="btn-remove"
-                @click="removeEquipment(index)"
-                    title="Remove equipment"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="delete-icon"
+                ></div>
+                <div class="form-group">
+                  <div class="d-flex deletebtn">
+                    <label :for="'equipment' + (index + 2)"
+                      >Name of equipment</label
                     >
-                      <path
-                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                      />
-                    </svg>
-                  </button>
-                  </span>
+                    <span>
+                      <button
+                        type="button"
+                        class="btn-remove"
+                        @click="removeEquipment(index)"
+                        title="Remove equipment"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          viewBox="0 0 16 16"
+                          class="delete-icon"
+                        >
+                          <path
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                          />
+                        </svg>
+                      </button>
+                    </span>
                   </div>
-                  <select
-                    class="form-select select2"
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="equipment.name"
+                    placeholder="Enter equipment name"
                     required
-                  >
-                    <option value="" disabled selected>Select Category</option>
-                    <option value="equipment1">Equipment 1</option>
-                    <option value="equipment2">Equipment 2</option>
-                    <option value="equipment3">Equipment 3</option>
-                  </select>
+                  />
                   <span
                     v-if="errors['equipment' + (index + 2) + 'Name']"
                     class="error"
@@ -155,26 +133,6 @@
                     class="error"
                   >
                     {{ errors["equipment" + (index + 2) + "Quantity"] }}
-                  </span>
-                </div>
-
-                <div class="form-group select2 mb-2">
-                  <label :for="'available' + (index + 2)"
-                    >Available equipment
-                  </label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model.number="equipment.available"
-                    placeholder="Enter available quantity"
-                    required
-                    min="0"
-                  />
-                  <span
-                    v-if="errors['equipment' + (index + 2) + 'Available']"
-                    class="error"
-                  >
-                    {{ errors["equipment" + (index + 2) + "Available"] }}
                   </span>
                 </div>
               </div>
@@ -219,7 +177,6 @@ export default {
         equipment1: {
           name: "",
           quantity: "",
-          available: "",
         },
       },
       errors: {},
@@ -249,11 +206,6 @@ export default {
         this.clearError("equipment1Quantity");
       }
     },
-    "formData.equipment1.available"(newVal) {
-      if (newVal !== "") {
-        this.clearError("equipment1Available");
-      }
-    },
 
     // Watch each additional equipment field
     additionalEquipment: {
@@ -268,9 +220,6 @@ export default {
           }
           if (equipment.quantity) {
             this.clearError(`${prefix}Quantity`);
-          }
-          if (equipment.available !== "") {
-            this.clearError(`${prefix}Available`);
           }
         });
       },
@@ -303,20 +252,6 @@ export default {
         isValid = false;
       } else if (equipment.quantity < 1) {
         this.errors[`${prefix}Quantity`] = "Quantity must be at least 1";
-        isValid = false;
-      }
-
-      // Validate available
-      if (equipment.available === "") {
-        this.errors[`${prefix}Available`] = "Available equipment is required";
-        isValid = false;
-      } else if (equipment.available < 0) {
-        this.errors[`${prefix}Available`] =
-          "Available equipment cannot be negative";
-        isValid = false;
-      } else if (equipment.available > equipment.quantity) {
-        this.errors[`${prefix}Available`] =
-          "Available equipment cannot exceed total quantity";
         isValid = false;
       }
 
@@ -367,7 +302,6 @@ export default {
       this.additionalEquipment.push({
         name: "",
         quantity: "",
-        available: "",
       });
     },
 
@@ -378,7 +312,6 @@ export default {
       const prefix = `equipment${index + 2}`;
       this.clearError(`${prefix}Name`);
       this.clearError(`${prefix}Quantity`);
-      this.clearError(`${prefix}Available`);
     },
 
     handleNavigation(step) {
@@ -437,7 +370,6 @@ export default {
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 400;
-
 }
 
 .form-group {
@@ -553,7 +485,7 @@ input:focus {
 }
 
 .equipment-forms-container {
-  max-height: calc(100vh - 250px); 
+  max-height: calc(100vh - 250px);
   overflow-y: auto;
   padding: 0 1rem;
   margin-bottom: 1rem;
@@ -593,12 +525,12 @@ input:focus {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  color: #dc3545; 
+  color: #dc3545;
 }
 
 .btn-remove:hover {
   transform: scale(1.1);
-  color: #c82333; 
+  color: #c82333;
 }
 
 .delete-icon {
@@ -609,7 +541,6 @@ input:focus {
 .equipment-section.second {
   position: relative;
 }
-
 
 /* Responsive Design */
 @media (max-width: 992px) {
@@ -650,29 +581,29 @@ input:focus {
 }
 
 @media (max-width: 768px) {
-  *{
-    font-size:14px;
+  * {
+    font-size: 14px;
   }
   .form-content {
     padding: 1rem;
   }
 
-   .form-group {
+  .form-group {
     margin-bottom: 1rem !important;
-    padding:0;
+    padding: 0;
   }
 
   .info-title {
     padding: 0 1rem;
-    margin-left:6px !important;
-    font-size:1.2rem;
+    margin-left: 6px !important;
+    font-size: 1.2rem;
   }
 
   .navigation-buttons {
     padding: 1rem;
     flex-direction: column;
     gap: 1rem;
-  }  
+  }
 
   .equipment-title {
     font-size: 0.9rem;
@@ -687,11 +618,7 @@ input:focus {
     height: 16px;
   }
   .equipment-forms-container {
-    padding:0;
+    padding: 0;
   }
-
 }
-
-
-
 </style>
