@@ -26,7 +26,7 @@
           <div class="form-group mb-4">
             <div class="custom-select">
               
-                <label for="locationowned">Is the training Location Owned</label>
+                <label for="locationowned">Is the training Location Owned, Leased or Rented</label>
                 
                 <select 
                 class="form-select" 
@@ -34,8 +34,9 @@
                 required
                 >
                 <option value="" disabled selected>Select Category</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="owned">Owned</option>
+                <option value="leased">Leased</option>
+                <option value="rented">Rented</option>
               </select>
               <span v-if="errors.isLocationOwned" class="error">{{ errors.isLocationOwned }}></span>
             </div>
@@ -111,21 +112,7 @@
                       >
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="facility-item">
-                    <label for="classroomCount">No of class rooms available in each accommodation</label>
-                    <input 
-                      type="checkbox" 
-                      id="classroomCount" 
-                      v-model="selectedFacilities"
-                      value="classroomCount"
-                      class="custom-checkbox"
-                      >
-                    </div>
-                  </div>
-                  <hr class="divider">
-                  
-                  <div class="col-md-6">
+  <div class="col-md-6">
                   <div class="facility-item">
                     <label for="whiteboard">White / BLACK Board available in each classroom</label>
                     <input 
@@ -137,7 +124,23 @@
                     >
                   </div>
                 </div>
+                  <hr class="divider">
+
+                
+
                 <div class="col-md-6">
+                  <div class="facility-item">
+                    <label for="classroomCount">Fully equipped Workshop as per QSF requirements for the trade</label>
+                    <input 
+                      type="checkbox" 
+                      id="classroomCount" 
+                      v-model="selectedFacilities"
+                      value="classroomCount"
+                      class="custom-checkbox"
+                      >
+                    </div>
+                  </div>
+                   <div class="col-md-6">
                   <div class="facility-item">
                     <label for="ventilation">Ventilation with light and fans available in each class room</label>
                     <input 
@@ -150,6 +153,9 @@
                   </div>
                 </div>
                 <hr class="divider">
+                  
+                
+               
                 
                 <div class="col-md-6">
                   <div class="facility-item">
@@ -159,18 +165,6 @@
                       id="workshop" 
                       v-model="selectedFacilities"
                       value="workshop"
-                      class="custom-checkbox"
-                    >
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="facility-item">
-                    <label for="offices">No of offices available</label>
-                    <input 
-                    type="checkbox" 
-                    id="offices" 
-                    v-model="selectedFacilities"
-                      value="offices"
                       class="custom-checkbox"
                     >
                   </div>
@@ -215,7 +209,7 @@ export default {
         { id: 'water', label: 'Drinking Water Facility' },
         { id: 'library', label: 'Library With Book' },
         { id: 'classroom', label: 'Class room that can accommodate 25 students' },
-        { id: 'classroomCount', label: 'No of class rooms available in each accommodation' },
+        { id: 'classroomCount', label: 'Fully equipped Workshop as per QSF requirements for the trade' },
         { id: 'whiteboard', label: 'White / BLACK Board available in each classroom' },
         { id: 'ventilation', label: 'Ventilation with light and fans available in each class room' },
         { id: 'workshop', label: 'Fully equipped Workshop as per OGF requirements for the trade' },
@@ -322,7 +316,7 @@ export default {
 }
 
 .form-content {
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -339,9 +333,7 @@ export default {
   border-radius: 8px;
   padding: 1.5rem;
   width:97%;
- 
 }
-
 
 .facilities-title {
   font-size: 1rem;
@@ -498,7 +490,7 @@ input[type="checkbox"].custom-checkbox {
   .info-title, 
   .facilities-section {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 0rem;
   }
 
   .navigation-buttons {
@@ -507,8 +499,15 @@ input[type="checkbox"].custom-checkbox {
 }
 
 @media (max-width: 576px) {
+  * {
+    font-size:14px;
+  }
   .form-content {
     padding: 1rem;
+  }
+
+    .form-group {
+    margin-bottom: 0.8rem !important;
   }
 
   .facilities-section {
