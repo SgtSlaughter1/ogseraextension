@@ -4,7 +4,7 @@
             <div class="row align-items-center">
                 <!-- Logo and Description -->
                 <div class="col-md-8">
-                    <div class="align-items-center mb-3">
+                    <div class=" container align-items-center mb-3">
                         <img src="/src/assets/Home/logo .png" alt="GSQ Logo" height="60" class="me-3">
                         <div class="mt-2">
                             <h5 class="mb-1 text-dark">Ogun State Skills Qualification</h5>
@@ -78,18 +78,22 @@ export default {
     font-size: 18px;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .col-md-6 {
         text-align: center !important;
         margin-bottom: 1rem;
     }
     
     .powered-by {
-        margin-top: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 70px !important;
     }
 
     .container {
         height: auto;
     }
-}
+    .footer{
+        padding-left: 25px !important;
+    }
+} */
 </style>
