@@ -151,7 +151,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 500px;
   width: 100%;
   padding-left: 5px;
 }
@@ -163,7 +163,7 @@
   color: white;
 }
 .ogsq{
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 700;
   padding: 5px;
 }
@@ -178,13 +178,13 @@ span{
   border-radius: 0 !important;
 }
 .OGSQ-p{
-  font-size: 14px;
-  margin-top: -18px;
+  font-size: 14.5px;
+  margin-top: -22px;
 }
 .sub-ogsq{
-  margin-top: 10px;
+  margin-top: 30px;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 30px;
 }
 .f-box{
     margin-top: 40px;
@@ -281,15 +281,20 @@ ul li{
   font-family: open sans;
   font-weight: 900;
   margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 40px;
+  margin-bottom: 18px;
+  font-size: 42px;
 }
 .employer{
   padding-left: 16px;
   line-height: 1.75;
   font-size: 15px;
   font-weight: 600;
-  color: #000000;
+  /* color: #000000; */
+  margin-bottom: 20px;
+
+}
+.employer li{
+  margin-bottom: 15px;
 }
 @media screen and (min-width: 320px) and (max-width: 425px) {
     .f-box{
@@ -304,7 +309,7 @@ ul li{
     height: auto;
     margin-left: 0 !important;
     margin-right: 0;
-    padding: 20px;
+    padding: 25px;
     font-size: 16px;
   }
   .box2{
@@ -368,6 +373,9 @@ ul li{
   margin-top: 5px;
   font-size: 20px;
   padding: 5px;
+}
+.card-title{
+  font-size: 30px;
 }
 }
 
