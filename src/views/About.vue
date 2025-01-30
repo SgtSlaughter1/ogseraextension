@@ -359,7 +359,7 @@ ul li{
     font-size: 20px;
 }
 .hero-section{
-  height: 200px;
+  height: 290px;
 }
 .ogsq{
   font-size: 60px;
