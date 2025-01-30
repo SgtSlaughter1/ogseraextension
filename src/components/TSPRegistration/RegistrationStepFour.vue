@@ -1,7 +1,7 @@
 <template>
   <div class="registration-step-four row m-0">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-5">
+    <div class="image-section p-0 m-0 col-lg-6 d-none d-lg-block">
       <img
         src="@/assets/TSP Registration/image 04.png"
         alt="Registration Image"
@@ -12,7 +12,7 @@
     </div>
 
     <!-- Right side - Form -->
-    <div class="form-section col-7 p-0 m-0">
+    <div class="form-section col-lg-6 p-0 m-0">
       <ProgressBar :current-step="4" :total-steps="4" />
       <div class="form-content p-0">
         <div
@@ -60,6 +60,11 @@
                         >View</span
                       >
                       <span
+                        class="popup-item edit"
+                        @click="editStaff(staff, index)"
+                        >Edit</span
+                      >
+                      <span
                         class="popup-item delete"
                         @click="deleteStaff(index)"
                         >Delete</span
@@ -94,6 +99,8 @@
     <!-- Modal -->
     <AddStaffModal
       :is-open="isModalOpen"
+      :editing-staff="editingStaffData"
+      :is-editing="isEditing"
       @close="hideModal"
       @submit="handleAddStaff"
     />
@@ -114,6 +121,9 @@ export default {
     return {
       isModalOpen: false,
       activeActionIndex: null,
+      editingStaffIndex: null,
+      isEditing: false,
+      editingStaffData: null,
       staffList: [
         {
           name: "Oloyede Michael",
@@ -139,19 +149,36 @@ export default {
   methods: {
     showModal() {
       this.isModalOpen = true;
+      this.isEditing = false;
+      this.editingStaffIndex = null;
+      this.editingStaffData = null;
     },
     hideModal() {
       this.isModalOpen = false;
+      this.isEditing = false;
+      this.editingStaffIndex = null;
+      this.editingStaffData = null;
     },
-    handleAddStaff(newStaff) {
+    editStaff(staff, index) {
+      this.isEditing = true;
+      this.editingStaffIndex = index;
+      this.editingStaffData = { ...staff };
+      this.isModalOpen = true;
+      this.activeActionIndex = null;
+    },
+    handleAddStaff(staffData) {
       if (
-        newStaff &&
-        newStaff.name &&
-        newStaff.rank &&
-        newStaff.experience &&
-        newStaff.position
+        staffData &&
+        staffData.name &&
+        staffData.rank &&
+        staffData.experience &&
+        staffData.position
       ) {
-        this.staffList.push(newStaff);
+        if (this.isEditing && this.editingStaffIndex !== null) {
+          this.staffList[this.editingStaffIndex] = { ...staffData };
+        } else {
+          this.staffList.push({ ...staffData });
+        }
         this.hideModal();
       }
     },
@@ -161,7 +188,6 @@ export default {
     submitForm() {
       this.$router.push("/registration-complete");
     },
-    //for the action button
     toggleActionMenu(index) {
       this.activeActionIndex = this.activeActionIndex === index ? null : index;
     },
@@ -185,6 +211,8 @@ export default {
   background: #edf0f9;
   margin: 0;
   padding: 0;
+  border:1px solid red;
+
 }
 
 .registration-image {
@@ -298,12 +326,12 @@ export default {
 
 .back-btn:hover {
   color: #118e34;
-  border: 1px solid #0ff851 ;
-  background-color: #EDF0F9 ;
+  border: 1px solid #0ff851;
+  background-color: #edf0f9;
 }
 
 .submit-btn {
-  background: #118E34;
+  background: #118e34;
   border: none;
   color: white;
   padding: 8px 24px;
@@ -371,6 +399,14 @@ export default {
   background-color: #fff5f5;
 }
 
+.popup-item.edit {
+  color: #118e34;
+}
+
+.popup-item.edit:hover {
+  background-color: #f0fff4;
+}
+
 @media (max-width: 1200px) {
   .form-section {
     padding: 0 0.5rem;
@@ -420,7 +456,7 @@ export default {
 
 @media (max-width: 768px) {
   * {
-    font-size:14px;
+    font-size: 14px;
   }
   .info-title {
     font-size: 1.2rem;

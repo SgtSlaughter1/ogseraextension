@@ -3,7 +3,9 @@
   <div v-if="isOpen" class="modal-overlay">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Add New Staff</h5>
+        <h5 class="modal-title">
+          {{ isEditing ? "Edit Staff" : "Add New Staff" }}
+        </h5>
         <button type="button" class="btn-close" @click="closeModal"></button>
       </div>
       <div class="modal-body">
@@ -48,7 +50,9 @@
             <button type="button" class="btn btn-secondary" @click="closeModal">
               Cancel
             </button>
-            <button type="submit" class="btn btn-primary">Add Staff</button>
+            <button type="submit" class="btn btn-primary">
+              {{ isEditing ? "Update Staff" : "Add Staff" }}
+            </button>
           </div>
         </form>
       </div>
@@ -63,6 +67,14 @@ export default {
     isOpen: {
       type: Boolean,
       required: true,
+    },
+    editingStaff: {
+      type: Object,
+      default: null,
+    },
+    isEditing: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -134,9 +146,16 @@ export default {
     this.resetForm();
   },
   watch: {
+    editingStaff(newVal) {
+      if (newVal) {
+        this.formData = { ...newVal };
+      }
+    },
     isOpen(newVal) {
       if (!newVal) {
         this.resetForm();
+      } else if (this.editingStaff) {
+        this.formData = { ...this.editingStaff };
       }
     },
   },
