@@ -9,10 +9,6 @@
             alt="Tailor at work"
             class="img-fluid h-100 w-100 object-fit-cover"
           />
-          <div class="overlay-content text-white">
-            <h1 class="display-4 fw-light mb-0">Ogun Skills</h1>
-            <h1 class="display-4 fw-light">Qualifications</h1>
-          </div>
         </div>
       </div>
 
@@ -25,11 +21,11 @@
               alt="GSQ Logo"
               class="img-fluid mb-3 logo"
             />
-            <h2 class="mb-0">Login to <span class="text-success">OG</span><span class="text-warning">SQ </span>Account</h2>
+            <h2 class="login-text mb-0">Login to <span class="text-success">OG</span><span class="text-warning">SQ </span>Account</h2>
           </div>
 
           <form class="mt-4">
-            <div class="mb-4">
+            <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input 
                 type="email" 
@@ -59,14 +55,14 @@
                   Keep me Logged in
                 </label>
               </div>
-              <a href="#" class="text-warning text-decoration-none">Recover Password</a>
+              <a href="#" class="text-warning recover text-decoration-none">Recover Password</a>
             </div>
 
             <CustomButton 
               variant="success" 
               size="lg"
               label="Login"
-              class="w-100"
+              class="w-100 custom-button"
             />
           </form>
 
@@ -141,4 +137,59 @@ export default {
 
 }
 
+@media (max-width: 500px) {
+    /* Login Container and Layout */
+    .login-container {
+        padding: 50px 15px;
+    }
+
+    .logo {
+        width: 60%;
+    }
+
+    .login-form-container {
+        padding: 1rem !important;
+    }
+
+    /* Typography and Text Styles */
+    .login-text {
+        text-align: left;
+        font-size: 20px !important;
+    }
+
+    .login-form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 0.875rem;
+    }
+
+    .form-control {
+        font-size: 0.875rem;
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .form-check-label, 
+    .recover {
+        font-size: 0.75rem;
+    }
+
+    /* Powered By Section */
+    .powered-by {
+        font-size: 0.75rem;
+    }
+
+    .powered-by img {
+        height: 20px;
+    }
+
+    /* Custom Button */
+    .custom-button {
+        font-size: 5px;
+        padding: 8px 12px !important;
+        width: 50%;
+    }
+
+}
 </style>
