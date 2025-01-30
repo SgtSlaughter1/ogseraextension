@@ -46,6 +46,10 @@ export default {
 .navbar {
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
 }
 
 .navbar-brand {

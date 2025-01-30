@@ -54,16 +54,16 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <CustomButton variant="light" size="lg" label="Learn More" to="/about" class="px-4 mb-4" />
+                    <CustomButton variant="light" size="lg" label="Learn More" to="/about" class="px-4 mb-4 custom-button" />
                 </div>
             </div>
         </section>
 
         <section class="stat py-5">
             <div class="container">
-                <div class="row g-4">
+                <div class="row  g-4">
                     <!-- First Stat -->
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 stats text-center">
                         <div class="stat-card p-4">
                             <h1 class="display-3 text-warning fw-bold mb-3">10,000+</h1>
                             <p class="fs-5 text-dark fw-semibold text-secondary mb-0">Certifications <br> Issued</p>
@@ -71,7 +71,7 @@
                     </div>
 
                     <!-- Second Stat -->
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 stats text-center">
                         <div class="stat-card p-4">
                             <h1 class="display-3 text-warning fw-bold mb-3">300+</h1>
                             <p class="fs-5 text-dark fw-semibold text-secondary mb-0">Accredited Training <br> Providers
@@ -80,7 +80,7 @@
                     </div>
 
                     <!-- Third Stat -->
-                    <div class="col-md-4 text-center">
+                    <div class="col-md-4 stats text-center">
                         <div class="stat-card p-4">
                             <h1 class="display-3 text-warning fw-bold mb-3">98%</h1>
                             <p class="fs-5 text-dark fw-semibold text-secondary mb-0">Satisfaction Rate from Certified
@@ -96,9 +96,9 @@
         <section class="journey-section py-5">
             <div class="container journey-text">
                 <div class="row align-items-center">
-                    <div class="col-lg-7">
+                    <div class="col-lg-7 boosts">
                         <h5 class="text-light mb-3">Start Your NSQ Journey Today</h5>
-                        <h2 class="mb-2 fw-bold fs-small">Boost Your Career, Build Confidence, & Demonstrate Competency
+                        <h2 class="mb-2 boost fw-bold fs-small">Boost Your Career, Build Confidence, & Demonstrate Competency
                         </h2>
                         <p class="mb-3">With Ogun Skills Qualification, you can gain the recognition you deserve by
                             earning an NSQ certification.</p>
@@ -131,7 +131,7 @@
 
                         <p class="mb-3 text-dark">Take the First Step Today</p>
                         <CustomButton variant="warning" label="Apply for NSQ Certification" icon="bi bi-arrow-right"
-                            to="/apply" />
+                            to="/apply" class="custom-button"/>
                     </div>
                     <div class="col-lg-5 position-relative">
                         <div class="journey">
@@ -154,9 +154,8 @@
 
         <!-- Training Service Provider section -->
         <section>
-
-            <div class="container my-5">
-                <div class="row">
+            <div class=" training container my-5">
+                <div class="row ">
                     <div class="col-md-5">
                         <div class="image-grid">
 
@@ -202,7 +201,7 @@
                             </div>
 
                             <CustomButton variant="success" label="Register as TSP" icon="bi bi-arrow-right"
-                                to="/registration" class="pe-5" />
+                                to="/registration" class="pe-5 custom-button" />
                         </div>
                     </div>
                 </div>
@@ -217,10 +216,10 @@
             <div class="container my-5">
                 <h2 class="mb-5 text-center fw-bold">What People are Saying......</h2>
 
-                <div class="row g-4 justify-content-center">
+                <div class="row g-3 justify-content-center">
                     <!-- First Testimonial -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 p-4 rounded-4">
+                        <div class="card  h-100 border-0 p-4 rounded-4">
                             <div class="card-body">
                                 <p class="testimonial-text mb-4">
                                     "The application process was seamless, and the certification has set me apart in my
@@ -239,7 +238,7 @@
 
                     <!-- Second Testimonial -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0 p-4 rounded-4">
+                        <div class="card testimonial-card h-100 border-0 p-4 rounded-4">
                             <div class="card-body">
                                 <p class="testimonial-text mb-4">
                                     "Earning my NSQ certification through Ogun Skills Qualification gave me the
@@ -259,7 +258,7 @@
 
                     <!-- Third Testimonial -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 border-0  p-4 rounded-4">
+                        <div class="card  testimonial-card h-100 border-0  p-4 rounded-4">
                             <div class="card-body">
                                 <p class="testimonial-text mb-4">
                                     "The application process was seamless, and the certification has set me apart in my
@@ -338,14 +337,13 @@ export default {
     font-family: Poppins;
 }
 
-
 .landing-page .hero {
     background: url('/src/assets/Home/Landing\ Background.png') center/cover;
     min-height: 100vh;
     color: white;
     display: flex;
-
 }
+
 .back-to-top-btn {
     position: fixed;
     bottom: 20px;
@@ -377,7 +375,6 @@ html {
 .hero-title>p {
     margin-top: -25px;
     letter-spacing: 1.5px;
-    
 }
 
 .hero-text {
@@ -387,7 +384,6 @@ html {
     width: 100%;
 }
 
-
 .brand-text {
     font-weight: 700;
     font-size: 100px;
@@ -395,7 +391,6 @@ html {
 
 .col-lg-6 {
     width: 50%;
-
 }
 
 .brand-text>.text-warning {
@@ -426,13 +421,14 @@ html {
     width: 30%;
 }
 
-
+.card{
+    width: 90%;
+}
 
 .display-3 {
     font-size: 3.5rem;
     letter-spacing: -0.5px;
 }
-
 
 .benefits {
     width: 90%;
@@ -448,7 +444,6 @@ html {
     background-color: #118E34;
     font-family: 'Poppins', sans-serif;
     color: white;
-
 }
 
 .col-lg-7>h2 {
@@ -468,7 +463,6 @@ html {
 .content-section>h2 {
     font-size: 30px;
 }
-
 
 .testimonial-text {
     font-size: 13px;
@@ -512,33 +506,67 @@ html {
 .testimonial-author {
     display: flex;
     align-items: center;
-
 }
 
 @media (max-width: 500px) {
+    /* Hero and General Layout */
     .landing-page .hero {
         min-height: auto;
         padding: 32px 0;
     }
 
-    .brand-text {
-        font-size: 30px;
+    .hero-title {
+        width: 300px;
+        margin-left: -70px;
     }
 
-    .hero-title>p {
+    .hero-title > p {
         margin-top: -10px;
         font-size: 14px;
         width: 100%;
     }
 
     .hero-text {
-        font-size: 16px;
+        font-size: 15px;
         text-align: center;
+        width: 300px;
+        margin-left: -70px;
+        line-height: 25px;
     }
 
-    .features {
-        width: 100%;
-        margin: 16px auto;
+    /* Hide unnecessary elements */
+    .features, .competency-card, .indicator-dot {
+        display: none;
+    }
+
+    /* Typography and Text Styles */
+    .brand-text {
+        font-size: 50px;
+    }
+
+    .content-section > p {
+        font-size: 15px;
+    }
+
+    .content-section > h2, 
+    .boosts > h2 {
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .boosts > h5 {
+        font-size: 15px;
+    }
+
+    .boosts > p {
+        font-size: 14px;
+    }
+
+    /* Card and Feature Styles */
+    .card, .stat-card {
+        width: 90%;
+        margin: 5px auto;
+        padding: 0 !important;
     }
 
     .feature-card {
@@ -546,33 +574,33 @@ html {
         margin-bottom: 16px;
     }
 
-    .feature-card>img {
+    .feature-card > img {
         width: 15%;
         margin-bottom: 10px;
     }
 
-    .feature-card>p {
+    .feature-card > p {
         font-size: 14px;
         margin-top: 10px;
         text-align: center;
     }
 
-    .stat-card {
-        width: 80%;
-        margin: 16px auto;
-    }
-
-    .stat-card>h1 {
+    .stat-card > h1 {
         font-size: 32px;
+        margin-bottom: 5px;
     }
 
-    .stat-card>p {
+    .stat-card > p {
         font-size: 14px;
         width: 100%;
+        margin-top: 0;
     }
 
-    .journey-section {
-        padding: 32px 10px !important;
+    /* Journey and Benefits Sections */
+    .journey-text, .content-section {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
     }
 
     .journey-section .row {
@@ -585,7 +613,7 @@ html {
         margin-bottom: 16px;
     }
 
-    .journey>img {
+    .journey > img {
         top: 0;
         position: relative;
         margin-bottom: 20px;
@@ -596,13 +624,14 @@ html {
         text-align: left;
     }
 
-    .competency-card {
-        display: none;
+    .benefits .check-circle {
+        font-size: 20px;
     }
 
-    .content-section {
-        /* padding-left: 0 !important; */
-        text-align: center;
+    .benefits p, 
+    .benefit-item p {
+        font-size: 10px;
+        line-height: 1.5;
     }
 
     .benefits-list .benefit-item {
@@ -616,26 +645,21 @@ html {
         margin-right: 0;
     }
 
+    /* Testimonial Section */
     .testimonial .row {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .testimonial .col-md-6 {
-        max-width: 100%;
-        margin-bottom: 16px;
+    .testimonial-text {
+        height: auto;
     }
 
-    .testimonial-author {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .testimonial-author img {
-        margin-bottom: 8px;
-        margin-right: 0 !important;
+    /* Custom Button */
+    .custom-button {
+        font-size: 5px;
+        padding: 8px 12px !important;
     }
 }
 
@@ -647,17 +671,22 @@ html {
     .stat .col-md-4 {
         margin-bottom: 16px;
     }
-}
 
-@media (max-width: 767.98px) {
-    .brand-text {
-        font-size: 40px;
+    .competency-card {
+        display:none;
     }
 
-    .hero-text {
-        font-size: 14px;
+    .journey>img {
+        top: 0;
+        position: relative;
+        margin: 20px 0;
+        left: 0;
     }
-
+    .training .row {
+        flex-direction: column-reverse;
+        border: 1px solid red;
+        width: 90%;
+        margin: 0 auto;
+    }
 }
 </style>
-
