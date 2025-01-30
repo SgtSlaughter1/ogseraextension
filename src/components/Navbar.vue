@@ -18,8 +18,8 @@
                     </li>
                     <li class="nav-item">
 
-                        <router-link class="nav-link" to="#">TSP</router-link>
-                       <router-link to="/tsp" class="nav-link">TSP</router-link>
+                        <router-link class="nav-link" to="/tsp">TSP</router-link>
+                       
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Awarding Bodies</a>
