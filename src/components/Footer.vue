@@ -51,6 +51,8 @@ export default {
 
 .container {
     height: 250px;
+    width: 90%;
+    margin: 0 auto;
 
 }
 

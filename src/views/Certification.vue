@@ -254,4 +254,82 @@ export default {
     font-size: 2rem;
   }
 }
+
+@media (max-width: 500px) {
+    /* Hero Section Responsiveness */
+    .qualifications-hero {
+        height: auto;
+        padding: 30px 15px !important;
+    }
+
+    .hero-title h1 {
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+
+    /* Stats Section Responsiveness */
+    .stats-wrapper {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stats-container {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .stats-container > div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-label {
+        margin-bottom: 10px;
+    }
+
+    .stat-item {
+        margin: 5px 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stat-cta {
+        width: 100%;
+    }
+
+    .custom-apply-btn {
+        width: 60%;
+    }
+
+    /* Table Responsiveness */
+    .table-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .table-responsive {
+        width: 100% !important;
+    }
+
+    .table {
+        font-size: 0.75rem;
+    }
+
+    .table th, 
+    .table td {
+        padding: 0.5rem !important;
+    }
+
+    /* Typography Adjustments */
+    .text, 
+    .stat-item .text,
+    .stat-item .divider,
+    .stat-item .text-secondary,
+    .stat-item .text-dark {
+        font-size: 0.75rem !important;
+    }
+}
 </style>
