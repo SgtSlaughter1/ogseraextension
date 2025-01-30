@@ -22,7 +22,7 @@
 
       <div class="form-content p-0">
         <div class="form-shadow my-4">
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex  justify-content-between align-items-center">
             <h2 class="info-title p-0 m-4 mt-2">Equipment</h2>
             <button class="btn btn-add-new" @click="addNewEquipment">
               + Add New
@@ -90,13 +90,17 @@
                 <div
                   class="d-flex justify-content-between align-items-center mb-3"
                 >
-                  <h6 class="equipment-title m-0">
-                    Additional Equipment {{ index + 2 }}
-                  </h6>
-                  <button
-                    type="button"
-                    class="btn-remove"
-                    @click="removeEquipment(index)"
+              </div>
+              <div class="form-group mb-2">
+                <div class="d-flex deletebtn ">
+                <label :for="'equipment' + (index + 2)"
+                >Name of equipment</label
+                >
+                <span>
+                <button
+                type="button"
+                class="btn-remove"
+                @click="removeEquipment(index)"
                     title="Remove equipment"
                   >
                     <svg
@@ -116,11 +120,8 @@
                       />
                     </svg>
                   </button>
-                </div>
-                <div class="form-group mb-2">
-                  <label :for="'equipment' + (index + 2)"
-                    >Name of equipment</label
-                  >
+                  </span>
+                  </div>
                   <select
                     class="form-select select2"
                     v-model="equipment.name"
@@ -159,8 +160,8 @@
 
                 <div class="form-group select2 mb-2">
                   <label :for="'available' + (index + 2)"
-                    >Available equipment </label
-                  >
+                    >Available equipment
+                  </label>
                   <input
                     type="number"
                     class="form-control"
@@ -413,7 +414,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
-  height: calc(100vh - 60px); /* Adjust based on your ProgressBar height */
+  height: calc(100vh - 60px);
 }
 
 .first {
@@ -427,11 +428,16 @@ export default {
   background: #d4ff7f1f;
 }
 
+.deletebtn {
+  justify-content: space-between;
+}
+
 .info-title {
   font-size: 1.7rem;
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 400;
+
 }
 
 .form-group {
@@ -449,7 +455,7 @@ export default {
 .form-shadow {
   background-color: #fff;
   padding: 0;
-  width: 84%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -541,83 +547,20 @@ input:focus {
 }
 
 .equipment-section {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 0.6rem;
   transition: all 0.3s ease;
 }
 
 .equipment-forms-container {
-  max-height: calc(100vh - 250px); /* Adjust for header and navigation */
+  max-height: calc(100vh - 250px); 
   overflow-y: auto;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .registration-step-three {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .image-section {
-    height: 300px;
-  }
-
-  .form-section {
-    height: auto;
-  }
-
-  .form-content {
-    height: auto;
-    padding: 1.5rem;
-  }
-
-  .form-group {
-    padding-left: 1.5rem;
-  }
-
-  .info-title {
-    padding: 0 1.5rem;
-  }
-
-  .equipment-forms-container {
-    max-height: 60vh;
-  }
-
-  .navigation-buttons {
-    position: static;
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .form-content {
-    padding: 1rem;
-  }
-
-  .form-group {
-    padding-left: 1rem;
-  }
-
-  .info-title {
-    padding: 0 1rem;
-  }
-
-  .navigation-buttons {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* Update scrollbar styles */
+/* scrollbar styles */
 .equipment-forms-container::-webkit-scrollbar {
   width: 6px;
 }
@@ -651,12 +594,12 @@ input:focus {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  color: #dc3545; /* Red color for delete icon */
+  color: #dc3545; 
 }
 
 .btn-remove:hover {
   transform: scale(1.1);
-  color: #c82333; /* Darker red on hover */
+  color: #c82333; 
 }
 
 .delete-icon {
@@ -668,15 +611,82 @@ input:focus {
   position: relative;
 }
 
-/* Update responsive styles */
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .registration-step-three {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-section {
+    height: 300px;
+  }
+
+  .form-section {
+    height: auto;
+  }
+
+  .form-content {
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    padding: 0;
+  }
+
+  .info-title {
+    padding: 0 1.5rem;
+  }
+
+  .equipment-forms-container {
+    max-height: 60vh;
+  }
+
+  .navigation-buttons {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
 @media (max-width: 576px) {
+  .form-content {
+    padding: 1rem;
+  }
+
+  .form-group {
+    padding: 0;
+  }
+
+  .info-title {
+    padding: 0 1rem;
+    margin-left:6px !important;
+  }
+
+  .navigation-buttons {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }  
+
   .equipment-title {
     font-size: 0.9rem;
+  }
+
+  .equipment-section {
+    width: 100%;
   }
 
   .delete-icon {
     width: 16px;
     height: 16px;
   }
+  .equipment-forms-container {
+    padding:0;
+  }
 }
+
+
+
 </style>

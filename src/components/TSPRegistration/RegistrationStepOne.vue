@@ -15,79 +15,183 @@
     <div class="form-section col-lg-6 p-0 m-0">
       <ProgressBar :current-step="1" :total-steps="4" />
       <div class="form-content">
-        <h2 class="info-title">Info Details</h2>
-        <form @submit.prevent="submitForm">
-          <div class="form-group mb-4">
-            <input
-              type="text"
-              class="form-control"
-              v-model.trim="formData.organizationName"
-              placeholder="Organisation Name"
-              required
-            />
-            <span v-if="errors.organizationName" class="error">{{
-              errors.organizationName
-            }}</span>
-          </div>
+        <!-- Organization Info Section -->
+        <div class="form-shadow my-4">
+          <h2 class="info-title p-0 m-4 mt-2">Organization Info</h2>
+          <div class="form-container p-4">
+            <form @submit.prevent="submitForm">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model.trim="formData.organizationName"
+                  placeholder="Organisation Name"
+                  required
+                />
+                <span v-if="errors.organizationName" class="error">{{
+                  errors.organizationName
+                }}</span>
+              </div>
 
-          <div class="form-group mb-4">
-            <input
-              type="tel"
-              class="form-control"
-              v-model.trim="formData.phoneNumber"
-              placeholder="Phone Number"
-              required
-            />
-            <span v-if="errors.phoneNumber" class="error">{{
-              errors.phoneNumber
-            }}</span>
-          </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  class="form-control"
+                  v-model.trim="formData.phoneNumber"
+                  placeholder="Phone Number"
+                  required
+                />
+                <span v-if="errors.phoneNumber" class="error">{{
+                  errors.phoneNumber
+                }}</span>
+              </div>
 
-          <div class="form-group mb-4">
-            <input
-              type="email"
-              class="form-control"
-              v-model.trim="formData.emailAddress"
-              placeholder="Email Address"
-              required
-            />
-            <span v-if="errors.emailAddress" class="error">{{
-              errors.emailAddress
-            }}</span>
-          </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  class="form-control"
+                  v-model.trim="formData.emailAddress"
+                  placeholder="Email Address"
+                  required
+                />
+                <span v-if="errors.emailAddress" class="error">{{
+                  errors.emailAddress
+                }}</span>
+              </div>
 
-          <div class="form-group mb-4">
-            <select
-              class="form-select"
-              v-model="formData.organizationType"
-              required
-            >
-              <option value="" disabled selected>Organisation Type</option>
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
-            </select>
-            <span v-if="errors.organizationType" class="error">{{
-              errors.organizationType
-            }}</span>
-          </div>
+              <div class="form-group">
+                <select
+                  class="form-select"
+                  v-model="formData.organizationType"
+                  required
+                >
+                  <option value="" disabled selected>Organisation Type</option>
+                  <option value="type1">Type 1</option>
+                  <option value="type2">Type 2</option>
+                  <option value="type3">Type 3</option>
+                </select>
+                <span v-if="errors.organizationType" class="error">{{
+                  errors.organizationType
+                }}</span>
+              </div>
 
-          <div class="form-group mb-4">
-            <select
-              class="form-select"
-              v-model="formData.localGovernment"
-              required
-            >
-              <option value="" disabled selected>Local Government</option>
-              <option value="lg1">Local Government 1</option>
-              <option value="lg2">Local Government 2</option>
-              <option value="lg3">Local Government 3</option>
-            </select>
-            <span v-if="errors.localGovernment" class="error">{{
-              errors.localGovernment
-            }}</span>
+              <div class="form-group">
+                <select
+                  class="form-select"
+                  v-model="formData.localGovernment"
+                  required
+                >
+                  <option value="" disabled selected>Local Government</option>
+                  <option value="lg1">Local Government 1</option>
+                  <option value="lg2">Local Government 2</option>
+                  <option value="lg3">Local Government 3</option>
+                </select>
+                <span v-if="errors.localGovernment" class="error">{{
+                  errors.localGovernment
+                }}</span>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
+
+        <!-- Organization Admin Section -->
+        <div class="form-shadow admin my-4">
+          <h2 class="info-title p-0 mx-4 mt-2">Organization Admin</h2>
+
+          <div class="admin-form-container p-4">
+            <!-- Row 1: First Name and Last Name -->
+            <div class="admin-row">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model.trim="formData.firstName"
+                  placeholder="Enter First Name"
+                  required
+                />
+                <span v-if="errors.firstName" class="error">{{
+                  errors.firstName
+                }}</span>
+              </div>
+
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model.trim="formData.lastName"
+                  placeholder="Enter Last Name"
+                  required
+                />
+                <span v-if="errors.lastName" class="error">{{
+                  errors.lastName
+                }}</span>
+              </div>
+            </div>
+
+            <!-- Row 2: Middle Name and Email -->
+            <div class="admin-row">
+              <div class="form-group">
+                <label for="middleName">Middle Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  v-model.trim="formData.middleName"
+                  placeholder="Enter Middle Name"
+                />
+                <span v-if="errors.middleName" class="error">{{
+                  errors.middleName
+                }}</span>
+              </div>
+
+              <div class="form-group">
+                <label for="adminEmail">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  v-model.trim="formData.adminEmail"
+                  placeholder="Enter Email"
+                  required
+                />
+                <span v-if="errors.adminEmail" class="error">{{
+                  errors.adminEmail
+                }}</span>
+              </div>
+            </div>
+
+            <!-- Row 3: Gender and Phone -->
+            <div class="admin-row">
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-select" v-model="formData.gender" required>
+                  <option value="" disabled selected>Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <span v-if="errors.gender" class="error">{{
+                  errors.gender
+                }}</span>
+              </div>
+
+              <div class="form-group">
+                <label for="adminPhone">Phone</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  v-model.trim="formData.adminPhone"
+                  placeholder="Enter Phone Number"
+                  required
+                />
+                <span v-if="errors.adminPhone" class="error">{{
+                  errors.adminPhone
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
         <div class="navigation-buttons">
           <button type="button" class="btn btn-outline-success" @click="goBack">
             <img
@@ -127,6 +231,12 @@ export default {
         emailAddress: "",
         organizationType: "",
         localGovernment: "",
+        lastName: "",
+        firstName: "",
+        middleName: "",
+        adminEmail: "",
+        gender: "",
+        adminPhone: "",
       },
       errors: {},
     };
@@ -210,6 +320,57 @@ export default {
             this.clearError("localGovernment");
           }
           break;
+        case "lastName":
+          if (!this.formData.lastName) {
+            this.errors = { ...this.errors, lastName: "Last name is required" };
+          } else {
+            this.clearError("lastName");
+          }
+          break;
+        case "firstName":
+          if (!this.formData.firstName) {
+            this.errors = {
+              ...this.errors,
+              firstName: "First name is required",
+            };
+          } else {
+            this.clearError("firstName");
+          }
+          break;
+        case "adminEmail":
+          if (!this.formData.adminEmail) {
+            this.errors = { ...this.errors, adminEmail: "Email is required" };
+          } else if (!this.validateEmail(this.formData.adminEmail)) {
+            this.errors = {
+              ...this.errors,
+              adminEmail: "Please enter a valid email",
+            };
+          } else {
+            this.clearError("adminEmail");
+          }
+          break;
+        case "gender":
+          if (!this.formData.gender) {
+            this.errors = { ...this.errors, gender: "Gender is required" };
+          } else {
+            this.clearError("gender");
+          }
+          break;
+        case "adminPhone":
+          if (!this.formData.adminPhone) {
+            this.errors = {
+              ...this.errors,
+              adminPhone: "Phone number is required",
+            };
+          } else if (!this.validatePhone(this.formData.adminPhone)) {
+            this.errors = {
+              ...this.errors,
+              adminPhone: "Please enter a valid phone number",
+            };
+          } else {
+            this.clearError("adminPhone");
+          }
+          break;
       }
     },
     validateForm() {
@@ -219,13 +380,51 @@ export default {
         "emailAddress",
         "organizationType",
         "localGovernment",
+        "lastName",
+        "firstName",
+        "adminEmail",
+        "gender",
+        "adminPhone",
       ];
       fields.forEach((field) => this.validateField(field));
     },
+    validateAdminFields() {
+      let isValid = true;
+
+      if (!this.formData.lastName) {
+        this.errors.lastName = "Last name is required";
+        isValid = false;
+      }
+      if (!this.formData.firstName) {
+        this.errors.firstName = "First name is required";
+        isValid = false;
+      }
+      if (!this.formData.adminEmail) {
+        this.errors.adminEmail = "Email is required";
+        isValid = false;
+      } else if (!this.validateEmail(this.formData.adminEmail)) {
+        this.errors.adminEmail = "Please enter a valid email";
+        isValid = false;
+      }
+      if (!this.formData.gender) {
+        this.errors.gender = "Gender is required";
+        isValid = false;
+      }
+      if (!this.formData.adminPhone) {
+        this.errors.adminPhone = "Phone number is required";
+        isValid = false;
+      } else if (!this.validatePhone(this.formData.adminPhone)) {
+        this.errors.adminPhone = "Please enter a valid phone number";
+        isValid = false;
+      }
+
+      return isValid;
+    },
     submitForm() {
       this.validateForm();
+      const adminValid = this.validateAdminFields();
 
-      if (Object.keys(this.errors).length === 0) {
+      if (Object.keys(this.errors).length === 0 && adminValid) {
         this.$emit("step-completed", this.formData);
         this.$router.push({ name: "registration-step-2" });
       }
@@ -254,6 +453,21 @@ export default {
     },
     "formData.localGovernment"() {
       this.validateField("localGovernment");
+    },
+    "formData.lastName"() {
+      this.validateField("lastName");
+    },
+    "formData.firstName"() {
+      this.validateField("firstName");
+    },
+    "formData.adminEmail"() {
+      this.validateField("adminEmail");
+    },
+    "formData.gender"() {
+      this.validateField("gender");
+    },
+    "formData.adminPhone"() {
+      this.validateField("adminPhone");
     },
   },
 };
@@ -296,33 +510,40 @@ export default {
   color: #333;
 }
 
-.form-group {
-  margin-bottom: 0 !important;
-  height: auto;
-  margin: 0;
+.admin {
+  background-color: #edf0f9;
+}
 
-  padding-bottom: 1.5rem;
+.form-group {
+  position: relative;
 }
 
 .form-control,
 .form-select {
-  padding: 0.75rem;
-  border: 1px solid #393939;
-  border-radius: 4px;
-  background-color: #edf0f9;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  margin-bottom: 0.25rem;
 }
 
 .form-control:focus,
 .form-select:focus {
-  background-color: #edf0f9;
-  outline: none;
-  box-shadow: none;
+  background-color: #fff;
   border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+  outline: none;
 }
 
 .error {
-  color: red;
+  color: #dc3545;
   font-size: 0.8rem;
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
   margin-top: 0.25rem;
 }
 
@@ -330,7 +551,7 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  margin-top: 8rem;
+  margin-top: 2rem;
   background: #edf0f9;
   border-top: 1px solid #eee;
 }
@@ -369,6 +590,73 @@ export default {
   height: 20px;
 }
 
+.form-shadow {
+  background-color: #fff;
+  padding: 0;
+  width: 97%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.admin-form-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem !important;
+}
+
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: #ced4da;
+  background-color: #fff;
+}
+
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  
+}
+
+
+.form-control.has-error,
+.form-select.has-error {
+  border-color: #dc3545;
+}
+
+.form-control.has-error:focus,
+.form-select.has-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+
+
+
 @media (max-width: 992px) {
   .registration-step-one {
     flex-direction: column;
@@ -393,11 +681,11 @@ export default {
 
 @media (max-width: 576px) {
   .form-content {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   .form-group {
-    padding-left: 1rem;
+    padding: 1rem;
   }
 
   .info-title {
@@ -413,6 +701,22 @@ export default {
   .btn {
     width: 100%;
     justify-content: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .admin-row {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .error {
+    bottom: -1.8rem;
   }
 }
 </style>

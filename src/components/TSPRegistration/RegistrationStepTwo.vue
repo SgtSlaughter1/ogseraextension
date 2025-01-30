@@ -322,7 +322,7 @@ export default {
 }
 
 .form-content {
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -339,9 +339,7 @@ export default {
   border-radius: 8px;
   padding: 1.5rem;
   width:97%;
- 
 }
-
 
 .facilities-title {
   font-size: 1rem;
