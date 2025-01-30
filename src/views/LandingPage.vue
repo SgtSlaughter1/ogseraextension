@@ -192,7 +192,7 @@
                                 variant="success" 
                                 label="Register as TSP"
                                 icon="bi bi-arrow-right"
-                                to="/register"
+                                to="/registration"
                             />
                         </div>
                     </div>

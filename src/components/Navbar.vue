@@ -14,7 +14,7 @@
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
                        <router-link to="/tsp" class="nav-link">TSP</router-link>
@@ -23,7 +23,7 @@
                         <a class="nav-link" href="#">Awarding Bodies</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Certifications</a>
+                        <router-link class="nav-link" to="/certification">Certifications</router-link>
                     </li>
                     <li class="nav-item ms-3">
                         <router-link to="/login" class="btn btn-success px-4">Login as TSP</router-link>
