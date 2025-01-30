@@ -16,7 +16,7 @@
       <!-- </div> -->
     </section>
 
-    <div class="row f-box ">
+    <div class="row d-flex justify-content-center f-box ">
       <div class="col-md-6 first-box">
         <div class=" text-white  box1">
             <p>
@@ -194,10 +194,8 @@ span{
     margin-left: 50px;
 }
 .box1{
-  height: 70vh;
   font-size: 32px;
   font-weight: 500;
-  margin-left: 15px;
   background-color: #269946;
   padding: 45px;
   padding-top: 60px;
@@ -205,10 +203,8 @@ span{
 
 }
 .box2{
-  height: 50vh;
   font-size: 28px;
   font-weight: 500;
-  margin-right: 15px;
   margin-top: 60px;
   background-color: #ffe7a2;
   padding: 30px;
