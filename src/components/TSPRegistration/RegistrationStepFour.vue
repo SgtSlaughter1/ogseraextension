@@ -211,8 +211,7 @@ export default {
   background: #edf0f9;
   margin: 0;
   padding: 0;
-  border:1px solid red;
-
+  
 }
 
 .registration-image {
