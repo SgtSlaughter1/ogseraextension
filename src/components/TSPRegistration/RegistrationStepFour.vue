@@ -9,7 +9,7 @@
     <div class="form-section col-7 p-0 m-0">
       <ProgressBar :current-step="4" :total-steps="4" />
       <div class="form-content p-0">
-        <div class="d-flex justify-content-between align-items-center px-4 mt-4">
+        <div class="d-flex justify-content-between align-items-center px-4 mt-4 header-container">
           <h2 class="info-title">Staffing</h2>
           <button class="btn btn-add-new ms-0" @click="showModal">+ Add New Role</button>
         </div>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="navigation-buttons">
-          <button type="button" class="btn back-btn" @click="goBack">
+          <button type="button" class="btn btn-outline-success  back-btn" @click="goBack">
             <img src="@/assets/TSP Registration/icon/arrowleft.png" alt="Back" class="arrow-icon me-2">Back
           </button>
           <button type="submit" class="btn submit-btn" @click="submitForm">
@@ -262,19 +262,148 @@ export default {
 }
 
 
-
-@media (max-width: 768px) {
-  .image-section {
-    height: 300px;
+@media (max-width: 1200px) {
+  .form-section {
+    padding: 0 0.5rem;
   }
   
-  .table-container {
-    overflow-x: auto;
-    width: 100%;
+  .navigation-buttons {
+    padding: 1.5rem 2rem;
   }
+  
+  .info-title {
+    font-size: 1.3rem;
+  }
+}
 
+
+@media (max-width: 992px) {
+  .registration-step-four {
+    flex-direction: column;
+  }
+  
+  .image-section {
+    display: none;
+  }
+  
+  .form-section {
+    width: 100%;
+    min-height: auto;
+    padding: 1rem;
+  }
+  
+
+  .form-section.col-7,
+  .image-section.col-5 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  
+  .table-responsive {
+    margin: 0;
+    padding: 0.5rem;
+  }
+  
+  .navigation-buttons {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .info-title {
+    font-size: 1.2rem;
+  }
+  
+  .btn-add-new {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .rank-badge {
+    padding: 2px 15px;
+    font-size: 0.8rem;
+  }
+  
   .navigation-buttons {
     padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .back-btn,
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .form-content {
+    padding: 0;
+  }
+  
+  .info-title {
+    font-size: 1.1rem;
+  }
+  
+  .table-responsive {
+    margin: 0;
+    padding: 0.25rem;
+  }
+  
+  .table {
+    font-size: 0.8rem;
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .name-cell {
+    min-width: 120px;
+  }
+  
+  .rank-badge {
+    padding: 2px 10px;
+    font-size: 0.75rem;
+  }
+  
+
+  .d-flex.justify-content-between {
+    padding: 0.5rem !important;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .btn-add-new {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  .table {
+    min-width: 500px; 
+  }
+  
+  .navigation-buttons {
+    margin-top: 1rem;
+    padding: 0.5rem;
   }
 }
 </style>

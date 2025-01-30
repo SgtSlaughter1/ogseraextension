@@ -23,7 +23,7 @@
       <router-link 
         :to="{ name: 'registration-step-2' }" 
         class="nav-item" 
-        :class="{ active: currentStep >= 2, clickable: currentStep >= 2 }"
+        :class="{ active: currentStep >= 2, clickable: currentStep > 1 }"
         @click="navigateToStep(2)"
       >
         <span class="nav-content">
@@ -107,12 +107,38 @@ export default {
       if (this.currentStep >= step) {
         this.$router.push({ name: `registration-step-${step}` })
       }
+    },
+    // scrool for active state
+    scrollToActiveStep() {
+      this.$nextTick(() => {
+        const activeItem = this.$el.querySelector('.nav-item.active')
+        if (activeItem) {
+          const container = this.$el.querySelector('.nav-items')
+          const scrollOptions = {
+            behavior: 'smooth',
+            inline: 'center'
+          }
+          activeItem.scrollIntoView(scrollOptions)
+        }
+      })
     }
   },
   computed: {
     progressPercentage() {
       return (this.currentStep / this.totalSteps) * 100
     }
+  },
+ 
+  watch: {
+    currentStep: {
+      handler() {
+        this.scrollToActiveStep()
+      },
+      immediate: true
+    }
+  },
+  mounted() {
+    this.scrollToActiveStep()
   }
 }
 </script>
@@ -134,7 +160,8 @@ export default {
   flex-wrap: nowrap;
   overflow-x: auto; 
   max-width: 100%; 
-
+  scroll-behavior: smooth; 
+  -webkit-overflow-scrolling: touch; 
 }
 
 .progres {
@@ -220,6 +247,43 @@ span {
   font-weight: 500;
   white-space: nowrap;
 }
+
+/* scrollbar */
+.nav-items::-webkit-scrollbar {
+  height: 1px; 
+}
+
+.nav-items::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 0 4px; 
+}
+
+.nav-items::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); 
+  backdrop-filter: blur(4px); 
+  border-radius: 20px; 
+  transition: background 0.2s ease; 
+}
+
+
+.nav-items:hover::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3); 
+}
+
+.nav-items::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+
+.nav-items {
+  scrollbar-width: none; 
+}
+
+.nav-items:hover {
+  scrollbar-width: thin; 
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
 
 @media (max-width: 768px) {
   .nav-item {

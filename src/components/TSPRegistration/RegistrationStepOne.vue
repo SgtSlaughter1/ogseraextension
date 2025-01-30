@@ -1,7 +1,7 @@
 <template>
   <div class="registration-step-one row">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-lg-6">
+    <div class="image-section p-0 m-0 col-lg-6 d-none d-lg-block">
       <img
         src="@/assets/TSP Registration/image 01.png"
         alt="Registration Image"

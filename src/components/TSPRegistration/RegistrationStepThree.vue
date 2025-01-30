@@ -1,8 +1,8 @@
 <template>
   <div class="registration-step-three row">
     <!-- Left side - Image -->
-    <div class="image-section p-0 m-0 col-lg-6">
-      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image d-none d-lg-block"
+    <div class="image-section p-0 m-0 col-lg-6 d-none d-lg-block">
+      <img src="@/assets/TSP Registration/image 03 .png" alt="Registration Image" class="registration-image "
         width="100%" height="100%">
     </div>
 
@@ -117,11 +117,10 @@ export default {
   },
 
   mounted() {
-    // Scroll to top when component is mounted
     window.scrollTo(0, 0);
   },
   watch: {
-    // Watch for changes in form fields and validate them
+    
     'formData.equipment1.name'() {
       this.validateField('equipment1Name')
     },
@@ -147,14 +146,14 @@ export default {
       this.$router.push({ name: 'registration-step-2' })
     },
 
-    // Clear error for a specific field
+   
     clearError(field) {
       if (this.errors[field]) {
         delete this.errors[field];
       }
     },
 
-    // Validate individual form fields
+  
     validateField(field) {
       switch (field) {
         case 'equipment1Name':
