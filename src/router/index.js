@@ -35,10 +35,6 @@ const router = createRouter({
       name: 'certification',
       component: Certification,
     },
-
-
-
-
     {
       path: "/tsp",
       name: "tsp",
