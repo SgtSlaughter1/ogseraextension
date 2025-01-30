@@ -19,7 +19,7 @@ export default {
     variant: {
       type: String,
       default: 'primary', // primary, success, warning, etc.
-      validator: (value) => ['primary', 'success', 'warning', 'light', 'dark'].includes(value)
+      validator: (value) => ['primary', 'success', 'warning', 'light', 'dark', 'custom'].includes(value)
     },
     
     // Button size
@@ -70,7 +70,7 @@ export default {
     buttonClasses() {
       const baseClasses = [
         'btn',
-        `btn-${this.variant}`,
+        this.variant !== 'custom' ? `btn-${this.variant}` : '',
         this.customClass
       ]
       

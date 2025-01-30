@@ -1,14 +1,14 @@
 <template>
     <footer class="footer mt-auto py-4">
-        <div class="container">
+        <div class="container p-2">
             <div class="row align-items-center">
                 <!-- Logo and Description -->
                 <div class="col-md-8">
                     <div class="align-items-center mb-3">
                         <img src="/src/assets/Home/logo .png" alt="GSQ Logo" height="60" class="me-3">
                         <div class="mt-2">
-                            <h5 class="mb-1">Ogun State Skills Qualification</h5>
-                            <p class="mb-0 text-muted">Equipping you with Skills for the Future</p>
+                            <h5 class="mb-1 text-dark">Ogun State Skills Qualification</h5>
+                            <p class="mb-0 text-dark">Equipping you with Skills for the Future</p>
                         </div>
                     </div>
                 </div>
@@ -16,17 +16,21 @@
                 <!-- Address and Contact -->
                 <div class="col-md-4 ">
                     <div class="address-block">
-                        <h5>Address</h5>
-                        <p class="mb-1">Ministry of Education, Science and Technology,</p>
-                        <p class="mb-2">Governor's Office, Oke Mosan, Abeokuta.</p>
+                        <h5 class="fw-bold">Address</h5>
+                        <p class="mb-1 fw-bold">Ministry of Education, Science and Technology,</p>
+                        <p class="mb-2 fw-bold">Governor's Office, Oke Mosan, Abeokuta.</p>
                         <a class="text-success text-decoration-none">
                             moest@ogunstate.gov.ng
                         </a>
                     </div>
                     <div class="powered-by mt-3">
-                        <span class="me-2 text-dark">Powered by</span>
-                        <img src="/src/assets/Home/Ogun 1.png" alt="GSERA Logo" height="30">
-                        <span class="ms-1 fw-bold fs-6">GSERA</span>
+                        <div class="d-flex align-items-center justify-content"> 
+                        <span class="me-2 fw-bold text-dark">Powered by</span>
+                            <img src="/src/assets/Home/Ogun 1.png" alt="GSERA Logo" height="40">
+                            <h1 class="ms-1 fw-bold sera">GSERA</h1>
+
+                        </div>
+                
                     </div>
                 </div>
             </div>
@@ -43,7 +47,15 @@ export default {
 <style scoped>
 .footer {
     background: linear-gradient(to bottom, #EEFCF1,90%, #0C8127);
-    border-top: 1px solid #e0e0e0;
+}
+
+.container {
+    height: 250px;
+
+}
+
+.sera {
+    font-size: 30px;
 }
 
 .address-block {
@@ -72,6 +84,10 @@ export default {
     
     .powered-by {
         margin-top: 1.5rem;
+    }
+
+    .container {
+        height: auto;
     }
 }
 </style>

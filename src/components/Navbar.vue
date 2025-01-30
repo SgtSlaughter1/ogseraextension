@@ -17,6 +17,8 @@
                         <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
+
+                        <router-link class="nav-link" to="#">TSP</router-link>
                        <router-link to="/tsp" class="nav-link">TSP</router-link>
                     </li>
                     <li class="nav-item">
