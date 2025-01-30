@@ -159,7 +159,7 @@
 
                 <div class="form-group select2 mb-2">
                   <label :for="'available' + (index + 2)"
-                    >Available equipment</label
+                    >Available equipment </label
                   >
                   <input
                     type="number"
