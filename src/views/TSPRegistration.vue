@@ -1,48 +1,67 @@
 <template>
   <div class="tsp-registration">
     <div class="registration-container">
-      <router-view @next="nextStep" @back="prevStep" />
+      <router-view
+        :completed-steps="completedSteps"
+        @step-completed="handleStepComplete"
+        @navigate="handleNavigation"
+      />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TSPRegistration',
+  name: "TSPRegistration",
   data() {
     return {
       currentStep: 1,
       totalSteps: 4,
-      formData: {}
-    }
+      completedSteps: [1], 
+      formData: {},
+    };
   },
   mounted() {
     window.scrollTo(0, 0);
   },
 
   methods: {
-    nextStep(stepData) {
-      
-      this.formData = { ...this.formData, ...stepData }
-      
+    handleStepComplete(stepData) {
+      // Save form data
+      this.formData = { ...this.formData, ...stepData };
+
+      // Mark current step as completed
+      if (!this.completedSteps.includes(this.currentStep)) {
+        this.completedSteps.push(this.currentStep);
+      }
+
       // Navigate to next step
-      const nextStep = this.currentStep + 1
+      const nextStep = this.currentStep + 1;
       if (nextStep <= this.totalSteps) {
-        this.currentStep = nextStep
-        this.$router.push({ name: `registration-step-${nextStep}` })
+        this.currentStep = nextStep;
+        this.$router.push({ name: `registration-step-${nextStep}` });
       }
     },
-    prevStep() {
-      const prevStep = this.currentStep - 1
-      if (prevStep >= 1) {
-        this.currentStep = prevStep
-        this.$router.push({ name: `registration-step-${prevStep}` })
-      } else {
-        this.$router.push({ name: 'home' })
+
+    // Allow navigation to previous steps
+    handleNavigation(step) {
+      if (step <= this.currentStep) {
+        this.currentStep = step;
+        this.$router.push({ name: `registration-step-${step}` });
       }
-    }
-  }
-}
+    },
+
+    prevStep() {
+      const prevStep = this.currentStep - 1;
+      if (prevStep >= 1) {
+        this.currentStep = prevStep;
+        this.$router.push({ name: `registration-step-${prevStep}` });
+      } else {
+        this.$router.push({ name: "home" });
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
