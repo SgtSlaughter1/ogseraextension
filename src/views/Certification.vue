@@ -1,47 +1,47 @@
 <template>
   <!-- Hero Section -->
-  <section class="qualifications-hero bg-light py-5">
-    <div class="container text-center text-white">
+  <section class="qualifications-hero py-5 d-flex align-items-center justify-content-center">
+    <div class="container text-center">
       <!-- Title Section -->
-      <div class="hero-title">
-        <h1 class="display-4 fw-bold mb-3">Qualifications Available</h1>
+      <div class="hero-title mb-4">
+        <h1 class="fw-bold">Qualifications Available</h1>
       </div>
 
       <!-- Stats Section -->
-      <div class="stats-container p-2 rounded-3  shadow">
-        <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
-          <!-- Statistics Label -->
-          <div class="stat-label me-4">
-            <span class="btn text-primary py-2 px-3 fs-4">Statistics</span>
-          </div>
+      <div class="stats-wrapper d-flex justify-content-center align-items-center gap-3">
+        <!-- Stats Container -->
+        <div class="stats-container rounded-1 ">
+          <div class="d-flex align-items-center justify-content-center w-100">
+            <!-- Statistics Label -->
+            <div class="stat-label me-3">
+              <span class="btn text-primary py-2 px-3 fs-4">Statistics</span>
+            </div>
 
-          <!-- Total Applications -->
-          <div class="stat-item">
-            <div class="total px-3 d-flex align-items-center justify-content-center">
-              <div class="text-dark small me-4 mb-1">Total Applications</div>
-              <div class="text-dark fs-3 fw-bold">2500</div>
+            <!-- Total Applications -->
+            <div class="stat-item d-flex p-1 px-3 align-items-center">
+              <div class="text me-2">Total Applications</div>
+              <div class="divider fw-bold fs-6 me-2"> | </div>
+              <div class="text-secondary fs-4 fw-bold">2500</div>
+            </div>
+
+            <!-- Approved -->
+            <div class="stat-item d-flex p-1 px-3 align-items-center">
+              <div class="text me-2">Approved</div>
+              <div class="divider fw-bold fs-6 me-2"> | </div>
+              <div class="text-dark fs-4 fw-bold">2000</div>
             </div>
           </div>
+        </div>
 
-          <!-- Approved -->
-          <div class="stat-item">
-            <div class="total px-3 d-flex align-items-center justify-content-center">
-              <div class="text-dark small me-4 mb-1">Approved</div>
-              <div class="text-dark small fs-3 fw-bold">2000</div>
-            </div>
-          </div>
-
-          <!-- Apply Button -->
-          <div class="stat-cta">
-            <CustomButton 
-              variant="custom" 
-              size="lg" 
-              label="Apply Now" 
-              icon="bi bi-arrow-right"
-              to="/apply"
-              customClass="custom-apply-btn"
-            />
-          </div>
+        <!-- Apply Button -->
+        <div class="stat-cta">
+          <CustomButton 
+            variant="custom" 
+            size="md" 
+            label="Apply here" 
+            to="/apply"
+            customClass="custom-apply-btn"
+          />
         </div>
       </div>
     </div>
@@ -69,35 +69,35 @@
             <td class="p-3 text-success fw-semibold">Validated</td>
           </tr>
           <tr>
-            <td class="p-3">1</td>
-            <td class="p-3">Building Construction</td>
-            <td class="p-3">Plumbing</td>
-            <td class="p-3">1, 2 & 3</td>
-            <td class="p-3 text-success fw-semibold">Validated</td>
-          </tr>
-          <tr>
-            <td class="p-3">1</td>
-            <td class="p-3">Building Construction</td>
-            <td class="p-3">Plumbing</td>
-            <td class="p-3">1, 2 & 3</td>
-            <td class="p-3 text-success fw-semibold">Validated</td>
-          </tr>
-          <tr>
-            <td class="p-3">1</td>
-            <td class="p-3">Building Construction</td>
-            <td class="p-3">Plumbing</td>
-            <td class="p-3">1, 2 & 3</td>
-            <td class="p-3 text-success fw-semibold">Validated</td>
-          </tr>
-          <tr>
             <td class="p-3">2</td>
+            <td class="p-3">Building Construction</td>
+            <td class="p-3">Plumbing</td>
+            <td class="p-3">1, 2 & 3</td>
+            <td class="p-3 text-success fw-semibold">Validated</td>
+          </tr>
+          <tr>
+            <td class="p-3">3</td>
+            <td class="p-3">Building Construction</td>
+            <td class="p-3">Plumbing</td>
+            <td class="p-3">1, 2 & 3</td>
+            <td class="p-3 text-success fw-semibold">Validated</td>
+          </tr>
+          <tr>
+            <td class="p-3">4</td>
+            <td class="p-3">Building Construction</td>
+            <td class="p-3">Plumbing</td>
+            <td class="p-3">1, 2 & 3</td>
+            <td class="p-3 text-success fw-semibold">Validated</td>
+          </tr>
+          <tr>
+            <td class="p-3">5</td>
             <td class="p-3">Building Construction</td>
             <td class="p-3">Masonry</td>
             <td class="p-3">1, 2 & 3</td>
             <td class="p-3 text-success fw-semibold">Validated</td>
           </tr>
           <tr>
-            <td class="p-3">3</td>
+            <td class="p-3">6</td>
             <td class="p-3">Building Construction</td>
             <td class="p-3">Painting and Decoration</td>
             <td class="p-3">1, 2 & 3</td>
@@ -126,35 +126,64 @@ export default {
   background-size: cover;
   position: relative;
   color: white;
+  height: 300px;
+}
+
+.hero-title h1 {
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.stats-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.text {
+  color: #118E34;
 }
 
 .stats-container {
   border-radius: 4px;
-  background-color: #E0ECFC;
-  width: 80%;
-  margin: 0 auto;
+  background-color: #e0ecfc;
+  flex-grow: 1;
+  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-container > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-label {
+  display: flex;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  background-color: #CCF1CF;
+}
+
+.divider {
+  color: #fff;
+  margin: 0 8px;
 }
 
 .total{
   background-color: #AAFB82F5;
-}
-
-.btn-warning {
-  background-color: #f59e0b;
-  border: none;
-  color: #fff;
-  transition: all 0.3s ease;
-  border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-  .hero-title h1 {
-    font-size: 2rem;
-  }
-
-  .stats-container {
-    flex-direction: column;
-  }
+  justify-content: space-between;
 }
 
 .table-container {
@@ -163,7 +192,7 @@ export default {
 }
 
 .table-scroll {
-  max-height: 400px; 
+  max-height: 300px; 
   overflow-y: auto;
 }
 
@@ -187,5 +216,42 @@ export default {
 .custom-apply-btn {
   background-color: #AAFB82F5 !important;
   color: #118E34 !important;
+  padding: 6px 30px;
+  border-radius: 4px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-apply-btn > label {
+  font-size: 14px;
+}
+
+.stat-cta {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .qualifications-hero {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .stats-wrapper {
+    flex-direction: column;
+    width: 95%;
+    gap: 10px;
+  }
+
+  .stats-container,
+  .custom-apply-btn {
+    height: auto;
+    width: 100%;
+  }
+
+  .hero-title h1 {
+    font-size: 2rem;
+  }
 }
 </style>
