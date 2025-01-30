@@ -14,10 +14,10 @@
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">TSP</a>
+                        <router-link class="nav-link" to="#">TSP</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Awarding Bodies</a>

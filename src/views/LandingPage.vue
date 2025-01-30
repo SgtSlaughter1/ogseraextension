@@ -202,7 +202,7 @@
                             </div>
 
                             <CustomButton variant="success" label="Register as TSP" icon="bi bi-arrow-right"
-                                to="/register" class="pe-5" />
+                                to="/registration" class="pe-5" />
                         </div>
                     </div>
                 </div>
@@ -660,3 +660,4 @@ html {
 
 }
 </style>
+
