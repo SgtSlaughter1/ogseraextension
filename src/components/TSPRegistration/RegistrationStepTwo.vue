@@ -496,7 +496,7 @@ input[type="checkbox"].custom-checkbox {
   .info-title, 
   .facilities-section {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem 0rem;
   }
 
   .navigation-buttons {
@@ -507,6 +507,10 @@ input[type="checkbox"].custom-checkbox {
 @media (max-width: 576px) {
   .form-content {
     padding: 1rem;
+  }
+
+    .form-group {
+    margin-bottom: 0.8rem !important;
   }
 
   .facilities-section {

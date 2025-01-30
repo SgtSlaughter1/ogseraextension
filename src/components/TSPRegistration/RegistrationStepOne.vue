@@ -16,7 +16,7 @@
       <ProgressBar :current-step="1" :total-steps="4" />
       <div class="form-content">
         <!-- Organization Info Section -->
-        <div class="form-shadow my-4">
+        <div class="form-shadow my-3">
           <h2 class="info-title p-0 m-4 mt-2">Organization Info</h2>
           <div class="form-container p-4">
             <form @submit.prevent="submitForm">
@@ -96,7 +96,7 @@
 
         <!-- Organization Admin Section -->
         <div class="form-shadow admin my-4">
-          <h2 class="info-title p-0 mx-4 mt-2">Organization Admin</h2>
+          <h2 class="info-title p-0 mx-4 mt-3">Organization Coordinator</h2>
 
           <div class="admin-form-container p-4">
             <!-- Row 1: First Name and Last Name -->
@@ -636,13 +636,10 @@ export default {
   background-color: #fff;
 }
 
-
 .form-select {
   cursor: pointer;
   appearance: none;
-  
 }
-
 
 .form-control.has-error,
 .form-select.has-error {
@@ -653,9 +650,6 @@ export default {
 .form-select.has-error:focus {
   box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
 }
-
-
-
 
 @media (max-width: 992px) {
   .registration-step-one {
@@ -679,23 +673,26 @@ export default {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .form-content {
     padding: 0.5rem;
   }
 
   .form-group {
-    padding: 1rem;
+    padding: 0;
   }
 
   .info-title {
-    padding: 0 1rem;
+    padding: 0 2rem;
+    margin-bottom:0 !important;
   }
 
   .navigation-buttons {
     padding: 1rem;
     flex-direction: column;
     gap: 1rem;
+    margin-top:0px;
+    
   }
 
   .btn {
@@ -704,19 +701,19 @@ export default {
   }
 }
 
-
 @media (max-width: 768px) {
   .admin-row {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.2rem;
   }
 
+
   .form-group {
-    margin-bottom: 2.5rem !important;
+    margin-bottom: 1.2rem !important;
   }
 
   .error {
-    bottom: -1.8rem;
+    bottom: -1.2rem;
   }
 }
 </style>

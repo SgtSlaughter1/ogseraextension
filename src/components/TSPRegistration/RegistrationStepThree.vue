@@ -498,7 +498,6 @@ input:focus {
 
 .btn {
   padding: 0.5rem 2rem;
-  display: flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -655,13 +654,15 @@ input:focus {
     padding: 1rem;
   }
 
-  .form-group {
-    padding: 0;
+   .form-group {
+    margin-bottom: 1rem !important;
+    padding:0;
   }
 
   .info-title {
     padding: 0 1rem;
     margin-left:6px !important;
+    font-size:1.2rem;
   }
 
   .navigation-buttons {
@@ -685,6 +686,7 @@ input:focus {
   .equipment-forms-container {
     padding:0;
   }
+
 }
 
 
