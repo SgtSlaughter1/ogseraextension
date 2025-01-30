@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '../views/LandingPage.vue'
 import Login from '@/views/Login.vue'
+
 import TSPRegistration from "@/views/TSPRegistration.vue";
 import RegistrationStepOne from "@/components/TSPRegistration/RegistrationStepOne.vue";
 import RegistrationStepTwo from "@/components/TSPRegistration/RegistrationStepTwo.vue";
 import RegistrationStepThree from "@/components/TSPRegistration/RegistrationStepThree.vue";
 import RegistrationStepFour from "@/components/TSPRegistration/RegistrationStepFour.vue";
-
+import About from '@/views/About.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       name: "login",
       component: Login,
     },
+    {
+      path: '/about',
+      name: 'about',
+      component: About,
+    }
 
     {
       path: "/registration",
