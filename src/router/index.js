@@ -10,6 +10,8 @@ import RegistrationStepFour from "@/components/TSPRegistration/RegistrationStepF
 import About from '@/views/About.vue'
 import Certification from '@/views/Certification.vue';
 
+import TSP from '@/views/TSP.vue';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -24,11 +26,10 @@ const router = createRouter({
       component: Login,
     },
     {
-      path: '/about',
-      name: 'about',
+      path: "/about",
+      name: "about",
       component: About,
     },
-
     {
       path: '/certification',
       name: 'certification',
@@ -36,6 +37,13 @@ const router = createRouter({
     },
 
 
+
+
+    {
+      path: "/tsp",
+      name: "tsp",
+      component: TSP,
+    },
 
     {
       path: "/registration",
