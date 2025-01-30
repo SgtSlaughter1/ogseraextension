@@ -3,13 +3,14 @@
 
         <section class="position-relative hero-section">
             <img src="../assets/tsp/backg tsp.png" class="img-fluid">
-            <div class="position-absolute top-50 start-50 translate-middle text-center text-white w-75">
+            <div class="position-absolute top-50 start-50 translate-middle text-center text-white w-75 sub-hero">
                 <div>
-                    <h1 class="mb-5 hero-text">Become an Accrediated Training Provider with Ogun Skills Qualification</h1>
+                    <h1 class="mb-5 hero-text">Become an Accrediated Training Provider with Ogun Skills Qualification
+                    </h1>
                 </div>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="#" class="button">View TSP</a>
-                    <a href="#" class="button rounded">Apply for TSP</a>
+                    <a href="#" class="btn btn-lg button">View TSP</a>
+                    <a href="#" class="btn btn-lg button">Apply for TSP</a>
                 </div>
             </div>
         </section>
@@ -17,7 +18,7 @@
         <section class="keyresponsibility-section">
             <div class="row responsibility align-items-center">
                 <div class="col-md-7 key-text my-5">
-                    <h1 class="fw-bolder my-5">Key Responsibilities of a Training Service Provider</h1>
+                    <h1 class="fw-bold my-3">Key Responsibilities of a Training Service Provider</h1>
                     <div class="d-flex">
                         <div>
                             <i class="bi bi-check-circle-fill text-success me-3 fs-2"></i>
@@ -60,8 +61,8 @@
 
         <section class="criteria">
             <div class="row align-items-center">
-                <div class="col-md-7 criteria-text">
-                    <h3 class="mb-3">Eligibility Criteria</h3>
+                <div class="col-md-7 criteria-text my-5">
+                    <h3 class="mb-3 my-3">Eligibility Criteria</h3>
                     <h1 class="fw-bold">To become a Training Service Provider under Ogun Skills Qualification</h1>
                     <h4 class="text-dark mt-3 mb-3">You need to meet the following requirement</h4>
                     <div class="d-flex">
@@ -106,7 +107,7 @@
                         <h5 class="mb-4">Partner with at least one approved Awarding Body (AB) for delivering NSQ
                             qualifications.</h5>
                     </div>
-                    <a href="#" class="button w-50 fs-3">Register as TSP <i class="bi bi-arrow-right"></i></a>
+                    <a href="#" class="btn btn-lg button fs-3">Register as TSP <i class="bi bi-arrow-right"></i></a>
                 </div>
 
                 <div class="col-md-5 me-0">
@@ -128,9 +129,9 @@
                         <p class="mb-0">Filter</p>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle p-3" type="button" id="dropdownMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Search by LGA 
+                        <button class="btn btn-outline-success dropdown-toggle p-3" type="button"
+                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Search by LGA
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item" href="#">Action 1</a></li>
@@ -180,7 +181,7 @@
                                 <td>Ijebu Ode</td>
                                 <td>Farm Institute Eweje</td>
                                 <td>08037196851</td>
-                                <td>Ayodele  Temitope</td>
+                                <td>Ayodele Temitope</td>
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
@@ -231,10 +232,11 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.hero-text{
+.hero-text {
     font-size: 53px;
     font-weight: 700;
 }
+
 .button {
     background-color: white;
     border: none;
@@ -247,6 +249,11 @@ body {
     font-weight: 600;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(9, 110, 38);
+    color: white;
 }
 
 .responsibility {
@@ -308,41 +315,10 @@ body {
     max-width: 100%;
 }
 
-.criteria img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.filter-btn {
-    background-color: rgb(223, 236, 252);
-}
-
-.criteria .col-md-5.me-0 {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-}
-
-.criteria img.me-0 {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
-}
 
 /* Responsive Sections */
 @media screen and (max-width: 768px) {
 
-    .responsibility,
-    .keyresponsibility-section .responsibility,
-    .criteria .row {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: 20px;
-        padding: 15px;
-        margin: 0;
-    }
 
     .key-text,
     .keyresponsibility-section .key-text,
@@ -352,52 +328,59 @@ body {
         text-align: left;
         order: 1;
         padding: 0 15px;
+        margin-top: 0 !important;
     }
 
-    .criteria-text h1 {
-        font-size: 1.4rem !important;
-        margin-bottom: 15px !important;
-        line-height: 1.3;
+    .key-text h1 {
+        margin-top: -25px !important;
+        font-size: 25px !important;
     }
 
-    .key-text .d-flex,
-    .criteria-text .d-flex {
-        align-items: center;
-        margin-bottom: 10px;
-        width: 100%;
+    .key-text h6 {
+        font-size: 16.5px !important;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .criteria-text h5 {
+        font-size: 15px !important;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+
+    .criteria-text h3 {
+        font-size: 14px !important;
     }
     
-    .responsibility img,
+    .criteria-text h1 {
+        font-size: 24px !important;
+    }
+
     .keyresponsibility-section img,
     .criteria img {
         width: 100% !important;
-        margin: 15px 0 !important;
+        margin: 40px 0 10px 0!important;
         border-radius: 20px;
         object-fit: cover;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         align-self: center;
+    }
+    
+    .criteria {
+        padding: 0 14px;
     }
 
     .criteria-text .button {
         width: 100% !important;
         margin-top: 20px;
         padding: 12px 20px;
-        font-size: 0.9rem;
+        font-size: 15px !important;
         text-align: center;
     }
 
-    .criteria-text h5,
-    .key-text h6 {
-        font-size: 1rem;
-        margin-bottom: 5px !important;
-    }
-
     .hero-section img {
-        height: 60vh;
-        max-width: 100%;
+        height: 40vh;
         object-fit: cover;
-        height: 50vh;
-        width: 100%;
     }
 
     .hero-section .position-absolute {
@@ -406,22 +389,33 @@ body {
         padding: 0 15px;
     }
 
-    .hero-section h1,
-    .hero-section .button {
-        font-size: 1.2rem !important;
-        margin-bottom: 5px !important;
-        padding: 8px 15px;
-        margin: 4px 5px;
+    .hero-section h1 {
+        font-size: 20px;
+        margin-bottom: 6px !important;
     }
 
-    .hero-section .d-flex {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+    .hero-section .button {
+        font-size: 14px !important;
+        padding: 12px 20px;
+        margin: 30px 0 0;
     }
+
+    .sub-hero {
+        width: 90%;
+    }
+
+    .hero-text {
+        font-size: 25px;
+    }
+
+        .tables-section {
+        padding: 0 14px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+
     .responsibility,
     .keyresponsibility-section .responsibility,
     .criteria .row {

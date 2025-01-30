@@ -33,18 +33,15 @@
             <form @submit.prevent="handleSubmit">
               <!-- First Equipment Section -->
               <div class="equipment-section first mb-4">
-                <div class="form-group mrt mb-2">
-                  <label for="equipment1" class="mb-2">Name of equipment</label>
-                  <select
-                    class="form-select"
+                <div class="form-group">
+                  <label>Name of Equipment</label>
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="formData.equipment1.name"
+                    placeholder="Enter equipment name"
                     required
-                  >
-                    <option value="" disabled selected>Select Category</option>
-                    <option value="equipment1">Equipment 1</option>
-                    <option value="equipment2">Equipment 2</option>
-                    <option value="equipment3">Equipment 3</option>
-                  </select>
+                  />
                   <span v-if="errors.equipment1Name" class="error">{{
                     errors.equipment1Name
                   }}</span>
@@ -64,21 +61,6 @@
                     errors.equipment1Quantity
                   }}</span>
                 </div>
-
-                <div class="form-group mb-2">
-                  <label for="available1">Available equipment</label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model.number="formData.equipment1.available"
-                    placeholder="Enter available quantity"
-                    required
-                    min="0"
-                  />
-                  <span v-if="errors.equipment1Available" class="error">{{
-                    errors.equipment1Available
-                  }}</span>
-                </div>
               </div>
 
               <!-- Additonal Equipment Sections -->
@@ -89,48 +71,45 @@
               >
                 <div
                   class="d-flex justify-content-between align-items-center mb-3"
-                >
-                  <h6 class="equipment-title m-0">
-                    Additional Equipment {{ index + 2 }}
-                  </h6>
-                  <button
-                    type="button"
-                    class="btn-remove"
-                    @click="removeEquipment(index)"
-                    title="Remove equipment"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                      class="delete-icon"
+                ></div>
+                <div class="form-group">
+                  <div class="d-flex deletebtn">
+                    <label :for="'equipment' + (index + 2)"
+                      >Name of equipment</label
                     >
-                      <path
-                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <div class="form-group mb-2">
-                  <label :for="'equipment' + (index + 2)"
-                    >Name of equipment</label
-                  >
-                  <select
-                    class="form-select select2"
+                    <span>
+                      <button
+                        type="button"
+                        class="btn-remove"
+                        @click="removeEquipment(index)"
+                        title="Remove equipment"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          viewBox="0 0 16 16"
+                          class="delete-icon"
+                        >
+                          <path
+                            d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                          />
+                          <path
+                            fill-rule="evenodd"
+                            d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                          />
+                        </svg>
+                      </button>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
                     v-model="equipment.name"
+                    placeholder="Enter equipment name"
                     required
-                  >
-                    <option value="" disabled selected>Select Category</option>
-                    <option value="equipment1">Equipment 1</option>
-                    <option value="equipment2">Equipment 2</option>
-                    <option value="equipment3">Equipment 3</option>
-                  </select>
+                  />
                   <span
                     v-if="errors['equipment' + (index + 2) + 'Name']"
                     class="error"
@@ -154,26 +133,6 @@
                     class="error"
                   >
                     {{ errors["equipment" + (index + 2) + "Quantity"] }}
-                  </span>
-                </div>
-
-                <div class="form-group select2 mb-2">
-                  <label :for="'available' + (index + 2)"
-                    >Available equipment </label
-                  >
-                  <input
-                    type="number"
-                    class="form-control"
-                    v-model.number="equipment.available"
-                    placeholder="Enter available quantity"
-                    required
-                    min="0"
-                  />
-                  <span
-                    v-if="errors['equipment' + (index + 2) + 'Available']"
-                    class="error"
-                  >
-                    {{ errors["equipment" + (index + 2) + "Available"] }}
                   </span>
                 </div>
               </div>
@@ -218,7 +177,6 @@ export default {
         equipment1: {
           name: "",
           quantity: "",
-          available: "",
         },
       },
       errors: {},
@@ -248,11 +206,6 @@ export default {
         this.clearError("equipment1Quantity");
       }
     },
-    "formData.equipment1.available"(newVal) {
-      if (newVal !== "") {
-        this.clearError("equipment1Available");
-      }
-    },
 
     // Watch each additional equipment field
     additionalEquipment: {
@@ -267,9 +220,6 @@ export default {
           }
           if (equipment.quantity) {
             this.clearError(`${prefix}Quantity`);
-          }
-          if (equipment.available !== "") {
-            this.clearError(`${prefix}Available`);
           }
         });
       },
@@ -302,20 +252,6 @@ export default {
         isValid = false;
       } else if (equipment.quantity < 1) {
         this.errors[`${prefix}Quantity`] = "Quantity must be at least 1";
-        isValid = false;
-      }
-
-      // Validate available
-      if (equipment.available === "") {
-        this.errors[`${prefix}Available`] = "Available equipment is required";
-        isValid = false;
-      } else if (equipment.available < 0) {
-        this.errors[`${prefix}Available`] =
-          "Available equipment cannot be negative";
-        isValid = false;
-      } else if (equipment.available > equipment.quantity) {
-        this.errors[`${prefix}Available`] =
-          "Available equipment cannot exceed total quantity";
         isValid = false;
       }
 
@@ -366,7 +302,6 @@ export default {
       this.additionalEquipment.push({
         name: "",
         quantity: "",
-        available: "",
       });
     },
 
@@ -377,7 +312,6 @@ export default {
       const prefix = `equipment${index + 2}`;
       this.clearError(`${prefix}Name`);
       this.clearError(`${prefix}Quantity`);
-      this.clearError(`${prefix}Available`);
     },
 
     handleNavigation(step) {
@@ -413,7 +347,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
-  height: calc(100vh - 60px); /* Adjust based on your ProgressBar height */
+  height: calc(100vh - 60px);
 }
 
 .first {
@@ -425,6 +359,10 @@ export default {
 
 .second {
   background: #d4ff7f1f;
+}
+
+.deletebtn {
+  justify-content: space-between;
 }
 
 .info-title {
@@ -449,7 +387,7 @@ export default {
 .form-shadow {
   background-color: #fff;
   padding: 0;
-  width: 84%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -492,7 +430,6 @@ input:focus {
 
 .btn {
   padding: 0.5rem 2rem;
-  display: flex;
   align-items: center;
   gap: 0.5rem;
 }
@@ -541,83 +478,20 @@ input:focus {
 }
 
 .equipment-section {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   padding: 0.6rem;
   transition: all 0.3s ease;
 }
 
 .equipment-forms-container {
-  max-height: calc(100vh - 250px); /* Adjust for header and navigation */
+  max-height: calc(100vh - 250px);
   overflow-y: auto;
   padding: 0 1rem;
   margin-bottom: 1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-  .registration-step-three {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .image-section {
-    height: 300px;
-  }
-
-  .form-section {
-    height: auto;
-  }
-
-  .form-content {
-    height: auto;
-    padding: 1.5rem;
-  }
-
-  .form-group {
-    padding-left: 1.5rem;
-  }
-
-  .info-title {
-    padding: 0 1.5rem;
-  }
-
-  .equipment-forms-container {
-    max-height: 60vh;
-  }
-
-  .navigation-buttons {
-    position: static;
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .form-content {
-    padding: 1rem;
-  }
-
-  .form-group {
-    padding-left: 1rem;
-  }
-
-  .info-title {
-    padding: 0 1rem;
-  }
-
-  .navigation-buttons {
-    padding: 1rem;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* Update scrollbar styles */
+/* scrollbar styles */
 .equipment-forms-container::-webkit-scrollbar {
   width: 6px;
 }
@@ -651,12 +525,12 @@ input:focus {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  color: #dc3545; /* Red color for delete icon */
+  color: #dc3545;
 }
 
 .btn-remove:hover {
   transform: scale(1.1);
-  color: #c82333; /* Darker red on hover */
+  color: #c82333;
 }
 
 .delete-icon {
@@ -668,15 +542,83 @@ input:focus {
   position: relative;
 }
 
-/* Update responsive styles */
-@media (max-width: 576px) {
+/* Responsive Design */
+@media (max-width: 992px) {
+  .registration-step-three {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image-section {
+    height: 300px;
+  }
+
+  .form-section {
+    height: auto;
+  }
+
+  .form-content {
+    height: auto;
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    padding: 0;
+  }
+
+  .info-title {
+    padding: 0 1.5rem;
+  }
+
+  .equipment-forms-container {
+    max-height: 60vh;
+  }
+
+  .navigation-buttons {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    font-size: 14px;
+  }
+  .form-content {
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem !important;
+    padding: 0;
+  }
+
+  .info-title {
+    padding: 0 1rem;
+    margin-left: 6px !important;
+    font-size: 1.2rem;
+  }
+
+  .navigation-buttons {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .equipment-title {
     font-size: 0.9rem;
+  }
+
+  .equipment-section {
+    width: 100%;
   }
 
   .delete-icon {
     width: 16px;
     height: 16px;
+  }
+  .equipment-forms-container {
+    padding: 0;
   }
 }
 </style>
