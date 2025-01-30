@@ -17,7 +17,7 @@
                         <a class="nav-link" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">TSP</a>
+                       <router-link to="/tsp" class="nav-link">TSP</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Awarding Bodies</a>
