@@ -419,6 +419,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  * {
+    font-size:14px;
+  }
   .info-title {
     font-size: 1.2rem;
   }

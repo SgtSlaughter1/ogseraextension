@@ -649,7 +649,10 @@ input:focus {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+  *{
+    font-size:14px;
+  }
   .form-content {
     padding: 1rem;
   }

@@ -614,7 +614,7 @@ export default {
 
 .form-group {
   flex: 1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   position: relative;
 }
 
@@ -674,6 +674,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  * {
+    font-size:14px;
+  }
   .form-content {
     padding: 0.5rem;
   }
@@ -699,10 +702,7 @@ export default {
     width: 100%;
     justify-content: center;
   }
-}
-
-@media (max-width: 768px) {
-  .admin-row {
+    .admin-row {
     flex-direction: column;
     gap: 0.2rem;
   }
@@ -716,4 +716,6 @@ export default {
     bottom: -1.2rem;
   }
 }
+
+
 </style>

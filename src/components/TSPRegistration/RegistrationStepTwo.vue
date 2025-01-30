@@ -505,6 +505,9 @@ input[type="checkbox"].custom-checkbox {
 }
 
 @media (max-width: 576px) {
+  * {
+    font-size:14px;
+  }
   .form-content {
     padding: 1rem;
   }
