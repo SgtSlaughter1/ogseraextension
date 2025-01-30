@@ -137,7 +137,7 @@ export default {
 
 }
 
-@media (max-width: 500px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
     /* Login Container and Layout */
     .login-container {
         padding: 50px 15px;

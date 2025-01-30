@@ -14,7 +14,7 @@
           <div class="d-flex align-items-center justify-content-center w-100">
             <!-- Statistics Label -->
             <div class="stat-label me-3">
-              <span class="btn text-primary py-2 px-3 fs-4">Statistics</span>
+              <span class="btn py-2 px-3 fs-4">Statistics</span>
             </div>
 
             <!-- Total Applications -->
@@ -150,8 +150,8 @@ export default {
 .stats-container {
   border-radius: 4px;
   background-color: #e0ecfc;
-  flex-grow: 1;
-  height: 50px; 
+  flex-grow: 0.5;
+  height: 70px; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,6 +167,10 @@ export default {
 .stat-label {
   display: flex;
   align-items: center;
+}
+
+.stat-label > span {
+  color: #118E34;
 }
 
 .stat-item {
@@ -218,48 +222,23 @@ export default {
   color: #118E34 !important;
   padding: 6px 30px;
   border-radius: 4px;
-  height: 50px;
+  height: 70px;
   display: flex;
+  font-size: 20px;
   align-items: center;
+  font-weight: bold;
 }
-
-.custom-apply-btn > label {
-  font-size: 14px;
-}
-
 .stat-cta {
   display: flex;
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .qualifications-hero {
-    height: auto;
-    padding: 20px 0;
-  }
-
-  .stats-wrapper {
-    flex-direction: column;
-    width: 95%;
-    gap: 10px;
-  }
-
-  .stats-container,
-  .custom-apply-btn {
-    height: auto;
-    width: 100%;
-  }
-
-  .hero-title h1 {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 500px) {
-    /* Hero Section Responsiveness */
+/* Mobile Styles */
+@media (max-width: 760px) {
+    /* Hero Section */
     .qualifications-hero {
         height: auto;
-        padding: 30px 15px !important;
+        padding: 20px 0;
     }
 
     .hero-title h1 {
@@ -267,10 +246,11 @@ export default {
         text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
-    /* Stats Section Responsiveness */
+    /* Stats Section */
     .stats-wrapper {
-        width: 100%;
         flex-direction: column;
+        width: 95%;
+        margin: 0 auto;
         gap: 10px;
     }
 
@@ -278,22 +258,38 @@ export default {
         width: 100%;
         height: auto;
         flex-direction: column;
+        align-items: center;
         padding: 10px;
     }
 
     .stats-container > div {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .stat-label {
         margin-bottom: 10px;
     }
 
+    .stat-label > span {
+        font-size: 0.875rem;
+    }
+
     .stat-item {
-        margin: 5px 0;
         width: 100%;
+        margin: 5px 0;
+        align-items: center;
+        text-align: center;
+        font-size: 0.75rem;
         justify-content: center;
+    }
+
+    .stat-item .text,
+    .stat-item .divider,
+    .stat-item .text-secondary,
+    .stat-item .text-dark {
+        margin: 2px 0;
     }
 
     .stat-cta {
@@ -301,7 +297,12 @@ export default {
     }
 
     .custom-apply-btn {
-        width: 60%;
+        width: 50%;
+        justify-content: center;
+        font-size: 5px;
+        padding: 8px 12px !important;
+        margin: 0 auto;
+        height: 40px;
     }
 
     /* Table Responsiveness */
@@ -311,25 +312,16 @@ export default {
     }
 
     .table-responsive {
-        width: 100% !important;
+        width: 90% !important;
     }
 
     .table {
-        font-size: 0.75rem;
+        font-size: 0.675rem;
     }
 
     .table th, 
     .table td {
-        padding: 0.5rem !important;
-    }
-
-    /* Typography Adjustments */
-    .text, 
-    .stat-item .text,
-    .stat-item .divider,
-    .stat-item .text-secondary,
-    .stat-item .text-dark {
-        font-size: 0.75rem !important;
+        padding: 0.25rem !important;
     }
 }
 </style>
