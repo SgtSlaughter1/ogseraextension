@@ -42,7 +42,7 @@
     
       
       <!-- Promote Lifelong Learning -->
-      <div class=" container box4 mb-3 ">
+      <div class=" container-fluid  box4 mb-3 ">
           <h2 class="title">
             <img src="../assets/about/ICON Key Objectives .png" ait="image-icon" width="50px" class="image">
             Promote Lifelong Learning
@@ -54,7 +54,7 @@
       </div>
 
       <!-- Improve Workforce Competency -->
-      <div class=" container box5 mb-3 ">
+      <div class=" container-fluid box5 mb-3 ">
         <h2 class="title">
             <img src="../assets/about/ICON Key Objectives .png" ait="image-icon" width="50px" class="image">
             Improve Workforce Competency
@@ -68,7 +68,7 @@
 
       <!-- Foster Economic Growth -->
  
-        <div class=" container box6 mb-3">
+        <div class=" container-fluid box6 mb-3">
           <h2 class="title">
             <img src="../assets/about/ICON Key Objectives .png" ait="image-icon" width="50px" class="image">
             Foster Economic Growth
@@ -82,11 +82,11 @@
     </div>
   </div>
     <!-- Why OSQ Matters Section -->
-    <div class=" box7 p-5">
-      <h1 class="text-white  why">Why OSQ Matters....</h1>
+    <div class="container-fluid box7 p-5">
+      <h1 class="text-white   why">Why OSQ Matters....</h1>
       <div class="row p-3">
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 bg-warning" style="border-radius: 0;">
+        <div class="col-md-4 mb-3 ">
+          <div class="card h-100 bg-warning">
             <div class="card-body">
               <h2 class="card-title">Individual</h2>
               <ul class="employer">
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="card h-100 bg-warning" style="border-radius: 0;">
+          <div class="card h-100 bg-warning" >
             <div class="card-body">
               <h2 class="card-title">Employers</h2>
               <ul class="employer">
@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="col-md-4 mb-3">
-          <div class="card h-100 bg-warning" style="border-radius: 0;">
+          <div class="card h-100 bg-warning">
             <div class="card-body">
               <h2 class="card-title">Ogun State</h2>
               <ul class="employer">
@@ -188,17 +188,17 @@ span{
 }
 .f-box{
     margin-top: 40px;
-    margin-bottom: 5px;
+    /* padding: 0 35px !important; */
+    /* margin-left: -30px; */
 }
-.first-box{
-    margin-left: 50px;
-}
+
+
 .box1{
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 500;
   background-color: #269946;
   padding: 45px;
-  padding-top: 60px;
+  /* margin-left: 15px; */
   text-align: left;
 
 }
@@ -208,6 +208,7 @@ span{
   margin-top: 60px;
   background-color: #ffe7a2;
   padding: 30px;
+  /* margin-right: 40px; */
   text-align: left;
 }
 .big-box{
@@ -232,8 +233,10 @@ span{
     font-weight: 700;
 }
 .box4, .box5, .box6 {
-  padding: 30px;
+  padding: 50px 60px;
+  width: 93%;
 }
+
 .image{
   margin-right: 30px;
   
@@ -244,10 +247,10 @@ span{
 ul li{
   list-style-position: outside;
 }
-.foster{
+.foster {
   padding-left: 115px;
   font-size: 22px;
-  line-height: 1.5;
+  line-height: 2;
   font-weight: 500;
   text-align: left;
   
@@ -295,28 +298,26 @@ ul li{
 @media screen and (min-width: 320px) and (max-width: 425px) {
     .f-box{
         margin-top: 0px;
-        padding-top: 0px;
+        padding-top: 0px !important;
     }
   .first-box{
     margin: 0px;
     padding: 5px;
   }
-    .box1, .box2 {
-    height: auto;
-    margin-left: 0 !important;
-    margin-right: 0;
+    .box1{
+      margin: 20px;
     padding: 25px;
     font-size: 16px;
   }
   .box2{
+    padding: 25px;
+    font-size: 16px;
+    margin: 0 16px;
     margin-top: -2px;
+  
   }
   .key-obj {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 98%;
   }
 
   .koo-OSQ {
@@ -344,6 +345,9 @@ ul li{
     font-size: 14px;
     padding-left: 45px;
   }
+  .box4, .box5, .box6 {
+    width: 98%;
+  }
   .box7{
     padding: 0px;
   }
@@ -351,6 +355,8 @@ ul li{
     line-height: 1.8;
   }
 .why{
+  /* text-align: center; */
+    padding-top: 25px;
     margin-bottom: 5px;
     font-size: 20px;
 }
@@ -373,18 +379,20 @@ ul li{
 .card-title{
   font-size: 30px;
 }
+.box7{
+  padding: 0 !important;
+}
 }
 
 @media screen and (min-width: 426px)  and (max-width: 768px) {
 .box1 {
     padding: 28px;
     font-size: 21px;
-    height: 60vh;
+  
 }
 .box2{
     padding: 25px;
     font-size: 16px;
-    height: 35vh;
 }
 .key-obj{
     width: 80%;
@@ -403,6 +411,7 @@ ul li{
 .card-title{
   font-size: 20px;
 }
+
     
 }
   
