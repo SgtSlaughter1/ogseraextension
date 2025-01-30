@@ -178,7 +178,6 @@ export default {
   border-radius: none;
   transition: width 0.3s;
   margin-left: 0;
-
 }
 
 .nav-item {
@@ -239,7 +238,6 @@ export default {
   width: 16px;
   height: 16px;
   opacity: 0.8;
-  
 }
 
 span {
@@ -265,7 +263,6 @@ span {
   transition: background 0.2s ease; 
 }
 
-
 .nav-items:hover::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3); 
 }
@@ -273,7 +270,6 @@ span {
 .nav-items::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.4); 
 }
-
 
 .nav-items {
   scrollbar-width: none; 
@@ -284,17 +280,72 @@ span {
   scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
-
+/* Mobile-specific styles */
 @media (max-width: 768px) {
+  .nav-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin:0;
+  }
+
   .nav-item {
+    flex: 1 1 100%; 
     font-size: 0.8rem;
+    padding: 0.5rem 1.3rem;
+  }
+
+  .nav-content {
+    gap: 0.3rem;
+  }
+
+  .icon-container {
+    width: 20px;
+    height: 20px;
+  }
+
+  .icon-container img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .next-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .progres {
+    width: 100%;
+    height: 10px;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 480px) {
   .nav-items {
-    flex-direction: column; 
-    align-items: flex-start;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 0.15rem;
+    padding: 0.25rem 0rem;
+    margin: 0;
+  }
+
+  .nav-item {
+    font-size: 0.75rem;
+  }
+
+  .icon-container {
+    width: 18px;
+    height: 18px;
+  }
+
+  .icon-container img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .next-icon {
+    width: 10px;
+    height: 10px;
   }
 }
 </style>
