@@ -33,13 +33,13 @@
             <form @submit.prevent="handleSubmit">
               <!-- First Equipment Section -->
               <div class="equipment-section first mb-4">
-                <div class="form-group">
-                  <label>Name of Equipment</label>
+                <div class="form-group mb-2">
+                  <label>Name of equipment as per Training Guide of the Proposed Trade</label>
                   <input
                     type="text"
                     class="form-control"
                     v-model="formData.equipment1.name"
-                    placeholder="Enter equipment name"
+                    placeholder=""
                     required
                   />
                   <span v-if="errors.equipment1Name" class="error">{{
@@ -48,17 +48,32 @@
                 </div>
 
                 <div class="form-group mb-2">
-                  <label for="quantity1">Quantity</label>
+                  <label for="quantity1">Quantity as per the Training Guide </label>
                   <input
                     type="number"
                     class="form-control"
                     v-model.number="formData.equipment1.quantity"
-                    placeholder="Enter quantity"
+                    placeholder=""
                     required
                     min="1"
                   />
                   <span v-if="errors.equipment1Quantity" class="error">{{
                     errors.equipment1Quantity
+                  }}</span>
+                </div>
+
+                <div class="form-group mb-2">
+                  <label for="quantity2">Quantity physically available at the training location</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model.number="formData.equipment1.quantity2"
+                    placeholder=""
+                    required
+                    min="1"
+                  />
+                  <span v-if="errors.equipment1Quantity2" class="error">{{
+                    errors.equipment1Quantity2
                   }}</span>
                 </div>
               </div>
@@ -72,10 +87,10 @@
                 <div
                   class="d-flex justify-content-between align-items-center mb-3"
                 ></div>
-                <div class="form-group">
+                <div class="form-group mb-2 select2">
                   <div class="d-flex deletebtn">
                     <label :for="'equipment' + (index + 2)"
-                      >Name of equipment</label
+                      >Name of equipment as per Training Guide of the Proposed Trade</label
                     >
                     <span>
                       <button
@@ -107,7 +122,7 @@
                     type="text"
                     class="form-control"
                     v-model="equipment.name"
-                    placeholder="Enter equipment name"
+                    placeholder=""
                     required
                   />
                   <span
@@ -119,12 +134,12 @@
                 </div>
 
                 <div class="form-group select2 mb-2">
-                  <label :for="'quantity' + (index + 2)">Quantity</label>
+                  <label :for="'quantity' + (index + 2)">Quantity as per the Training Guide</label>
                   <input
                     type="number"
                     class="form-control"
                     v-model.number="equipment.quantity"
-                    placeholder="Enter quantity"
+                    placeholder=""
                     required
                     min="1"
                   />
@@ -135,9 +150,88 @@
                     {{ errors["equipment" + (index + 2) + "Quantity"] }}
                   </span>
                 </div>
+
+                <div class="form-group select2 mb-2">
+                  <label :for="'quantity' + (index + 2)">Quantity physically available at the training location</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model.number="equipment.quantity2"
+                    placeholder=""
+                    required
+                    min="1"
+                  />
+                  <span
+                    v-if="errors['equipment' + (index + 2) + 'Quantity2']"
+                    class="error"
+                  >
+                    {{ errors["equipment" + (index + 2) + "Quantity2"] }}
+                  </span>
+                </div>
               </div>
             </form>
           </div>
+        </div>
+
+        <div class="notes-content m-0">
+          <!-- Flex container for question and answer -->
+          <div
+            class="question-answer-container d-flex justify-content-between align-items-center mb-4"
+          >
+            <!-- Question Box -->
+            <div class="question-box flex-grow-1 me-3">
+              <p class="mb-0">
+                Does your organization agree to ensure the availability of all
+                the tools & equipment required as per the relevant training
+                guide during the training program?
+              </p>
+              <span v-if="errors.answer" class="text-danger">{{ errors.answer }}</span>
+            </div>
+            <!-- Answer Box -->
+            <div class="answer-box">
+              <button
+                type="button"
+                class="btn btn-success"
+                :class="{ 'btn-selected': answer === 'yes', 'btn-unselected': answer !== 'yes' }"
+                @click="setAnswer('yes')"
+              >
+                Yes
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-success ms-2"
+                :class="{ 'btn-selected': answer === 'no', 'btn-unselected': answer !== 'no' }"
+                @click="setAnswer('no')"
+              >
+                No
+              </button>
+            </div>
+          </div>
+
+          <!-- Notes Section -->
+          <div class="notes-section m-0 p-0">
+            <h6 class="notes-title">Notes:</h6>
+            <ol class="mb-0">
+              <li>
+                Separate list is required for each proposed training location.
+              </li>
+              <li>
+                All training facilities will be inspected on the basis of the
+                information provided above.
+              </li>
+            </ol>
+            <p class="fw-bold warning-text p-0 mt-0">
+              False or misleading information will lead to disqualification of
+              the Training Provider.
+            </p>
+          </div>
+
+          <!-- Trainees Info -->
+          <p class="trainees-info p-0 m-0">
+            Training provider must have at least 1 classroom to accommodate
+            maximum of 25 trainees each along with practical lab/Workshop/Office
+            & Toilet
+          </p>
         </div>
 
         <div class="navigation-buttons">
@@ -177,9 +271,11 @@ export default {
         equipment1: {
           name: "",
           quantity: "",
+          quantity2: "",
         },
       },
       errors: {},
+      answer: "",
     };
   },
 
@@ -206,6 +302,11 @@ export default {
         this.clearError("equipment1Quantity");
       }
     },
+    "formData.equipment1.quantity2"(newVal) {
+      if (newVal) {
+        this.clearError("equipment1Quantity2");
+      }
+    },
 
     // Watch each additional equipment field
     additionalEquipment: {
@@ -220,6 +321,9 @@ export default {
           }
           if (equipment.quantity) {
             this.clearError(`${prefix}Quantity`);
+          }
+          if (equipment.quantity2) {
+            this.clearError(`${prefix}Quantity2`);
           }
         });
       },
@@ -255,7 +359,27 @@ export default {
         isValid = false;
       }
 
+      // Validate quantity2
+      if (!equipment.quantity2) {
+        this.errors[`${prefix}Quantity2`] = "Quantity physically available at the training location is required";
+        isValid = false;
+      } else if (equipment.quantity2 < 1) {
+        this.errors[`${prefix}Quantity2`] = "Quantity physically available at the training location must be at least 1";
+        isValid = false;
+      }
+
       return isValid;
+    },
+
+    setAnswer(value) {
+      this.answer = value;
+      this.clearError("answer");
+    },
+
+    validateAnswer() {
+      if (!this.answer) {
+        this.errors.answer = "You must choose an option.";
+      }
     },
 
     handleSubmit() {
@@ -275,6 +399,11 @@ export default {
         );
         isValid = isValid && equipmentValid;
       });
+
+      // Validate answer
+      this.validateAnswer();
+      isValid = isValid && !this.errors.answer;
+
       //checks the entries for both first and additonal equip
       if (isValid) {
         const allEquipment = {
@@ -302,6 +431,7 @@ export default {
       this.additionalEquipment.push({
         name: "",
         quantity: "",
+        quantity2: "",
       });
     },
 
@@ -312,6 +442,7 @@ export default {
       const prefix = `equipment${index + 2}`;
       this.clearError(`${prefix}Name`);
       this.clearError(`${prefix}Quantity`);
+      this.clearError(`${prefix}Quantity2`);
     },
 
     handleNavigation(step) {
@@ -365,6 +496,7 @@ export default {
   justify-content: space-between;
 }
 
+
 .info-title {
   font-size: 1.7rem;
   margin-bottom: 0.5rem;
@@ -376,6 +508,11 @@ export default {
   height: auto;
   margin: 0;
 }
+
+.form-group, .deletebtn > label {
+  font-size: 13px;
+}
+
 
 .form-select {
   background-color: #edf0f9;
@@ -391,7 +528,7 @@ export default {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 350px;
 }
 
 input {
@@ -542,6 +679,80 @@ input:focus {
   position: relative;
 }
 
+.question-answer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.question-box {
+  flex-grow: 1;
+  margin-right: 1rem;
+  background-color: #7fff7f1f;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.answer-box {
+  display: flex;
+  align-items: center;
+}
+
+.notes-section {
+  margin-bottom: 1.5rem;
+}
+
+.notes-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.warning-text {
+  font-size: 13px;
+}
+
+ol {
+  padding-left: 0.2rem;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+}
+
+li {
+  color: #333;
+  font-size: 13px;
+  list-style-type: lower-roman;
+  line-height: 1.9;
+}
+
+.trainees-info {
+  background-color: #edf0f9;
+  padding: 0 1rem;
+  border-radius: 4px;
+  color: #666;
+  font-size: 13px;
+}
+
+.btn-selected {
+  background-color: #28A745;
+  color: white;
+  border: 2px solid #28A745;
+}
+.btn-unselected {
+  background-color: #f8f9fa;
+  color: #212529;
+  border: 2px solid #ced4da;
+}
+.notes-content {
+padding:0 33px;
+}
+
+@media (max-width: 1260px) {
+  .form-content {
+    overflow-y: auto;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
   .registration-step-three {
@@ -620,5 +831,26 @@ input:focus {
   .equipment-forms-container {
     padding: 0;
   }
+  .question-answer-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding:0;
+  }
+  .question-box {
+    margin-bottom: 1rem; 
+    width: 100%;
+  }
+  .notes-content {
+  padding: 20px !important;
+  font-size:13px !important;
 }
+.form-shadow {
+  background-color: transparent;
+}
+  
+}
+
+
+
 </style>

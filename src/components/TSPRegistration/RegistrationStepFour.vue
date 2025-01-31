@@ -29,7 +29,7 @@
               <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Rank</th>
+                <th>Employement Type</th>
                 <th>Experience</th>
                 <th>Position</th>
                 <th>Action</th>
@@ -40,7 +40,7 @@
                 <td>{{ index + 1 }}</td>
                 <td class="name-cell">{{ staff.name }}</td>
                 <td>
-                  <span class="rank-badge">{{ staff.rank }}</span>
+                  <span class="employment-type-badge">{{ staff.employmentType }}</span>
                 </td>
                 <td>{{ staff.experience }}</td>
                 <td>{{ staff.position }}</td>
@@ -64,11 +64,7 @@
                         @click="editStaff(staff, index)"
                         >Edit</span
                       >
-                      <span
-                        class="popup-item delete"
-                        @click="deleteStaff(index)"
-                        >Delete</span
-                      >
+                      
                     </div>
                   </div>
                 </td>
@@ -127,19 +123,19 @@ export default {
       staffList: [
         {
           name: "Oloyede Michael",
-          rank: "8",
+          employmentType: "Full-Time",
           experience: "2 Year",
           position: "Manager",
         },
         {
           name: "Oloyede Michael",
-          rank: "8",
+          employmentType: "Part-Time",
           experience: "2 Year",
           position: "Manager",
         },
         {
           name: "Oloyede Michael",
-          rank: "8",
+          employmentType: "Contract",
           experience: "2 Year",
           position: "Manager",
         },
@@ -170,7 +166,7 @@ export default {
       if (
         staffData &&
         staffData.name &&
-        staffData.rank &&
+        staffData.employementType &&
         staffData.experience &&
         staffData.position
       ) {
@@ -193,10 +189,6 @@ export default {
     },
     viewStaff(staff) {
       console.log("View staff:", staff);
-      this.activeActionIndex = null;
-    },
-    deleteStaff(index) {
-      this.staffList.splice(index, 1);
       this.activeActionIndex = null;
     },
   },
@@ -290,13 +282,7 @@ export default {
   white-space: nowrap;
 }
 
-.rank-badge {
-  background: #e6fb81;
-  color: #118e34;
-  padding: 2px 27px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-}
+
 
 .btn-action {
   color: #666;
@@ -387,6 +373,11 @@ export default {
 
 .popup-item:hover {
   background-color: #f8f9fa;
+}
+
+.employment-type-badge{
+  font-size: 0.8rem;
+ 
 }
 
 .popup-item.delete {
@@ -483,7 +474,7 @@ export default {
     font-size: 0.85rem;
   }
 
-  .rank-badge {
+  .employment-type-badge {
     padding: 2px 15px;
     font-size: 0.8rem;
   }
@@ -516,7 +507,7 @@ export default {
 
   .table-responsive {
     margin: 0;
-    padding: 0.25rem;
+    padding: 1rem;
   }
 
   .table {
@@ -533,7 +524,7 @@ export default {
     min-width: 120px;
   }
 
-  .rank-badge {
+  .employment-type-badge {
     padding: 2px 10px;
     font-size: 0.75rem;
   }
