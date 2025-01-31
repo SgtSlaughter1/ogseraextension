@@ -78,10 +78,54 @@ export default {
     font-size: 18px;
 }
 
-/* @media (max-width: 767px) {
-    .col-md-6 {
-        text-align: center !important;
-        margin-bottom: 1rem;
+@media (max-width: 767px) {
+    .footer {
+        padding: 20px 0 !important;
+    }
+
+    .container {
+        height: 400px;
+        width: 95%;
+        padding: 0 15px !important;
+    }
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Logo and Description Section */
+    .col-md-8 {
+        margin-bottom: 20px;
+    }
+
+    .col-md-8 img {
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .col-md-8 h5 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .col-md-8 p {
+        font-size: 0.875rem;
+    }
+
+    /* Address and Contact Section */
+    .col-md-4 {
+        text-align: center;
+    }
+
+    .address-block h5 {
+        font-size: 1rem;
+    }
+
+    .address-block p {
+        font-size: 0.75rem;
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
     }
 
     .powered-by {
