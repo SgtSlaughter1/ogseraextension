@@ -413,6 +413,11 @@ ul li{
 
     
 }
+@media screen and (min-width: 769px)  and (max-width: 1024px) {
+  .card-title {
+    font-size: 30px;
+  }
+}
   
 
 
