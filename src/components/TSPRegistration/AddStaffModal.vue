@@ -65,6 +65,17 @@
             </div>
 
             <div class="qualifications-section p-3 rounded mb-3">
+              <div class="row">
+                <div class="col text-end">
+                  <button 
+                    type="button" 
+                    class="btn btn-success btn-sm"
+                    @click="addMoreQualification"
+                  >
+                    + Add More
+                  </button>
+                </div>
+              </div>
               <div v-for="(qualification, index) in formData.qualifications" :key="index" class="position-relative mb-3">
                 <button 
                   v-if="formData.qualifications.length > 1"
@@ -101,17 +112,7 @@
                 </div>
               </div>
               
-              <div class="row mt-3">
-                <div class="col text-end">
-                  <button 
-                    type="button" 
-                    class="btn btn-success btn-sm"
-                    @click="addMoreQualification"
-                  >
-                    + Add More
-                  </button>
-                </div>
-              </div>
+              
             </div>
 
             <h6>Documentation</h6>
