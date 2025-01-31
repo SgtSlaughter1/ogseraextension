@@ -135,7 +135,7 @@ export default {
         },
         {
           name: "Oloyede Michael",
-          employmentType: "Contract",
+          employmentType: "Part-Time",
           experience: "2 Year",
           position: "Manager",
         },
@@ -162,13 +162,27 @@ export default {
       this.isModalOpen = true;
       this.activeActionIndex = null;
     },
+    viewStaff(staff) {
+      this.editingStaffData = { 
+        name: staff.name,
+        experience: staff.experience,
+        employmentType: staff.employmentType,
+        position: staff.position,
+        qualification: staff.qualification,
+        date: staff.date,
+        isDisabled: true
+      }; 
+      this.isModalOpen = true; 
+      this.isEditing = false; 
+      this.activeActionIndex = null;
+    },
     handleAddStaff(staffData) {
       if (
         staffData &&
         staffData.name &&
-        staffData.employementType &&
+        staffData.employmentType &&
         staffData.experience &&
-        staffData.position
+        (staffData.position === 'Manager' || staffData.position === 'Facilitator')
       ) {
         if (this.isEditing && this.editingStaffIndex !== null) {
           this.staffList[this.editingStaffIndex] = { ...staffData };
@@ -186,10 +200,6 @@ export default {
     },
     toggleActionMenu(index) {
       this.activeActionIndex = this.activeActionIndex === index ? null : index;
-    },
-    viewStaff(staff) {
-      console.log("View staff:", staff);
-      this.activeActionIndex = null;
     },
   },
 };
