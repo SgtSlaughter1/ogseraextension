@@ -10,166 +10,145 @@
 
         <div class="modal-body">
           <form @submit.prevent="submitForm">
-            <div class="input-box mb-3">
-              <label class="label">Name</label>
-              <div class="input-wrapper">
-                <input 
-                  type="text" 
-                  class="form-control" 
-                  v-model="formData.name" 
-                  required
-                />
-              </div>
+            <div class="input-group  mb-3">
+              <span class="input-group-text">Name</span>
+              <input 
+                type="text" 
+                class="form-control" 
+                v-model="formData.name" 
+                placeholder="Enter your full name"
+                required
+              />
               <span v-if="errors.name" class="error">{{ errors.name }}</span>
             </div>
 
-            <div class="input-box mb-3">
-              <label class="label">Years of Experience</label>
-              <div class="input-wrapper">
-                <input 
-                  type="number" 
-                  class="form-control" 
-                  v-model.number="formData.experience" 
-                  min="0" 
-                  max="50" 
-                  required
-                />
-              </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Years of Experience</span>
+              <input 
+                type="number" 
+                class="form-control" 
+                v-model.number="formData.experience" 
+                min="0" 
+                max="50" 
+                placeholder="Enter years of experience"
+                required
+              />
               <span v-if="errors.experience" class="error">{{ errors.experience }}</span>
             </div>
 
-            <div class="input-box mb-3">
-              <label class="label">Position</label>
-              <div class="input-wrapper">
-                <select 
-                  class="form-select" 
-                  v-model="formData.position" 
-                  required
-                >
-                  <option value="" disabled>Select Position</option>
-                  <option value="manager">Manager</option>
-                  <option value="facilitator">Facilitator</option>
-                </select>
-              </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Position</span>
+              <select 
+                class="form-select" 
+                v-model="formData.position" 
+                required
+              >
+                <option value="" disabled>Select Position</option>
+                <option value="manager">Manager</option>
+                <option value="facilitator">Facilitator</option>
+              </select>
               <span v-if="errors.position" class="error">{{ errors.position }}</span>
             </div>
 
-            <div class="input-box mb-3">
-              <label class="label">Employment Type</label>
-              <div class="input-wrapper">
-                <select 
-                  class="form-select" 
-                  v-model="formData.employmentType" 
-                  required
-                >
-                  <option value="" disabled>Select Employment Type</option>
-                  <option value="full-time">Full-Time</option>
-                  <option value="part-time">Part-Time</option>
-                </select>
-              </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">Employment Type</span>
+              <select 
+                class="form-select" 
+                v-model="formData.employmentType" 
+                required
+              >
+                <option value="" disabled>Select Employment Type</option>
+                <option value="full-time">Full-Time</option>
+                <option value="part-time">Part-Time</option>
+              </select>
               <span v-if="errors.employmentType" class="error">{{ errors.employmentType }}</span>
             </div>
 
             <div class="row mb-3">
               <div class="col">
-                <div class="input-box">
-                  <label class="label">Qualification</label>
-                  <div class="input-wrapper">
-                    <input 
-                      type="text" 
-                      class="form-control" 
-                      v-model="formData.qualification" 
-                      required
-                    />
-                  </div>
+                <div class="input-group">
+                  <span class="input-group-text">Qualification</span>
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    v-model="formData.qualification" 
+                    placeholder="Enter your qualification"
+                    required
+                  />
                   <span v-if="errors.qualification" class="error">{{ errors.qualification }}</span>
                 </div>
               </div>
               <div class="col">
-                <div class="input-box">
-                  <label class="label">Date</label>
-                  <div class="input-wrapper">
-                    <input 
-                      type="date" 
-                      class="form-control" 
-                      v-model="formData.date" 
-                      required
-                    />
-                  </div>
+                <div class="input-group">
+                  <span class="input-group-text">Date</span>
+                  <input 
+                    type="date" 
+                    class="form-control" 
+                    v-model="formData.date" 
+                    required
+                  />
                   <span v-if="errors.date" class="error">{{ errors.date }}</span>
                 </div>
               </div>
             </div>
+
             <h6>Documentation</h6>
             <div class="documentation p-3 rounded mb-3">
-              
               <small class="d-block mb-3">Extension: <span class="text-danger">pdf*docx*jpeg*png</span></small>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <div class="input-box">
-                    <label class="label fw-bold">Upload CV</label>
-                    <div class="input-wrapper">
-                      <input 
-                        type="file" 
-                        class="form-control" 
-                        @change="handleFileUpload('cv', $event)"
-                        accept=".pdf,.docx,.jpeg,.png" 
-                        required
-                      />
-                    </div>
-                    <span v-if="errors.cv" class="error">{{ errors.cv }}</span>
-                  </div>
+                  <label for="cvUpload" class="form-label">Upload CV</label>
+                  <input 
+                    id="cvUpload"
+                    type="file" 
+                    class="form-control" 
+                    @change="handleFileUpload('cv', $event)"
+                    accept=".pdf,.docx,.jpeg,.png" 
+                    required
+                  />
+                  <span v-if="errors.cv" class="error">{{ errors.cv }}</span>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <div class="input-box">
-                    <label class="label fw-bold">Upload Highest Degree</label>
-                    <div class="input-wrapper">
-                      <input 
-                        type="file" 
-                        class="form-control" 
-                        @change="handleFileUpload('degree', $event)"
-                        accept=".pdf,.docx,.jpeg,.png" 
-                        required
-                      />
-                    </div>
-                    <span v-if="errors.degree" class="error">{{ errors.degree }}</span>
-                  </div>
+                  <label for="degreeUpload" class="form-label">Upload Highest Degree</label>
+                  <input 
+                    id="degreeUpload"
+                    type="file" 
+                    class="form-control" 
+                    @change="handleFileUpload('degree', $event)"
+                    accept=".pdf,.docx,.jpeg,.png" 
+                    required
+                  />
+                  <span v-if="errors.degree" class="error">{{ errors.degree }}</span>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <div class="input-box">
-                    <label class="label fw-bold">Upload Employment Letter</label>
-                    <div class="input-wrapper">
-                      <input 
-                        type="file" 
-                        class="form-control" 
-                        @change="handleFileUpload('employment', $event)"
-                        accept=".pdf,.docx,.jpeg,.png" 
-                        required
-                      />
-                    </div>
-                    <span v-if="errors.employment" class="error">{{ errors.employment }}</span>
-                  </div>
+                  <label for="employmentUpload" class="form-label">Upload Employment Letter</label>
+                  <input 
+                    id="employmentUpload"
+                    type="file" 
+                    class="form-control" 
+                    @change="handleFileUpload('employment', $event)"
+                    accept=".pdf,.docx,.jpeg,.png" 
+                    required
+                  />
+                  <span v-if="errors.employment" class="error">{{ errors.employment }}</span>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                  <div class="input-box">
-                    <label class="label fw-bold">Previous Work Experience</label>
-                    <div class="input-wrapper">
-                      <input 
-                        type="file" 
-                        class="form-control" 
-                        @change="handleFileUpload('previousExperience', $event)"
-                        accept=".pdf,.docx,.jpeg,.png" 
-                        required
-                      />
-                    </div>
-                    <span v-if="errors.previousExperience" class="error">{{ errors.previousExperience }}</span>
-                  </div>
+                  <label for="previousExperienceUpload" class="form-label">Previous Work Experience</label>
+                  <input 
+                    id="previousExperienceUpload"
+                    type="file" 
+                    class="form-control" 
+                    @change="handleFileUpload('previousExperience', $event)"
+                    accept=".pdf,.docx,.jpeg,.png" 
+                    required
+                  />
+                  <span v-if="errors.previousExperience" class="error">{{ errors.previousExperience }}</span>
                 </div>
               </div>
             </div>
@@ -179,9 +158,15 @@
               <p class="mb-0">ii. Copy of C.V, Highest Degree, Current Employment Letter & Copy of Previous Work experience must be attached</p>
             </div>
 
-            <button type="submit" class="btn btn-success w-100" :disabled="isSubmitting">
-              {{ isEditing ? 'Update Staff' : 'Add Staff' }}
-            </button>
+            <div class="d-flex justify-content-end">
+              <button 
+                type="submit" 
+                class="btn btn-success btn-sm px-3" 
+                :disabled="isSubmitting"
+              >
+                {{ isEditing ? 'Update Staff' : 'Add Staff' }}
+              </button>
+            </div>
           </form>
         </div>
       </div>
@@ -374,172 +359,127 @@ export default {
 </script>
 
 <style scoped>
-.input-box {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  position: relative;
-  border: 1px solid black;
-}
-
-.input-box label {
-  color: #333;
-  font-size: 12px;
-  word-wrap: break-word;
-  width: 40%;
-  background-color: #E9FDFC;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  margin: 0;
-  border-right: 1px solid black;
-}
-
-.input-wrapper {
-  flex: 1;
-  background: #fff;
-  padding: 0.25rem;
-  border-radius: 0 1px 1px 0;
-  border: 1px solid #e0e0e0;
-  border-left: none;
-  display: flex;
-  align-items: center;
-}
-
-.label {
-  width: 10%;
-}
-
-.input-wrapper input,
-.input-wrapper select {
+/* Base Styles */
+.input-group {
+  margin-bottom: 1rem;
   width: 100%;
-  padding: 0.5rem;
-  border: none;
-  background: transparent;
-  outline: none;
-  height: 40px;
-  box-shadow: none;
 }
 
-.input-wrapper input:focus,
-.input-wrapper select:focus {
-  background: white;
-  border: none;
-  outline: none;
-  box-shadow: none;
+.input-group-text {
+  min-width: 120px;
+  text-align: left;
+  white-space: normal;
+  word-break: break-word;
 }
 
-.input-box .error {
-  position: absolute;
-  bottom: -1.2rem;
-  left: 0;
-  font-size: 0.8rem;
+.input-group .form-control {
+  flex-grow: 1;
+}
+
+.error {
   color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
 }
 
-.modal-header {
-  background-color: #D9D9D9;
+/* Modal Specific Styles */
+.modal-dialog {
+  max-width: 800px;
 }
 
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+.modal-body {
+  padding: 1.5rem;
 }
 
-input[type="file"]::file-selector-button {
-  background-color: #D9D9D9;
-  color: #333;
-  cursor: pointer;
-}
-
-.documentation {
-  background-color: #F7FEFE;
-}
-
-@media screen and (max-width: 768px) {
+/* Responsive Breakpoints */
+@media screen and (max-width: 992px) {
   .modal-dialog {
-    margin: 0;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
+    max-width: 95%;
+    margin: 1.75rem auto;
   }
 
-  .modal-content {
-    height: 100%;
-    border-radius: 0;
-  }
-
-  .input-box {
+  .input-group {
     flex-direction: column;
-    align-items: stretch;
-    margin-bottom: 1rem;
   }
 
-  .input-box label {
+  .input-group-text {
     width: 100%;
+    text-align: left;
+    margin-bottom: 0.5rem;
     padding: 0.5rem;
-    border-right: none;
-    border-bottom: 1px solid black;
   }
 
-  .input-wrapper {
+  .input-group .form-control,
+  .input-group .form-select {
     width: 100%;
-    border-left: 1px solid black;
-    border-top: none;
   }
 
   .row {
+    display: flex;
     flex-direction: column;
   }
 
   .row .col {
+    width: 100%;
     margin-bottom: 1rem;
-  }
-
-  .modal-body {
-    padding: 1rem;
-    overflow-y: auto;
-    max-height: calc(100vh - 100px);
-  }
-
-  .bg-light {
-    padding: 1rem !important;
-  }
-
-  .small {
-    font-size: 0.7rem;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .input-box label {
-    font-size: 0.8rem;
+@media screen and (max-width: 576px) {
+  .modal-body {
+    padding: 1rem;
   }
 
-  .input-wrapper input,
-  .input-wrapper select {
+  .input-group-text {
     font-size: 0.9rem;
-    padding: 0.3rem;
+  }
+
+  .input-group .form-control,
+  .input-group .form-select {
+    font-size: 0.9rem;
+    padding: 0.375rem 0.75rem;
+    width: 100%;
+  }
+
+  .documentation {
+    padding: 0.75rem !important;
   }
 
   .modal-header {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   .modal-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
+}
 
-  .btn-success {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
+/* File Input Specific Styles */
+input[type="file"]::file-selector-button {
+  background-color: #D9D9D9;
+  color: #333;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+/* Documentation Section */
+.documentation {
+  background-color: #F7FEFE;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+/* Error Handling */
+.error {
+  color: #dc3545;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Accessibility and Focus States */
+.input-group .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 </style>
