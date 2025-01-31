@@ -78,14 +78,14 @@ export default {
     font-size: 18px;
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
     .col-md-6 {
         text-align: center !important;
         margin-bottom: 1rem;
     }
     
     .powered-by {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         margin-bottom: 70px !important;
     }
 
@@ -95,5 +95,5 @@ export default {
     .footer{
         padding-left: 25px !important;
     }
-} */
+}
 </style>
