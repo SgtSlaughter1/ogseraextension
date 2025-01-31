@@ -25,7 +25,7 @@
                   type="text"
                   class="form-control"
                   v-model.trim="formData.organizationName"
-                  placeholder="Organisation Name"
+                  placeholder="Organization Name"
                   required
                 />
                 <span v-if="errors.organizationName" class="error">{{
@@ -65,7 +65,7 @@
                   v-model="formData.organizationType"
                   required
                 >
-                  <option value="" disabled selected>Organisation Type</option>
+                  <option value="" disabled selected>Organization Type</option>
                   <option value="type1">Type 1</option>
                   <option value="type2">Type 2</option>
                   <option value="type3">Type 3</option>

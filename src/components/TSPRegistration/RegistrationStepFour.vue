@@ -29,7 +29,7 @@
               <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Employement Type</th>
+                <th>Employment Type</th>
                 <th>Experience</th>
                 <th>Position</th>
                 <th>Action</th>
