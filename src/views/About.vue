@@ -205,10 +205,9 @@ span{
 .box2{
   font-size: 28px;
   font-weight: 500;
-  margin-top: 60px;
+  margin-top: 70px;
   background-color: #ffe7a2;
   padding: 30px;
-  /* margin-right: 40px; */
   text-align: left;
 }
 .big-box{
@@ -413,6 +412,11 @@ ul li{
 }
 
     
+}
+@media screen and (min-width: 769px)  and (max-width: 1024px) {
+  .card-title {
+    font-size: 30px;
+  }
 }
   
 
