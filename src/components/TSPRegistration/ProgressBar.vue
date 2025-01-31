@@ -153,7 +153,7 @@ export default {
     getStepName(step) {
       const stepNames = {
         1: "Basic Details",
-        2: "Organisation detail",
+        2: "Organization detail",
         3: "Requirements",
         4: "Staffing",
       };
