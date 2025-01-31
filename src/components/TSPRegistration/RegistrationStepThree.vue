@@ -478,7 +478,6 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 1rem 2rem;
-  height: calc(100vh - 60px);
 }
 
 .first {
@@ -561,8 +560,7 @@ input:focus {
   justify-content: space-between;
   padding: 1rem 2rem;
   background: #edf0f9;
-  border-top: 1px solid #eee;
-  margin-top: auto;
+  margin-top: 5px;
 }
 
 .btn {
@@ -747,11 +745,7 @@ li {
 padding:0 33px;
 }
 
-@media (max-width: 1350px) {
-  .form-content {
-    overflow-y: auto;
-  }
-}
+
 
 /* Responsive Design */
 @media (max-width: 992px) {
