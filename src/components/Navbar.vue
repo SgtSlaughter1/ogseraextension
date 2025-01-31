@@ -17,7 +17,9 @@
                         <router-link class="nav-link" to="/about">About</router-link>
                     </li>
                     <li class="nav-item">
-                       <router-link to="/tsp" class="nav-link">TSP</router-link>
+
+                        <router-link class="nav-link" to="/tsp">TSP</router-link>
+                       
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Awarding Bodies</a>
@@ -44,6 +46,10 @@ export default {
 .navbar {
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
 }
 
 .navbar-brand {

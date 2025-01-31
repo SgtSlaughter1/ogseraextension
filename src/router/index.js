@@ -8,6 +8,7 @@ import RegistrationStepTwo from "@/components/TSPRegistration/RegistrationStepTw
 import RegistrationStepThree from "@/components/TSPRegistration/RegistrationStepThree.vue";
 import RegistrationStepFour from "@/components/TSPRegistration/RegistrationStepFour.vue";
 import About from '@/views/About.vue'
+import Certification from '@/views/Certification.vue';
 
 import TSP from '@/views/TSP.vue';
 
@@ -30,10 +31,16 @@ const router = createRouter({
       component: About,
     },
     {
+      path: '/certification',
+      name: 'certification',
+      component: Certification,
+    },
+    {
       path: "/tsp",
       name: "tsp",
       component: TSP,
     },
+
     {
       path: "/registration",
       component: TSPRegistration,
