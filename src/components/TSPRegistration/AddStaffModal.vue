@@ -64,30 +64,52 @@
               <span v-if="errors.employmentType" class="error">{{ errors.employmentType }}</span>
             </div>
 
-            <div class="row mb-3">
-              <div class="col">
-                <div class="input-group">
-                  <span class="input-group-text">Qualification</span>
-                  <input 
-                    type="text" 
-                    class="form-control" 
-                    v-model="formData.qualification" 
-                    placeholder="Enter your qualification"
-                    required
-                  />
-                  <span v-if="errors.qualification" class="error">{{ errors.qualification }}</span>
+            <div class="qualifications-section p-3 rounded mb-3">
+              <div v-for="(qualification, index) in formData.qualifications" :key="index" class="position-relative mb-3">
+                <button 
+                  v-if="formData.qualifications.length > 1"
+                  type="button" 
+                  class="btn btn-sm text-danger position-absolute top-0 end-0 m-1"
+                  @click="removeQualification(index)"
+                  style="z-index: 10;"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <label :for="`qualification-${index}`" class="form-label">Qualification</label>
+                    <input 
+                      :id="`qualification-${index}`"
+                      type="text" 
+                      class="form-control" 
+                      v-model="qualification.name" 
+                      placeholder="Enter your qualification"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label :for="`date-${index}`" class="form-label">Date</label>
+                    <input 
+                      :id="`date-${index}`"
+                      type="date" 
+                      class="form-control" 
+                      v-model="qualification.date" 
+                      required
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="col">
-                <div class="input-group">
-                  <span class="input-group-text">Date</span>
-                  <input 
-                    type="date" 
-                    class="form-control" 
-                    v-model="formData.date" 
-                    required
-                  />
-                  <span v-if="errors.date" class="error">{{ errors.date }}</span>
+              
+              <div class="row mt-3">
+                <div class="col text-end">
+                  <button 
+                    type="button" 
+                    class="btn btn-success btn-sm"
+                    @click="addMoreQualification"
+                  >
+                    + Add More
+                  </button>
                 </div>
               </div>
             </div>
@@ -201,20 +223,22 @@ export default {
         experience: null,
         position: "",
         employmentType: "",
-        qualification: "",
-        date: "",
+        qualifications: [
+          {
+            name: "",
+            date: ""
+          }
+        ],
         cv: null,
         degree: null,
         employment: null,
-        previousExperience: null
+        previousExperience: null,
       },
       errors: {
         name: "",
         experience: "",
         position: "",
         employmentType: "",
-        qualification: "",
-        date: "",
         cv: "",
         degree: "",
         employment: "",
@@ -262,16 +286,6 @@ export default {
         isValid = false;
       }
 
-      if (!this.formData.qualification) {
-        this.errors.qualification = "Qualification is required";
-        isValid = false;
-      }
-
-      if (!this.formData.date) {
-        this.errors.date = "Date is required";
-        isValid = false;
-      }
-
       // File validations
       const fileFields = ['cv', 'degree', 'employment', 'previousExperience'];
       fileFields.forEach(field => {
@@ -280,6 +294,12 @@ export default {
           isValid = false;
         }
       });
+
+      // Qualifications validation
+      if (this.formData.qualifications.length === 0 || !this.formData.qualifications[0].name || !this.formData.qualifications[0].date) {
+        this.errors.qualifications = "At least one qualification is required";
+        isValid = false;
+      }
 
       return isValid;
     },
@@ -298,8 +318,7 @@ export default {
         experience: this.formData.experience,
         position: this.formData.position,
         employmentType: this.formData.employmentType,
-        qualification: this.formData.qualification,
-        date: this.formData.date,
+        qualifications: this.formData.qualifications,
         files: {
           cv: this.formData.cv,
           degree: this.formData.degree,
@@ -322,12 +341,16 @@ export default {
         experience: null,
         position: "",
         employmentType: "",
-        qualification: "",
-        date: "",
+        qualifications: [
+          {
+            name: "",
+            date: ""
+          }
+        ],
         cv: null,
         degree: null,
         employment: null,
-        previousExperience: null
+        previousExperience: null,
       };
       
       // Reset errors
@@ -336,6 +359,15 @@ export default {
       });
 
       this.isSubmitting = false;
+    },
+    addMoreQualification() {
+      this.formData.qualifications.push({
+        name: "",
+        date: ""
+      });
+    },
+    removeQualification(index) {
+      this.formData.qualifications.splice(index, 1);
     },
   },
   mounted() {
@@ -370,6 +402,10 @@ export default {
   text-align: left;
   white-space: normal;
   word-break: break-word;
+}
+
+.qualifications-section{
+  background-color: #F7FEFE;
 }
 
 .input-group .form-control {
