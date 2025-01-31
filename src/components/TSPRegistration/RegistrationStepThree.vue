@@ -747,7 +747,7 @@ li {
 padding:0 33px;
 }
 
-@media (max-width: 1260px) {
+@media (max-width: 1400px) {
   .form-content {
     overflow-y: auto;
   }
